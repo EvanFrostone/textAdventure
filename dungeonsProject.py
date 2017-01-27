@@ -294,7 +294,7 @@ def wholeLvlUp():
 def textWait():
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
     time.sleep(7)
-
+    print('This is a test message.')
     
 def clear():
     #This function clears the screen of EVERYTHING. Use if the console is getting a little crowded
