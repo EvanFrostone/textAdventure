@@ -18,8 +18,51 @@ playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
 #The Player Saving Throws Indicies are as follows:[Strength (0), Constituion(1), Dexterity (2), Intelligence (3), Wisdom (4), Charisma (5)]
 playerInventory =['Empty']
 #This is the player's inventory. Add items to it using the .append() function.
-lvlUpTuple = (300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000)
-
+lvlUpTuple = ( 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
+dwarfStats = [2, 'Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
+#The Dwarvish stats are as follows: [+2 Constitution (0), Size (1), Dark Vision Ability (2), Batlleaxe Proficiency (3), Handaxe Proficiency (4), Throwing Hammer Proficiency (5), Warhammer Proficiency (6), Speaks Common (7), Speaks Dwarvish (8)]
+def levelUp():
+    if playerStats[10] in range (lvlUpTuple[0], lvlUpTuple[1]):
+        playerStats[9] = 1
+    if playerStats[10] in range (lvlUpTuple[1] ,lvlUpTuple[2]):
+        playerStats[9] = 2
+    if playerStats[10] in range (lvlUpTuple[2] , lvlUpTuple[3]):
+        playerStats[9] = 3
+    if playerStats[10] in range (lvlUpTuple[3] , lvlUpTuple[4]):
+        playerStats[9] = 4
+    if playerStats[10] in range (lvlUpTuple[4] , lvlUpTuple[5]):
+        playerStats[9] = 5
+    if playerStats[10] in range (lvlUpTuple[5] , lvlUpTuple[6]):
+        playerStats[9] = 6
+    if playerStats[10] in range (lvlUpTuple[6] , lvlUpTuple[7]):
+        playerStats[9] = 7
+    if playerStats[10] in range (lvlUpTuple[7] , lvlUpTuple[8]):
+        playerStats[9] = 8
+    if playerStats[10] in range (lvlUpTuple[8] , lvlUpTuple[9]):
+        playerStats[9] = 9
+    if playerStats[10] in range (lvlUpTuple[9] , lvlUpTuple[10]):
+        playerStats[9] = 10
+    if playerStats[10] in range (lvlUpTuple[10] , lvlUpTuple[11]):
+        playerStats[9] = 11
+    if playerStats[10] in range (lvlUpTuple[11] , lvlUpTuple[12]):
+        playerStats[9] = 12
+    if playerStats[10] in range (lvlUpTuple[12] , lvlUpTuple[13]):
+        playerStats[9] = 13
+    if playerStats[10] in range (lvlUpTuple[12] , lvlUpTuple[13]):
+        playerStats[9] = 14
+    if playerStats[10] in range (lvlUpTuple[13] , lvlUpTuple[14]):
+        playerStats[9] = 15
+    if playerStats[10] in range (lvlUpTuple[14] , lvlUpTuple[15]):
+        playerStats[9] = 16
+    if playerStats[10] in range (lvlUpTuple[15] , lvlUpTuple[16]):
+        playerStats[9] = 17
+    if playerStats[10] in range (lvlUpTuple[16] , lvlUpTuple[17]):
+        playerStats[9] = 18
+    if playerStats[10] in range (lvlUpTuple[17] , lvlUpTuple[18]):
+        playerStats[9] = 19
+    if playerStats[10] in range (lvlUpTuple[18] , lvlUpTuple[19]):
+        playerStats[9] = 20
+        
 def pStrMod():
     if playerStats[0] == 1:
         playerMods[0] = -5
@@ -191,41 +234,62 @@ def pWisMod():
         playerMods[4] = 9
 
 def pCharMod():
-    if playerStats[5] == 1:
-        playerMods[5] = -5
-    elif playerStats[5]  == 2 or  playerStats[0] == 3:
-        playerMods[5] = -4
-    elif playerStats[5] == 4 or playerStats[0] == 5:
-        playerMods[5] = -3
-    elif playerStats[5] == 6 or playerStats[0] == 7:
-        playerMods[5] = -2
-    elif playerStats[5] == 8 or playerStats[0] == 9:
-        playerMods[5] = -1
-    elif playerStats[5] == 9 or playerStats[0] == 10:
-        playerMods[5] = 0
-    elif playerStats[5] == 11 or playerStats[0] == 12:
-        playerMods[5] = 1
-    elif playerStats[5] == 13 or playerStats[0] == 14:
-        playerMods[5] = 2
-    elif playerStats[5] == 15 or playerStats[0] == 16:
-        playerMods[5] = 3
-    elif playerStats[5] == 17 or playerStats[0] == 18:
-        playerMods[5] = 4
-    elif playerStats[5] == 19 or playerStats[0] == 20:
-        playerMods[5] = 5
-    elif playerStat[5] == 21 or playerStats[0] == 22:
-        playerMods[5] = 6
-    elif playerStats[5] == 23 or playerStats[0] == 24:
-        playerMods[5] = 7
-    elif playerStats[5] == 25 or playerStats[0] == 26:
-        playerMods[5] = 8
-    elif playerStats[5] == 27 or playerStats[0] == 28:
-        playerMods[5] = 8
-    elif playerStats[5] == 29 or playerStats[0] == 30:
-        playerMods[5] = 9
-def levelUp():
-    if playerStats[10] in lvlUpTuple:
-        playerStats[9] = playerStats[9] + 1
+
+        if playerStats[5] == 1:
+            playerMods[5] = -5
+        elif playerStats[5]  == 2 or  playerStats[0] == 3:
+            playerMods[5] = -4
+        elif playerStats[5] == 4 or playerStats[0] == 5:
+            playerMods[5] = -3
+        elif playerStats[5] == 6 or playerStats[0] == 7:
+            playerMods[5] = -2
+        elif playerStats[5] == 8 or playerStats[0] == 9:
+            playerMods[5] = -1
+        elif playerStats[5] == 9 or playerStats[0] == 10:
+            playerMods[5] = 0
+        elif playerStats[5] == 11 or playerStats[0] == 12:
+            playerMods[5] = 1
+        elif playerStats[5] == 13 or playerStats[0] == 14:
+            playerMods[5] = 2
+        elif playerStats[5] == 15 or playerStats[0] == 16:
+            playerMods[5] = 3
+        elif playerStats[5] == 17 or playerStats[0] == 18:
+            playerMods[5] = 4
+        elif playerStats[5] == 19 or playerStats[0] == 20:
+            playerMods[5] = 5
+        elif playerStat[5] == 21 or playerStats[0] == 22:
+            playerMods[5] = 6
+        elif playerStats[5] == 23 or playerStats[0] == 24:
+            playerMods[5] = 7
+        elif playerStats[5] == 25 or playerStats[0] == 26:
+            playerMods[5] = 8
+        elif playerStats[5] == 27 or playerStats[0] == 28:
+            playerMods[5] = 8
+        elif playerStats[5] == 29 or playerStats[0] == 30:
+            playerMods[5] = 9
+def profUp():
+    if playerStats[9] in range (1,4):
+        playerMods[6] = 2
+    if playerStats[9] in range (5,8):
+        playerMods[6] = 3
+    if playerStats[9] in range (9,12):
+        playerMods[6] = 4
+    if playerStats[9] in range (13,16):
+        playerMods[6] = 5
+    if playerStats[9] in range (17,20):
+        playerMods[6] = 6
+        
+
+def wholeLvlUp():
+    levelUp()
+    pStrMod()
+    pConMod()
+    pDexMod()
+    pIntMod()
+    pWisMod()
+    pCharMod()
+    profUp()
+    
 
 def textWait():
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
