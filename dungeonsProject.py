@@ -9,8 +9,8 @@ import os
 playerName = 'Null'
 playerRace = 'Null'
 playerClass = 'Null'
-playerC
-playerStats = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+
+playerStats = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 #The Player Stats Indicies are as follows: [Strength (0) , Dexterity (1), Constitution (2), Intelligence (3) , Wisdom (4) , Charisma (5) , Level (6) , Health (7) , Gold (8), Armor Class (9) ]
 playerMods = [ 0 , 0  , 0  , 0 , 0 , 0  ]
 #The Player Modifier Indicies are as Follows[Strength (0) , Dexterity (1), Constitution (2), Intelligence (3) , Wisdom (4) , Charisma (5) ]
@@ -32,7 +32,7 @@ def characterCreation():
 
     print('Adventurer, we need to find out who you will be in this world of Dungeons and Dragons')
     textWait()
-    print('The first step is to 
+    print('The first step towards your new adventure is to learn what your name is!') 
 
 
 
