@@ -19,6 +19,8 @@ playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
 playerInventory =['Empty']
 #This is the player's inventory. Add items to it using the .append() function.
 lvlUpTuple = ( 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
+dwarfStats = [2, 'Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
+#The Dwarvish stats are as follows: [+2 Constitution (0), Size (1), Dark Vision Ability (2), Batlleaxe Proficiency (3), Handaxe Proficiency (4), Throwing Hammer Proficiency (5), Warhammer Proficiency (6), Speaks Common (7), Speaks Dwarvish (8)]
 def levelUp():
     if playerStats[10] in range (lvlUpTuple[0], lvlUpTuple[1]):
         playerStats[9] = 1
@@ -279,13 +281,15 @@ def profUp():
         
 
 def wholeLvlUp():
+    levelUp()
     pStrMod()
     pConMod()
     pDexMod()
     pIntMod()
     pWisMod()
     pCharMod()
-    levelUp()
+    profUp()
+    
 
 def textWait():
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
