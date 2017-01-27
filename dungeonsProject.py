@@ -9,9 +9,10 @@ import os
 characterTraits = ['Name', 'Race', 'Class', 'Alignment', 'Background']
 #The Character Traits Indicies are as follows: ['Name', 'Race', 'Class', 'Alignment, 'Background']
 playerStats = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
-#The Player Stats Indicies are as follows: [Strength (0) , Constitution (1) , Dexterity (2) , Intelligence (3) , Wisdom (4) , Charisma (5) , Luck (6) , Level (7) , Health (8) , Gold (9), Armor Class (10), Level (11), XP (12) ]
-playerMods = [ 0 , 0 , 0 , 0 , 0 , 0 ]
-#The Player Modifier Indicies are as Follows[Strength (0). Consitituion(1), Dexterity (2), Intelligence (3) , Wisdom (4) , Charisma (5) ]
+#The Player Stats Indicies are as follows: [Strength (0) , Constitution (1) , Dexterity (2) , Intelligence (3) , Wisdom (4) , Charisma (5) , Health (6) , Gold (7), Armor Class (8), Level (9), XP (10), Initiative (11) ]
+playerMods = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+#The Player Modifier Indicies are as Follows[Strength (0). Consitituion(1), Dexterity (2), Intelligence (3) , Wisdom (4) , Charisma (5), Proficieny Bonus(6) ]
+player
 playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
 #The Player Saving Throws Indicies are as follows:[Strength (0), Constituion(1), Dexterity (2), Intelligence (3), Wisdom (4), Charisma (5)]
 playerInventory =['Empty']
