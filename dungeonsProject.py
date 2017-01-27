@@ -18,6 +18,7 @@ playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
 #The Player Saving Throws Indicies are as follows:[Strength (0), Constituion(1), Dexterity (2), Intelligence (3), Wisdom (4), Charisma (5)]
 playerInventory =['Empty']
 #This is the player's inventory. Add items to it using the .append() function.
+lvlUpTuple = (300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000)
 
 def pStrMod():
     if playerStats[0] == 1:
@@ -223,7 +224,8 @@ def pCharMod():
     elif playerStats[5] == 29 or playerStats[0] == 30:
         playerMods[5] = 9
 def levelUp():
-    playerStats[9] = playerStats[9] + 1
+    if playerStats[10] in lvlUpTuple:
+        playerStats[9] = playerStats[9] + 1
 
 def textWait():
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
