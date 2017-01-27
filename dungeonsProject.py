@@ -295,6 +295,7 @@ def textWait():
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
     time.sleep(7)
     print('This is a test message.')
+    print('This is another test message')
     
 def clear():
     #This function clears the screen of EVERYTHING. Use if the console is getting a little crowded
@@ -308,7 +309,7 @@ def characterCreation():
     print('Adventurer, we need to find out who you will be in this world of Dungeons and Dragons')
     textWait()
     print('The first step towards your new adventure is to learn what your name is!') 
-
+    
 
 
 def combat():
