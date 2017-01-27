@@ -8,11 +8,12 @@ import os
 #From this point on, declare ALL global variables and lists. This includes player stats,money, health, AC,  difficulty scores, monster stats, etc.
 characterTraits = ['Name', 'Race', 'Class', 'Alignment', 'Background']
 #The Character Traits Indicies are as follows: ['Name', 'Race', 'Class', 'Alignment, 'Background']
-playerStats = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+playerStats = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 ]
 #The Player Stats Indicies are as follows: [Strength (0) , Constitution (1) , Dexterity (2) , Intelligence (3) , Wisdom (4) , Charisma (5) , Health (6) , Gold (7), Armor Class (8), Level (9), XP (10), Initiative (11) ]
 playerMods = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
 #The Player Modifier Indicies are as Follows[Strength (0). Consitituion(1), Dexterity (2), Intelligence (3) , Wisdom (4) , Charisma (5), Proficieny Bonus(6) ]
-player
+playerSkills = [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+#The Player Skills Indicies are as follows: [Acrobatics (0), Animal Handling (1), Arcana(2), Athletics (3), Deception (4), History (5), Insight (6), Intimidation (7), Investigation (8), Medicine (9), Nature (10), Perception (11), Performance (12), Persuasion (13), Religion (14), Slight of Hand (15),#Stealth (16), Survival (17)]
 playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
 #The Player Saving Throws Indicies are as follows:[Strength (0), Constituion(1), Dexterity (2), Intelligence (3), Wisdom (4), Charisma (5)]
 playerInventory =['Empty']
@@ -221,7 +222,8 @@ def pCharMod():
         playerMods[5] = 8
     elif playerStats[5] == 29 or playerStats[0] == 30:
         playerMods[5] = 9
-
+def levelUp():
+    playerStats[9] = playerStats[9] + 1
 
 def textWait():
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
