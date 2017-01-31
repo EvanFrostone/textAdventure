@@ -19,7 +19,8 @@ playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
 playerInventory =['Empty']
 #This is the player's inventory. Add items to it using the .append() function.
 lvlUpTuple = ( 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
-
+dwarfStats = [2, 'Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
+#The Dwarvish stats are as follows: [+2 Constitution (0), Size (1), Dark Vision Ability (2), Batlleaxe Proficiency (3), Handaxe Proficiency (4), Throwing Hammer Proficiency (5), Warhammer Proficiency (6), Speaks Common (7), Speaks Dwarvish (8)]
 
 #Here Be Proficiencies
 
@@ -312,38 +313,38 @@ def pWisMod():
 
 def pCharMod():
 
-        if playerStats[5] == 1:
-            playerMods[5] = -5
-        elif playerStats[5]  == 2 or  playerStats[0] == 3:
-            playerMods[5] = -4
-        elif playerStats[5] == 4 or playerStats[0] == 5:
-            playerMods[5] = -3
-        elif playerStats[5] == 6 or playerStats[0] == 7:
-            playerMods[5] = -2
-        elif playerStats[5] == 8 or playerStats[0] == 9:
-            playerMods[5] = -1
-        elif playerStats[5] == 9 or playerStats[0] == 10:
-            playerMods[5] = 0
-        elif playerStats[5] == 11 or playerStats[0] == 12:
-            playerMods[5] = 1
-        elif playerStats[5] == 13 or playerStats[0] == 14:
-            playerMods[5] = 2
-        elif playerStats[5] == 15 or playerStats[0] == 16:
-            playerMods[5] = 3
-        elif playerStats[5] == 17 or playerStats[0] == 18:
-            playerMods[5] = 4
-        elif playerStats[5] == 19 or playerStats[0] == 20:
-            playerMods[5] = 5
-        elif playerStat[5] == 21 or playerStats[0] == 22:
-            playerMods[5] = 6
-        elif playerStats[5] == 23 or playerStats[0] == 24:
-            playerMods[5] = 7
-        elif playerStats[5] == 25 or playerStats[0] == 26:
-            playerMods[5] = 8
-        elif playerStats[5] == 27 or playerStats[0] == 28:
-            playerMods[5] = 8
-        elif playerStats[5] == 29 or playerStats[0] == 30:
-            playerMods[5] = 9
+    if playerStats[5] == 1:
+        playerMods[5] = -5
+    elif playerStats[5]  == 2 or  playerStats[0] == 3:
+        playerMods[5] = -4
+    elif playerStats[5] == 4 or playerStats[0] == 5:
+        playerMods[5] = -3
+    elif playerStats[5] == 6 or playerStats[0] == 7:
+        playerMods[5] = -2
+    elif playerStats[5] == 8 or playerStats[0] == 9:
+        playerMods[5] = -1
+    elif playerStats[5] == 9 or playerStats[0] == 10:
+        playerMods[5] = 0
+    elif playerStats[5] == 11 or playerStats[0] == 12:
+        playerMods[5] = 1
+    elif playerStats[5] == 13 or playerStats[0] == 14:
+        playerMods[5] = 2
+    elif playerStats[5] == 15 or playerStats[0] == 16:
+        playerMods[5] = 3
+    elif playerStats[5] == 17 or playerStats[0] == 18:
+        playerMods[5] = 4
+    elif playerStats[5] == 19 or playerStats[0] == 20:
+        playerMods[5] = 5
+    elif playerStat[5] == 21 or playerStats[0] == 22:
+        playerMods[5] = 6
+    elif playerStats[5] == 23 or playerStats[0] == 24:
+        playerMods[5] = 7
+    elif playerStats[5] == 25 or playerStats[0] == 26:
+        playerMods[5] = 8
+    elif playerStats[5] == 27 or playerStats[0] == 28:
+        playerMods[5] = 8
+    elif playerStats[5] == 29 or playerStats[0] == 30:
+        playerMods[5] = 9
 def profUp():
     if playerStats[9] in range (1,4):
         playerMods[6] = 2
