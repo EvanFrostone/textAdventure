@@ -19,8 +19,85 @@ playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
 playerInventory =['Empty']
 #This is the player's inventory. Add items to it using the .append() function.
 lvlUpTuple = ( 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
-dwarfStats = [2, 'Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
-#The Dwarvish stats are as follows: [+2 Constitution (0), Size (1), Dark Vision Ability (2), Batlleaxe Proficiency (3), Handaxe Proficiency (4), Throwing Hammer Proficiency (5), Warhammer Proficiency (6), Speaks Common (7), Speaks Dwarvish (8)]
+
+
+#Here Be Proficiencies
+
+#Here Be Language Proficiencies 
+speaksCommon = True
+speaksDwarvish = False
+speaksElvish = False
+speaksThievesCant = False
+speaksHafling = False
+speaksDraconic = False
+speaksGnomish = False
+speaksOrc = False
+speaksInfernal = False
+
+#Here Be Misc Proficiencies 
+profDarkVision = False
+
+#Here Be Tool Proficiencies 
+profSmithsTools = False
+profBrewersSups = False
+profMasonsTools = False
+
+#Here Be Armor Proficiences
+profLightArmor = False
+profMediumArmor = False
+profHeavyArmor = False
+
+#Here Be Weapon Proficiencies 
+profBattleaxe = False
+profHandaxe = False
+profThrowingHammer = False
+profWarhammer = False
+profLongbow = False
+profLongsword = False
+profShortbow = False
+profShortsword = False
+profRapiers = False
+profHandCrossbow = False
+profArtisiansTools = False
+profShields = False
+profSimpleWeapons = False
+profMartialWeapons = False
+
+#Here Be Skill Proficiencies
+profAcrobatics = False
+profAnimalHandling = False
+profArcana = False
+profAthletics = False
+profDeception = False
+profHistory = False
+profInsight = False
+profIntimidation = False
+profInvestigation = False
+profMedicine = False
+profNature = False
+profPerception = False
+profPerformance = False
+profPersuasion = False
+profReligion = False
+profSleightofHand = False
+profStealth = False
+profSurvival False
+
+
+
+
+
+dwarfStats = ( 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 )
+dwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
+#The Dwarvish stats are as follows: [Size (0), Dark Vision Ability (1), Batlleaxe Proficiency (2), Handaxe Proficiency (3), Throwing Hammer Proficiency (4), Warhammer Proficiency (5), Speaks Common (6), Speaks Dwarvish (7)]
+hillDwarfStats = [ 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+hillDwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
+#The Dwarvish stats are as follows: [Size (0), Dark Vision Ability (1), Batlleaxe Proficiency (2), Handaxe Proficiency (3), Throwing Hammer Proficiency (4), Warhammer Proficiency (5), Speaks Common (6), Speaks Dwarvish (7)]
+def dwarfStats():
+    global speaksCommon
+    global speaksDwarvish
+    speaksCommon = True
+    speaksDwarvish = True
 def levelUp():
     if playerStats[10] in range (lvlUpTuple[0], lvlUpTuple[1]):
         playerStats[9] = 1
