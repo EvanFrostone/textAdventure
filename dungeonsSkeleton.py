@@ -42,6 +42,7 @@ profDarkVision = False
 profSmithsTools = False
 profBrewersSups = False
 profMasonsTools = False
+profArtisiansTools = False
 
 #Here Be Armor Proficiences
 profLightArmor = False
@@ -59,7 +60,6 @@ profShortbow = False
 profShortsword = False
 profRapiers = False
 profHandCrossbow = False
-profArtisiansTools = False
 profShields = False
 profSimpleWeapons = False
 profMartialWeapons = False
