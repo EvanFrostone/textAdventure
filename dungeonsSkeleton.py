@@ -94,6 +94,8 @@ dwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer',
 hillDwarfStats = [ 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
 hillDwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
 #The Dwarvish stats are as follows: [Size (0), Dark Vision Ability (1), Batlleaxe Proficiency (2), Handaxe Proficiency (3), Throwing Hammer Proficiency (4), Warhammer Proficiency (5), Speaks Common (6), Speaks Dwarvish (7)]
+
+
 def dwarfStats():
     global speaksCommon
     global speaksDwarvish
