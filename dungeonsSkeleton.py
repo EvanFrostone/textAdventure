@@ -42,6 +42,38 @@ profDarkVision = False
 profSmithsTools = False
 profBrewersSups = False
 profMasonsTools = False
+profArtisiansTools = False
+profAlchSups = False
+profCaligSups = False
+profCobblerSups = False
+profCookUtils = False
+profGlassBlowTools = False
+profJewlerTools = False
+profLeatherworkTools = False
+profPainterSups = False
+profPotterTools = False
+profTinkerTools = False
+profWeaverTools = False
+profWoodcarversTools = False
+profDisguiseKit = False
+profForgeryKit = False
+profGamingSet = False
+profHerbalismKit = False
+profBagpipes = False
+profDrum = False
+profDulcimer = False
+profFlute = False
+profLute = False
+profLyre = False
+profHorn = False
+profPanFlute = False
+profShawm = False
+profViol = False
+profNavigatorTools = False
+profPosionerKit = False
+profThievesTools = False
+profVehicles = False 
+
 
 #Here Be Armor Proficiences
 profLightArmor = False
@@ -49,20 +81,46 @@ profMediumArmor = False
 profHeavyArmor = False
 
 #Here Be Weapon Proficiencies 
-profBattleaxe = False
-profHandaxe = False
-profThrowingHammer = False
-profWarhammer = False
-profLongbow = False
-profLongsword = False
-profShortbow = False
-profShortsword = False
-profRapiers = False
-profHandCrossbow = False
-profArtisiansTools = False
-profShields = False
-profSimpleWeapons = False
-profMartialWeapons = False
+profbattleAxe = False
+profclub = False
+profdagger = False 
+profgreatClub = False
+profJavelin = False
+proflightHammer = False
+profhandAxe = False
+profthrowingHammer = False
+profwarHammer = False
+proflongBow = False
+proflongSword = False
+profshortBow = False
+profshortSword = False
+profrapiers = False
+profhandCrossbow = False
+profshields = False
+profsimpleWeapons = False
+profmartialWeapons = False
+profmace = False
+profquarterStaff = False
+profsickle = False
+profspear = False
+profunarmedStrike = False
+profdart = False
+profsling = False
+profflail = False
+profglaive = False
+profgreatSword = False
+profhalbred = False
+proflance = False
+profmaul = False
+profmorningStar = False
+profpike = False
+profscimitar = False
+proftrident = False
+profwarPick = False
+profwhip = False
+profblowGun = False
+profheavyCrossbow = False
+profnet = False
 
 #Here Be Skill Proficiencies
 profAcrobatics = False
@@ -371,9 +429,9 @@ def wholeLvlUp():
     profUp()
     
 
-def textWait():
+def textWait(wait):
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
-    time.sleep(7)
+    time.sleep(wait)
     print('This is a test message.')
     
 def clear():
