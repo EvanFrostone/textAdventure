@@ -21,6 +21,144 @@ playerInventory =['Empty']
 lvlUpTuple = ( 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
 dwarfStats = [2, 'Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
 #The Dwarvish stats are as follows: [+2 Constitution (0), Size (1), Dark Vision Ability (2), Batlleaxe Proficiency (3), Handaxe Proficiency (4), Throwing Hammer Proficiency (5), Warhammer Proficiency (6), Speaks Common (7), Speaks Dwarvish (8)]
+
+#Here Be Proficiencies
+
+#Here Be Language Proficiencies 
+speaksCommon = True
+speaksDwarvish = False
+speaksElvish = False
+speaksThievesCant = False
+speaksHafling = False
+speaksDraconic = False
+speaksGnomish = False
+speaksOrc = False
+speaksInfernal = False
+
+#Here Be Misc Proficiencies 
+profDarkVision = False
+
+#Here Be Tool Proficiencies 
+profSmithsTools = False
+profBrewersSups = False
+profMasonsTools = False
+profArtisiansTools = False
+profAlchSups = False
+profCaligSups = False
+profCobblerSups = False
+profCookUtils = False
+profGlassBlowTools = False
+profJewlerTools = False
+profLeatherworkTools = False
+profPainterSups = False
+profPotterTools = False
+profTinkerTools = False
+profWeaverTools = False
+profWoodcarversTools = False
+profDisguiseKit = False
+profForgeryKit = False
+profGamingSet = False
+profHerbalismKit = False
+profBagpipes = False
+profDrum = False
+profDulcimer = False
+profFlute = False
+profLute = False
+profLyre = False
+profHorn = False
+profPanFlute = False
+profShawm = False
+profViol = False
+profNavigatorTools = False
+profPosionerKit = False
+profThievesTools = False
+profVehicles = False 
+
+
+#Here Be Armor Proficiences
+profLightArmor = False
+profMediumArmor = False
+profHeavyArmor = False
+
+#Here Be Weapon Proficiencies 
+profbattleAxe = False
+profclub = False
+profdagger = False 
+profgreatClub = False
+profJavelin = False
+proflightHammer = False
+profhandAxe = False
+profthrowingHammer = False
+profwarHammer = False
+proflongBow = False
+proflongSword = False
+profshortBow = False
+profshortSword = False
+profrapiers = False
+profhandCrossbow = False
+profshields = False
+profsimpleWeapons = False
+profmartialWeapons = False
+profmace = False
+profquarterStaff = False
+profsickle = False
+profspear = False
+profunarmedStrike = False
+profdart = False
+profsling = False
+profflail = False
+profglaive = False
+profgreatSword = False
+profhalbred = False
+proflance = False
+profmaul = False
+profmorningStar = False
+profpike = False
+profscimitar = False
+proftrident = False
+profwarPick = False
+profwhip = False
+profblowGun = False
+profheavyCrossbow = False
+profnet = False
+
+#Here Be Skill Proficiencies
+profAcrobatics = False
+profAnimalHandling = False
+profArcana = False
+profAthletics = False
+profDeception = False
+profHistory = False
+profInsight = False
+profIntimidation = False
+profInvestigation = False
+profMedicine = False
+profNature = False
+profPerception = False
+profPerformance = False
+profPersuasion = False
+profReligion = False
+profSleightofHand = False
+profStealth = False
+profSurvival False
+
+
+
+
+
+dwarfStats = ( 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 )
+dwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
+#The Dwarvish stats are as follows: [Size (0), Dark Vision Ability (1), Batlleaxe Proficiency (2), Handaxe Proficiency (3), Throwing Hammer Proficiency (4), Warhammer Proficiency (5), Speaks Common (6), Speaks Dwarvish (7)]
+hillDwarfStats = [ 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+hillDwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
+#The Dwarvish stats are as follows: [Size (0), Dark Vision Ability (1), Batlleaxe Proficiency (2), Handaxe Proficiency (3), Throwing Hammer Proficiency (4), Warhammer Proficiency (5), Speaks Common (6), Speaks Dwarvish (7)]
+
+
+def dwarfStats():
+    global speaksCommon
+    global speaksDwarvish
+    speaksCommon = True
+    speaksDwarvish = True
 def levelUp():
     if playerStats[10] in range (lvlUpTuple[0], lvlUpTuple[1]):
         playerStats[9] = 1
@@ -235,38 +373,38 @@ def pWisMod():
 
 def pCharMod():
 
-        if playerStats[5] == 1:
-            playerMods[5] = -5
-        elif playerStats[5]  == 2 or  playerStats[0] == 3:
-            playerMods[5] = -4
-        elif playerStats[5] == 4 or playerStats[0] == 5:
-            playerMods[5] = -3
-        elif playerStats[5] == 6 or playerStats[0] == 7:
-            playerMods[5] = -2
-        elif playerStats[5] == 8 or playerStats[0] == 9:
-            playerMods[5] = -1
-        elif playerStats[5] == 9 or playerStats[0] == 10:
-            playerMods[5] = 0
-        elif playerStats[5] == 11 or playerStats[0] == 12:
-            playerMods[5] = 1
-        elif playerStats[5] == 13 or playerStats[0] == 14:
-            playerMods[5] = 2
-        elif playerStats[5] == 15 or playerStats[0] == 16:
-            playerMods[5] = 3
-        elif playerStats[5] == 17 or playerStats[0] == 18:
-            playerMods[5] = 4
-        elif playerStats[5] == 19 or playerStats[0] == 20:
-            playerMods[5] = 5
-        elif playerStat[5] == 21 or playerStats[0] == 22:
-            playerMods[5] = 6
-        elif playerStats[5] == 23 or playerStats[0] == 24:
-            playerMods[5] = 7
-        elif playerStats[5] == 25 or playerStats[0] == 26:
-            playerMods[5] = 8
-        elif playerStats[5] == 27 or playerStats[0] == 28:
-            playerMods[5] = 8
-        elif playerStats[5] == 29 or playerStats[0] == 30:
-            playerMods[5] = 9
+    if playerStats[5] == 1:
+        playerMods[5] = -5
+    elif playerStats[5]  == 2 or  playerStats[0] == 3:
+        playerMods[5] = -4
+    elif playerStats[5] == 4 or playerStats[0] == 5:
+        playerMods[5] = -3
+    elif playerStats[5] == 6 or playerStats[0] == 7:
+        playerMods[5] = -2
+    elif playerStats[5] == 8 or playerStats[0] == 9:
+        playerMods[5] = -1
+    elif playerStats[5] == 9 or playerStats[0] == 10:
+        playerMods[5] = 0
+    elif playerStats[5] == 11 or playerStats[0] == 12:
+        playerMods[5] = 1
+    elif playerStats[5] == 13 or playerStats[0] == 14:
+        playerMods[5] = 2
+    elif playerStats[5] == 15 or playerStats[0] == 16:
+        playerMods[5] = 3
+    elif playerStats[5] == 17 or playerStats[0] == 18:
+        playerMods[5] = 4
+    elif playerStats[5] == 19 or playerStats[0] == 20:
+        playerMods[5] = 5
+    elif playerStat[5] == 21 or playerStats[0] == 22:
+        playerMods[5] = 6
+    elif playerStats[5] == 23 or playerStats[0] == 24:
+        playerMods[5] = 7
+    elif playerStats[5] == 25 or playerStats[0] == 26:
+        playerMods[5] = 8
+    elif playerStats[5] == 27 or playerStats[0] == 28:
+        playerMods[5] = 8
+    elif playerStats[5] == 29 or playerStats[0] == 30:
+        playerMods[5] = 9
 def profUp():
     if playerStats[9] in range (1,4):
         playerMods[6] = 2
@@ -291,11 +429,10 @@ def wholeLvlUp():
     profUp()
     
 
-def textWait():
+def textWait(wait):
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
-    time.sleep(7)
+    time.sleep(wait)
     print('This is a test message.')
-    print('This is another test message')
     
 def clear():
     #This function clears the screen of EVERYTHING. Use if the console is getting a little crowded
@@ -306,10 +443,6 @@ def characterCreation():
     #Character creation WILL change global variables, so this needs only be run ONCE, at the beginning of the game
 
 
-    print('Adventurer, we need to find out who you will be in this world of Dungeons and Dragons')
-    textWait()
-    print('The first step towards your new adventure is to learn what your name is!') 
-    
 
 
 def combat():
