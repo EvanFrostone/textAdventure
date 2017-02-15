@@ -140,13 +140,13 @@ profPersuasion = False
 profReligion = False
 profSleightofHand = False
 profStealth = False
-profSurvival False
+profSurvival  = False
 
 
 
 
 
-dwarfStats = ( 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 )
+dwarfStats = [ 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
 dwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
 #The Dwarvish stats are as follows: [Size (0), Dark Vision Ability (1), Batlleaxe Proficiency (2), Handaxe Proficiency (3), Throwing Hammer Proficiency (4), Warhammer Proficiency (5), Speaks Common (6), Speaks Dwarvish (7)]
 hillDwarfStats = [ 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
@@ -441,8 +441,10 @@ def clear():
 def characterCreation():
     #In this function, the dialogue and machinery of character creation happens.
     #Character creation WILL change global variables, so this needs only be run ONCE, at the beginning of the game
-
-
+    textWait(2)
+    print('Test message')
+    textWait(2)
+    clear()
 
 
 def combat():
