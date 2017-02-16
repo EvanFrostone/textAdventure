@@ -30,7 +30,7 @@ speaksCommon = True
 speaksDwarvish = False
 speaksElvish = False
 speaksThievesCant = False
-speaksHafling = False
+speaksHalfling = False
 speaksDraconic = False
 speaksGnomish = False
 speaksOrc = False
@@ -40,11 +40,6 @@ speaksInfernal = False
 profDarkVision = False
 
 #Here Be Tool Proficiencies 
-profSmithsTools = False
-profBrewersSups = False
-profMasonsTools = False
-profArtisiansTools = False
-<<<<<<< HEAD
 profAlchSups = False
 profCaligSups = False
 profCobblerSups = False
@@ -76,8 +71,7 @@ profPosionerKit = False
 profThievesTools = False
 profVehicles = False 
 
-=======
->>>>>>> origin/master
+
 
 #Here Be Armor Proficiences
 profLightArmor = False
@@ -85,7 +79,7 @@ profMediumArmor = False
 profHeavyArmor = False
 
 #Here Be Weapon Proficiencies 
-<<<<<<< HEAD
+
 profbattleAxe = False
 profclub = False
 profdagger = False 
@@ -126,21 +120,9 @@ profwhip = False
 profblowGun = False
 profheavyCrossbow = False
 profnet = False
-=======
-profBattleaxe = False
-profHandaxe = False
-profThrowingHammer = False
-profWarhammer = False
-profLongbow = False
-profLongsword = False
-profShortbow = False
-profShortsword = False
-profRapiers = False
-profHandCrossbow = False
-profShields = False
-profSimpleWeapons = False
-profMartialWeapons = False
->>>>>>> origin/master
+
+
+
 
 #Here Be Skill Proficiencies
 profAcrobatics = False
@@ -165,6 +147,8 @@ profSurvival = False
 #HereBeSpecialSkills
 profDarkVision = False
 profFeyAncestry = False
+profmaskoftheWild = False
+profsupDarkVision = False
 #Here Be Races
 def dwarf():
     global profbattleAxe
@@ -196,8 +180,14 @@ def elf():
     global profFeyAncestry
     global speaksCommon
     global speaksElvish
+    profDarkVision = True
+    profPerception = True
+    profFeyAncestry = True
+    speaksCommon = True
+    speaksElvish = True
     playerStats[2] = playerStats[2] + 2
 def highElf():
+    elf()
     global proflongSword
     global profshortBow
     global profshortSword
@@ -206,32 +196,307 @@ def highElf():
     global speaksDwarvish
     global speaksElvish
     global speaksThievesCant 
-    global speaksHafling
+    global speaksHalfling
     global speaksDraconic 
     global speaksGnomish 
     global speaksOrc 
     global speaksInfernal 
-    extraLangQuery = input('You get to learn an extra language as a High Elf? What language would you like to learn? Thieves\' Cant, Dwarvish, Hafling, Draconic, Gnomish, Orcish, or Infernal?')
-    extraLangQuery.lower()
-    if extraLangQuery == 'thieves\' cant':
-        speaksThievesCant = True
-
-
-
+    proflongSword = True
+    profshortBow = True
+    proflongBow = True
+    profshortSword = True
     playerStats[3] = playerStats[3] + 1
+    #High Elf needs a Cantrip (Come back once you've finished Spell Casting)
+    
+    #Here I ran into a sort of issue that got resolved
+    #I need a way to reask the player the "What language?" question if they make a mistake, or otherwise change their mind
+    #To do this, I created this very nested decision structure. The while is true from the start to run the loop. The player is asked their choice in language.abs
+    #Then, the input is checked in a number of "if" statements. The first checks the language, asks a confirmation question, and the second actually sets variables and changes stuff
+
+    speechBoolean = True
+    while speechBoolean == True:
+        extraLangQuery = input('You get to learn an extra language as a high elf! What language would you like to learn? Thieves\' Cant, Dwarvish, Halfling, Draconic, Gnomish, Orcish, or Infernal? ')
+        extraLangQuery = extraLangQuery.lower()
+
+
+        if extraLangQuery == 'thieves\' cant' or 'thieves\'cant':
+            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksThievesCant = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'dwarvish':
+            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksDwarvish = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'halfling':
+            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksHalfling = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'draconic':
+            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksDraconic = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'gnomish':
+            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksGnomish = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'orcish':
+            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksOrc = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'infernal':
+            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksInfernal = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        else:
+            speechBoolean = True
+
+def woodElf():
+    elf()
+    global proflongSword
+    global profshortSword
+    global profshortBow
+    global proflongBow
+    global profmaskoftheWild
+    playerStats[4] = playerStats[4] + 1
+    proflongSword = True
+    profshortBow = True
+    proflongBow = True
+    profshortSword = True
+    profmaskoftheWild = True
+def drow():
+    elf()
+    #Drow needs disadvantage on attack rolls and perception rolls in direct sunlight
+    #Drow also needs a hand full of cantrips
+    global profrapiers
+    global profshortSword
+    global profhandCrossbow
+    global profsupDarkVision
+    profrapiers = True
+    profshortSword = True
+    profhandCrossbow = True
+    profsupDarkVision = True
+    playerStats[5] = playerStats[5] + 1
+
+def halfling():
+    #Halfling needs luck? On crit miss on attack, ability check, or saving  rolls, can reroll, but must stay with roll
+    global speaksHalfling
+    speaksHalfling = True
+    playerStats[2] = playerStats[2] + 2
+def lightfoothalf():
+    halfling()
+    #lightfoot needs naturally stealthy 
+    playerStats[5] = playerStats[5] + 1
+def stoutHalf():
+    #Stout needs advantage on saving throws against poison and poison resitance
+    halfling()
+    playerStats[1] = playerStats[1] + 1
+def human():
+    playerStats[0] = playerStats[0] + 1
+    playerStats[1] = playerStats[1] + 1
+    playerStats[2] = playerStats[2] + 1
+    playerStats[3] = playerStats[3] + 1
+    playerStats[4] = playerStats[4] + 1
+    playerStats[5] = playerStats[5] + 1
+    global speaksCommon 
+    global speaksDwarvish
+    global speaksElvish
+    global speaksThievesCant 
+    global speaksHalfling
+    global speaksDraconic 
+    global speaksGnomish 
+    global speaksOrc 
+    global speaksInfernal 
+    speechBoolean = True
+    while speechBoolean == True:
+        extraLangQuery = input('You get to learn an extra language as a human! What language would you like to learn? Thieves\' Cant, Dwarvish, Halfling, Draconic, Gnomish, Orcish, or Infernal? ')
+        extraLangQuery = extraLangQuery.lower()
+
+
+        if extraLangQuery == 'thieves\' cant' or 'thieves\'cant':
+            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksThievesCant = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'dwarvish':
+            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksDwarvish = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'halfling':
+            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksHalfling = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'draconic':
+            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksDraconic = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'gnomish':
+            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksGnomish = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'orcish':
+            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksOrc = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        elif extraLangQuery == 'infernal':
+            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks',extraLangQuery,'!')
+                speaksInfernal = True
+                speechBoolean = False
+            else:
+                speechBoolean = True
+
+
+        else:
+            speechBoolean = True
+def dragonborn():
+    #Dragonborn probably requires spellcasting to actually work so, comeback later
+    clear()
+    
+
+
+
+
+def gnome():
+    global profDarkVision
+    profDarkVision = True
+    playerStats[3] = playerStats[3] + 2
+
+def forestGnome():
+    #Needs minor illusion cantrip
+    gnome()
+    playerStats[2] = playerStats[2] + 1
+
+def rockGnome():
+    global profTinkerTools
+    profTinkerTools = True
+    #clockwork device, gotta make sometime 
+    gnome()
+    #Artificers Lore, make history check related to magic, alchemical, or tech items, add 2x proficiency bonus
+    playerStats[1] = playerStats[1] + 1
+
+def halfElf():
+    playerStats[5] = playerStats[5] + 2
+    print('As a half elf, you have the ability to increase two of your ability scores by one.')
+
+    checkStatQuery1 = True
+    while checkStatQuery1:
+        statQuery1 = input('Which do you wish to increase first?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma) ')
+        statQuery1 = statQuery1.lower
+        secondaryConfirmationError = True
+        while secondaryConfirmationError:
+            statQuery1query = input('You want to increase your' + str(statQuery1) + '? ')
+            if statQuery1query == 'yes':
+                if statQuery1 == 'strength':
+                    playerStats[0] = playerStats[0] + 1
+                elif statQuery1 == 'constitution': 
+                    playerStats[1] = playerStats[1] + 1
+                elif statQuery1 == 'dexterity': 
+                    playerStats[2] = playerStats[2] + 1
+                elif statQuery1 == 'intelligence': 
+                    playerStats[3] = playerStats[3] + 1
+                elif statQuery1 == 'wisdom':
+                    playerStats[4] = playerStats[4] + 1
+                elif statQuery1 == 'charisma': 
+                    playerStats[5] = playerStats[5] + 1
+                secondaryConfirmationError = False
+                checkStatQuery1 = False
+            elif statQuery1query == 'no':
+                secondaryConfirmationError = False
+                checkStatQuery1 = True
+            else:
+                print('Sorry, I didn\'t understand what you said. Please respond with (yes or no).')
+                textWait(3)
+                secondaryConfirmationError = True     
+        statQuery2 = input('Which do you wish to increase second?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma)  ')
+        
+        statQuery2 = statQuery2.lower
+
 
 #Here Be Weapons 
 def dagger():
 
     clear()
 
-
-dwarfStats = ( 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 )
-dwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
-#The Dwarvish stats are as follows: [Size (0), Dark Vision Ability (1), Batlleaxe Proficiency (2), Handaxe Proficiency (3), Throwing Hammer Proficiency (4), Warhammer Proficiency (5), Speaks Common (6), Speaks Dwarvish (7)]
-hillDwarfStats = [ 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
-hillDwarfChar = ['Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
-#The Dwarvish stats are as follows: [Size (0), Dark Vision Ability (1), Batlleaxe Proficiency (2), Handaxe Proficiency (3), Throwing Hammer Proficiency (4), Warhammer Proficiency (5), Speaks Common (6), Speaks Dwarvish (7)]
 
 
 def dwarfStats():
@@ -533,14 +798,14 @@ def clear():
 def characterCreation():
     #In this function, the dialogue and machinery of character creation happens.
     #Character creation WILL change global variables, so this needs only be run ONCE, at the beginning of the game
-    clear()
+    halfElf()
 
 
 
 def combat():
         def attack(Weapon):
     #This is the skeleton for combat.  There are gonna be several loops here
-    clear()
+            clear()
 
 
 def  game():
@@ -549,9 +814,10 @@ def  game():
 
 def intro():
     #The title screen should go here
-    print('Welcome to my DnD Clone')
-    startQuery = input('Do you wish to begin? Enter Yes or No')
-    if startQuery == 'yes' or startQuery == 'Yes' or startQuery == 'y' or startQuery == 'Y':
+    print('Welcome to my DnD Clone! ')
+    startQuery = input('Do you wish to begin? Enter Yes or No ')
+    startQuery = startQuery.lower()
+    if startQuery == 'yes' or startQuery == 'y':
         
         characterCreation()
         game()
