@@ -44,6 +44,7 @@ profSmithsTools = False
 profBrewersSups = False
 profMasonsTools = False
 profArtisiansTools = False
+<<<<<<< HEAD
 profAlchSups = False
 profCaligSups = False
 profCobblerSups = False
@@ -75,6 +76,8 @@ profPosionerKit = False
 profThievesTools = False
 profVehicles = False 
 
+=======
+>>>>>>> origin/master
 
 #Here Be Armor Proficiences
 profLightArmor = False
@@ -82,6 +85,7 @@ profMediumArmor = False
 profHeavyArmor = False
 
 #Here Be Weapon Proficiencies 
+<<<<<<< HEAD
 profbattleAxe = False
 profclub = False
 profdagger = False 
@@ -122,6 +126,21 @@ profwhip = False
 profblowGun = False
 profheavyCrossbow = False
 profnet = False
+=======
+profBattleaxe = False
+profHandaxe = False
+profThrowingHammer = False
+profWarhammer = False
+profLongbow = False
+profLongsword = False
+profShortbow = False
+profShortsword = False
+profRapiers = False
+profHandCrossbow = False
+profShields = False
+profSimpleWeapons = False
+profMartialWeapons = False
+>>>>>>> origin/master
 
 #Here Be Skill Proficiencies
 profAcrobatics = False
