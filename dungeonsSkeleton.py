@@ -461,11 +461,13 @@ def halfElf():
     checkStatQuery1 = True
     while checkStatQuery1:
         statQuery1 = input('Which do you wish to increase first?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma) ')
-        statQuery1 = statQuery1.lower
+       
+        printStatQuery1 = str(statQuery1.lower())
+
         secondaryConfirmationError = True
         while secondaryConfirmationError:
-            statQuery1query = input('You want to increase your' + str(statQuery1) + '? ')
-            if statQuery1query == 'yes':
+            statQuery1query = input('You want to increase your '+ printStatQuery1 +'? ')
+            if statQuery1query.lower() == 'yes':
                 if statQuery1 == 'strength':
                     playerStats[0] = playerStats[0] + 1
                 elif statQuery1 == 'constitution': 
@@ -485,12 +487,41 @@ def halfElf():
                 checkStatQuery1 = True
             else:
                 print('Sorry, I didn\'t understand what you said. Please respond with (yes or no).')
-                textWait(3)
+                textWait(2)
                 secondaryConfirmationError = True     
         statQuery2 = input('Which do you wish to increase second?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma)  ')
         
         statQuery2 = statQuery2.lower
 
+        checkStatQuery2 = True
+    while checkStatQuery2:
+        statQuery2 = input('Which do you wish to increase first?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma) ')
+        statQuery2 = statQuery2.lower
+        secondaryConfirmationError = True
+        while secondaryConfirmationError:
+            statQuery2query = input('You want to increase your' + str(statQuery2) + '? ')
+            if statQuery2query == 'yes':
+                if statQuery2 == 'strength':
+                    playerStats[0] = playerStats[0] + 1
+                elif statQuery2 == 'constitution': 
+                    playerStats[1] = playerStats[1] + 1
+                elif statQuery2 == 'dexterity': 
+                    playerStats[2] = playerStats[2] + 1
+                elif statQuery2 == 'intelligence': 
+                    playerStats[3] = playerStats[3] + 1
+                elif statQuery2 == 'wisdom':
+                    playerStats[4] = playerStats[4] + 1
+                elif statQuery2 == 'charisma': 
+                    playerStats[5] = playerStats[5] + 1
+                secondaryConfirmationError = False
+                checkStatQuery2 = False
+            elif statQuery2query == 'no':
+                secondaryConfirmationError = False
+                checkStatQuery2 = True
+            else:
+                print('Sorry, I didn\'t understand what you said. Please respond with (yes or no).')
+                textWait(3)
+                secondaryConfirmationError = True     
 
 #Here Be Weapons 
 def dagger():
@@ -777,7 +808,7 @@ def wholeLvlUp():
 def textWait(wait):
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
     time.sleep(wait)
-    print('This is a test message.')
+    
 
 
 def dice(rolls, size):
