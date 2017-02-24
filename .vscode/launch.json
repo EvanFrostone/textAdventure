@@ -149,7 +149,7 @@
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "${config.python.pythonPath}",
-            "program": "${workspaceRoot}/console.py",
+            "program": "${workspaceRoot}/dungeonsSkeleton.py",
             "cwd": "${workspaceRoot}",
             "args": [
                 "dev",

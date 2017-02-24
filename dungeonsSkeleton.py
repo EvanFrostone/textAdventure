@@ -261,7 +261,7 @@ def highElf():
 
 
         elif extraLangQuery == 'gnomish':
-            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak Gnomish? Answer yes or no. ')
             if confirmationQuery.lower() == 'yes':
                 print('Alright, your character now speaks',extraLangQuery,'!')
                 speaksGnomish = True
@@ -271,7 +271,7 @@ def highElf():
 
 
         elif extraLangQuery == 'orcish':
-            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak Orchish? Answer yes or no. ')
             if confirmationQuery.lower() == 'yes':
                 print('Alright, your character now speaks',extraLangQuery,'!')
                 speaksOrc = True
@@ -281,7 +281,7 @@ def highElf():
 
 
         elif extraLangQuery == 'infernal':
-            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak Infernal? Answer yes or no. ')
             if confirmationQuery.lower() == 'yes':
                 print('Alright, your character now speaks',extraLangQuery,'!')
                 speaksInfernal = True
@@ -455,6 +455,42 @@ def rockGnome():
     playerStats[1] = playerStats[1] + 1
 
 def halfElf():
+    global profDarkVision 
+    global profFeyAncestry
+    global speaksCommon 
+    global speaksDwarvish
+    global speaksElvish
+    global speaksThievesCant 
+    global speaksHalfling
+    global speaksDraconic 
+    global speaksGnomish 
+    global speaksOrc 
+    global speaksInfernal
+    global profAcrobatics
+    global profAnimalHandling
+    global profArcana
+    global profAthletics 
+    global profDeception 
+    global profHistory 
+    global profInsight 
+    global profIntimidation 
+    global profInvestigation 
+    global profMedicine 
+    global profNature 
+    global profPerception 
+    global profPerformance 
+    global profPersuasion 
+    global profReligion 
+    global profSleightofHand 
+    global profStealth
+    global profSurvival 
+
+    profDarkVision = True
+    profFeyAncestry = True
+    speaksCommon = True
+    speaksElvish = True
+    
+
     playerStats[5] = playerStats[5] + 2
     print('As a half elf, you have the ability to increase two of your ability scores by one.')
 
@@ -462,45 +498,50 @@ def halfElf():
     while checkStatQuery1:
         statQuery1 = input('Which do you wish to increase first?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma) ')
        
+       
         printStatQuery1 = str(statQuery1.lower())
+        if printStatQuery1 == 'strength' or printStatQuery1 == 'constitution' or printStatQuery1 == 'dexterity' or printStatQuery1 == 'intelligence' or printStatQuery1 == 'wisdom' or printStatQuery1 == 'charisma':
+            secondaryConfirmationError = True
+            while secondaryConfirmationError:
+                statQuery1query = input('You want to increase your '+ printStatQuery1 +'? ')
+                if statQuery1query.lower() == 'yes':
+                    if statQuery1 == 'strength':
+                        playerStats[0] = playerStats[0] + 1
+                    elif statQuery1 == 'constitution': 
+                        playerStats[1] = playerStats[1] + 1
+                    elif statQuery1 == 'dexterity': 
+                        playerStats[2] = playerStats[2] + 1
+                    elif statQuery1 == 'intelligence': 
+                        playerStats[3] = playerStats[3] + 1
+                    elif statQuery1 == 'wisdom':
+                        playerStats[4] = playerStats[4] + 1
+                    elif statQuery1 == 'charisma': 
+                        playerStats[5] = playerStats[5] + 1
+                    secondaryConfirmationError = False
+                    checkStatQuery1 = False
+                elif statQuery1query == 'no':
+                    secondaryConfirmationError = False
+                    checkStatQuery1 = True
+                else:
+                    print('Sorry, I didn\'t understand what you said. Please respond with (yes or no).')
+                    textWait(2)
+                    secondaryConfirmationError = True
+        else:
+            errorMessage()
+            checkStatQuery1 = True
 
-        secondaryConfirmationError = True
-        while secondaryConfirmationError:
-            statQuery1query = input('You want to increase your '+ printStatQuery1 +'? ')
-            if statQuery1query.lower() == 'yes':
-                if statQuery1 == 'strength':
-                    playerStats[0] = playerStats[0] + 1
-                elif statQuery1 == 'constitution': 
-                    playerStats[1] = playerStats[1] + 1
-                elif statQuery1 == 'dexterity': 
-                    playerStats[2] = playerStats[2] + 1
-                elif statQuery1 == 'intelligence': 
-                    playerStats[3] = playerStats[3] + 1
-                elif statQuery1 == 'wisdom':
-                    playerStats[4] = playerStats[4] + 1
-                elif statQuery1 == 'charisma': 
-                    playerStats[5] = playerStats[5] + 1
-                secondaryConfirmationError = False
-                checkStatQuery1 = False
-            elif statQuery1query == 'no':
-                secondaryConfirmationError = False
-                checkStatQuery1 = True
-            else:
-                print('Sorry, I didn\'t understand what you said. Please respond with (yes or no).')
-                textWait(2)
-                secondaryConfirmationError = True     
-        statQuery2 = input('Which do you wish to increase second?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma)  ')
-        
-        statQuery2 = statQuery2.lower
 
-        checkStatQuery2 = True
+
+    checkStatQuery2 = True
     while checkStatQuery2:
-        statQuery2 = input('Which do you wish to increase first?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma) ')
-        statQuery2 = statQuery2.lower
+        statQuery2 = input('Which do you wish to increase second?(Enter Strength, Constitution, Dexterity, Intelligence, Wisdom, or Charisma) ')
+    
+        printStatQuery2 = str(statQuery2.lower())
+
         secondaryConfirmationError = True
         while secondaryConfirmationError:
-            statQuery2query = input('You want to increase your' + str(statQuery2) + '? ')
-            if statQuery2query == 'yes':
+            statQuery2query = input('You want to increase your '+ printStatQuery2 +'? ')
+            if statQuery2query.lower() == 'yes':
                 if statQuery2 == 'strength':
                     playerStats[0] = playerStats[0] + 1
                 elif statQuery2 == 'constitution': 
@@ -520,8 +561,195 @@ def halfElf():
                 checkStatQuery2 = True
             else:
                 print('Sorry, I didn\'t understand what you said. Please respond with (yes or no).')
-                textWait(3)
-                secondaryConfirmationError = True     
+                textWait(2)
+                secondaryConfirmationError = True
+        speechBoolean = True
+        while speechBoolean == True:
+            extraLangQuery = input('You get to learn an extra language as a half elf! What language would you like to learn? Thieves\' Cant, Dwarvish, Halfling, Draconic, Gnomish, Orcish, or Infernal? ')
+            extraLangQuery = extraLangQuery.lower()
+
+
+            if extraLangQuery == 'thieves\' cant' or 'thieves\'cant':
+                confirmationQuery = input('Are you sure you want to speak ' + extraLangQuery +'? Answer yes or no. ')
+                
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks ' + extraLangQuery + '!')
+                    speaksThievesCant = True
+                    speechBoolean = False
+                else:
+                    speechBoolean = True
+
+
+            elif extraLangQuery == 'dwarvish':
+                confirmationQuery = input('Are you sure you want to speak ' + extraLangQuery + '? Answer yes or no. ')
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks ' + extraLangQuery +'!')
+                    speaksDwarvish = True
+                    speechBoolean = False
+                else:
+                    speechBoolean = True
+
+
+            elif extraLangQuery == 'halfling':
+                confirmationQuery = input('Are you sure you want to speak ' + extraLangQuery + '? Answer yes or no. ')
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks '+ extraLangQuery +'!')
+                    speaksHalfling = True
+                    speechBoolean = False
+                else:
+                    speechBoolean = True
+
+
+            elif extraLangQuery == 'draconic':
+                confirmationQuery = input('Are you sure you want to speak ' + extraLangQuery + '? Answer yes or no. ')
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks ' + extraLangQuery + '!')
+                    speaksDraconic = True
+                    speechBoolean = False
+                else:
+                    speechBoolean = True
+
+
+            elif extraLangQuery == 'gnomish':
+                confirmationQuery = input('Are you sure you want to speak Gnomish? Answer yes or no. ')
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks ' + extraLangQuery +'!')
+                    speaksGnomish = True
+                    speechBoolean = False
+                else:
+                    speechBoolean = True
+
+
+            elif extraLangQuery == 'orcish':
+                confirmationQuery = input('Are you sure you want to speak Orchish? Answer yes or no. ')
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks ' + extraLangQuery + '!')
+                    speaksOrc = True
+                    speechBoolean = False
+                else:
+                    speechBoolean = True
+
+
+            elif extraLangQuery == 'infernal':
+                confirmationQuery = input('Are you sure you want to speak Infernal? Answer yes or no. ')
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks ' + extraLangQuery + '!')
+                    speaksInfernal = True
+                    speechBoolean = False
+                else:
+                    speechBoolean = True
+
+
+            else:
+                speechBoolean = True
+
+
+
+
+    skillBoolean = True 
+    while skillBoolean == True:
+        print('As a half elf, you also get to become proficient in two skills of your choice.')
+        textWait(3)
+        print('What two skills would you like to become proficient in?')
+        profQuery = input('You have a choice between Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation, Medicine, Nature, Perception, Performance, Persuassion, Religion, Sleight of Hand, Stealth, and Survival')
+        profQuery = profQuery.lower()
+        if profQuery == 'acrobatics':
+            profAcrobatics = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'animal handling':
+            profAnimalHandling = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'arcana':
+            profArcana = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'athletics':
+            profAthletics = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'deception':
+            profDeception = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'history':
+            profHistory = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'insight':
+            profInsight = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'medicine':
+            profMedicine = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'nature':
+            profNature = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'perception':
+            profPerception = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'performance':
+            profPerformance = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'persuasion':
+            profPersuasion = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'sleight of hand':
+            profSleightofHand = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'stealth':
+            profStealth = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+
+        elif profQuery == 'survival':
+            profSurvival = True
+            skillBoolean = False
+            print('Alright, your character is now proficient in ' + profQuery )
+
+        else:
+            print('I\'m not quite sure what you said, please try again!')
+            skillBoolean = True
+            textWait(2)
+
+                
+
+  
 
 #Here Be Weapons 
 def dagger():
@@ -855,4 +1083,8 @@ def intro():
 
     else:
         input('')
+def errorMessage():
+    print('Sorry, I\'m not quite sure what you said. Please try again!')
+def yesnoErrorMessage():
+    print('I\'m not quite sure what you said. Please answer with yes or no!')
 intro()
