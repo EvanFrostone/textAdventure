@@ -8,24 +8,25 @@ import os
 #From this point on, declare ALL global variables and lists. This includes player stats,money, health, AC,  difficulty scores, monster stats, etc.
 #The Character Traits Indicies are as follows: ['Name', 'Race', 'Class', 'Alignment, 'Background']
 characterTraits = ['Name', 'Race', 'Class', 'Alignment', 'Background']
+
 #The Player Stats (Armor Class = AC)
-playerStats = [ 'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0, 
-    'Health' : 0, 'Gold' : 0, 'AC' : 0, 'Level' : 1, 'XP' : 0, 'Initiative' : 0 ]
+playerStats = { 'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0, 'Health' : 0,
+    'Gold' : 0, 'AC' : 0, 'Level' : 1, 'XP' : 0, 'Initiative' : 0 }
 
 #The Player Modifier (Proficieny Bonus = PB)
 playerMods = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0, 'PB' : 0}
 
-#The Player Skills Indicies are as follows: [Acrobatics (0), Animal Handling (1), Arcana(2), Athletics (3), Deception (4), History (5), Insight (6), Intimidation (7), Investigation (8), Medicine (9), Nature (10), Perception (11), Performance (12), Persuasion (13), Religion (14), Slight of Hand (15),#Stealth (16), Survival (17)]
-playerSkills = [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+#The Player Skills (Animal Handling = AH) (Slight of Hand = SH)
+playerSkills = { 'Acrobatics' : 0 , 'AH' : 0 , 'Arcana' : 0 , 'Athletics' : 0 , 'Deception' : 0 , 'History' : 0 , 'Insight' : 0 , 'Intimidation' : 0 ,
+    'Investigation' : 0 , 'Medicine' : 0 , 'Nature' : 0 , 'Perception' : 0 , 'Performance' : 0 , 'Persuasion' : 0 , 'Religion' : 0 , 'SH' : 0 , 'Stealth' : 0 , 'Survival' : 0 }
 
-playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
-#The Player Saving Throws Indicies are as follows:[Strength (0), Constituion(1), Dexterity (2), Intelligence (3), Wisdom (4), Charisma (5)]
-playerInventory =['Empty']
+#The Player Saving Throws
+playerSavingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
+
 #This is the player's inventory. Add items to it using the .append() function.
+playerInventory =['Empty']
 
-lvlUpTuple = ( 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
-dwarfStats = [2, 'Medium', 'Dark Vision', 'Battleaxe', 'Handaxe', 'Throwing hammer', 'Warhammer', 'Common', 'Dwarvish']
-#The Dwarvish stats are as follows: [+2 Constitution (0), Size (1), Dark Vision Ability (2), Batlleaxe Proficiency (3), Handaxe Proficiency (4), Throwing Hammer Proficiency (5), Warhammer Proficiency (6), Speaks Common (7), Speaks Dwarvish (8)]
+lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
 
 #Here Be Proficiencies
 
@@ -169,14 +170,14 @@ def dwarf():
     speaksCommon = True
     speaksDwarvish = True
     profDarkVision = True
-    playerStats[1] = playerStats[1] + 2
+    playerStats['Constituion'] = playerStats['Constituion'] + 2
 def hillDwarf():
     global profLightArmor
     global profMediumArmor
     dwarf()
     profLightArmor = True
     profMediumArmor = True
-    playerStats[0] = playerStats[0] + 2
+    playerStats['Strength'] = playerStats['Strength'] + 2
 
 def elf():
     global profDarkVision
@@ -189,7 +190,7 @@ def elf():
     profFeyAncestry = True
     speaksCommon = True
     speaksElvish = True
-    playerStats[2] = playerStats[2] + 2
+    playerStats['Dexterity'] = playerStats['Dexterity'] + 2
 def highElf():
     elf()
     global proflongSword
@@ -209,7 +210,7 @@ def highElf():
     profshortBow = True
     proflongBow = True
     profshortSword = True
-    playerStats[3] = playerStats[3] + 1
+    playerStats['Intelligence'] = playerStats['Intelligence'] + 1
     #High Elf needs a Cantrip (Come back once you've finished Spell Casting)
     
     #Here I ran into a sort of issue that got resolved
@@ -304,7 +305,7 @@ def woodElf():
     global profshortBow
     global proflongBow
     global profmaskoftheWild
-    playerStats[4] = playerStats[4] + 1
+    playerStats['Wisdom'] = playerStats['Wisdom'] + 1
     proflongSword = True
     profshortBow = True
     proflongBow = True
@@ -322,28 +323,28 @@ def drow():
     profshortSword = True
     profhandCrossbow = True
     profsupDarkVision = True
-    playerStats[5] = playerStats[5] + 1
+    playerStats['Charisma'] = playerStats['Charisma'] + 1
 
 def halfling():
     #Halfling needs luck? On crit miss on attack, ability check, or saving  rolls, can reroll, but must stay with roll
     global speaksHalfling
     speaksHalfling = True
-    playerStats[2] = playerStats[2] + 2
+    playerStats['Dexterity'] = playerStats['Dexterity'] + 2
 def lightfoothalf():
     halfling()
     #lightfoot needs naturally stealthy 
-    playerStats[5] = playerStats[5] + 1
+    playerStats['Charisma'] = playerStats['Charisma'] + 1
 def stoutHalf():
     #Stout needs advantage on saving throws against poison and poison resitance
     halfling()
-    playerStats[1] = playerStats[1] + 1
+    playerStats['Constituion'] = playerStats['Constituion'] + 1
 def human():
-    playerStats[0] = playerStats[0] + 1
-    playerStats[1] = playerStats[1] + 1
-    playerStats[2] = playerStats[2] + 1
-    playerStats[3] = playerStats[3] + 1
-    playerStats[4] = playerStats[4] + 1
-    playerStats[5] = playerStats[5] + 1
+    playerStats['Strength'] = playerStats['Strength'] + 1
+    playerStats['Constituion'] = playerStats['Constituion'] + 1
+    playerStats['Dexterity'] = playerStats['Dexterity'] + 1
+    playerStats['Intelligence'] = playerStats['Intelligence'] + 1
+    playerStats['Wisdom'] = playerStats['Wisdom'] + 1
+    playerStats['Charisma'] = playerStats['Charisma'] + 1
     global speaksCommon 
     global speaksDwarvish
     global speaksElvish
@@ -443,12 +444,12 @@ def dragonborn():
 def gnome():
     global profDarkVision
     profDarkVision = True
-    playerStats[3] = playerStats[3] + 2
+    playerStats['Intelligence'] = playerStats['Intelligence'] + 2
 
 def forestGnome():
     #Needs minor illusion cantrip
     gnome()
-    playerStats[2] = playerStats[2] + 1
+    playerStats['Dexterity'] = playerStats['Dexterity'] + 1
 
 def rockGnome():
     global profTinkerTools
@@ -456,7 +457,7 @@ def rockGnome():
     #clockwork device, gotta make sometime 
     gnome()
     #Artificers Lore, make history check related to magic, alchemical, or tech items, add 2x proficiency bonus
-    playerStats[1] = playerStats[1] + 1
+    playerStats['Constituion'] = playerStats['Constituion'] + 1
 
 def halfElf():
     global profDarkVision 
@@ -495,7 +496,7 @@ def halfElf():
     speaksElvish = True
     
 
-    playerStats[5] = playerStats[5] + 2
+    playerStats['Charisma'] = playerStats['Charisma'] + 2
     print('As a half elf, you have the ability to increase two of your ability scores by one.')
 
     checkStatQuery1 = True
@@ -510,17 +511,17 @@ def halfElf():
                 statQuery1query = input('You want to increase your '+ printStatQuery1 +'? ')
                 if statQuery1query.lower() == 'yes':
                     if statQuery1 == 'strength':
-                        playerStats[0] = playerStats[0] + 1
+                        playerStats['Strength'] = playerStats['Strength'] + 1
                     elif statQuery1 == 'constitution': 
-                        playerStats[1] = playerStats[1] + 1
+                        playerStats['Constituion'] = playerStats['Constituion'] + 1
                     elif statQuery1 == 'dexterity': 
-                        playerStats[2] = playerStats[2] + 1
+                        playerStats['Dexterity'] = playerStats['Dexterity'] + 1
                     elif statQuery1 == 'intelligence': 
-                        playerStats[3] = playerStats[3] + 1
+                        playerStats['Intelligence'] = playerStats['Intelligence'] + 1
                     elif statQuery1 == 'wisdom':
-                        playerStats[4] = playerStats[4] + 1
+                        playerStats['Wisdom'] = playerStats['Wisdom'] + 1
                     elif statQuery1 == 'charisma': 
-                        playerStats[5] = playerStats[5] + 1
+                        playerStats['Charisma'] = playerStats['Charisma'] + 1
                     secondaryConfirmationError = False
                     checkStatQuery1 = False
                 elif statQuery1query == 'no':
@@ -547,17 +548,17 @@ def halfElf():
             statQuery2query = input('You want to increase your '+ printStatQuery2 +'? ')
             if statQuery2query.lower() == 'yes':
                 if statQuery2 == 'strength':
-                    playerStats[0] = playerStats[0] + 1
+                    playerStats['Strength'] = playerStats['Strength'] + 1
                 elif statQuery2 == 'constitution': 
-                    playerStats[1] = playerStats[1] + 1
+                    playerStats['Constituion'] = playerStats['Constituion'] + 1
                 elif statQuery2 == 'dexterity': 
-                    playerStats[2] = playerStats[2] + 1
+                    playerStats['Dexterity'] = playerStats['Dexterity'] + 1
                 elif statQuery2 == 'intelligence': 
-                    playerStats[3] = playerStats[3] + 1
+                    playerStats['Intelligence'] = playerStats['Intelligence'] + 1
                 elif statQuery2 == 'wisdom':
-                    playerStats[4] = playerStats[4] + 1
+                    playerStats['Wisdom'] = playerStats['Wisdom'] + 1
                 elif statQuery2 == 'charisma': 
-                    playerStats[5] = playerStats[5] + 1
+                    playerStats['Charisma'] = playerStats['Charisma'] + 1
                 secondaryConfirmationError = False
                 checkStatQuery2 = False
             elif statQuery2query == 'no':
@@ -768,261 +769,261 @@ def dwarfStats():
     speaksCommon = True
     speaksDwarvish = True
 def levelUp():
-    if playerStats[10] in range (lvlUpTuple[0], lvlUpTuple[1]):
-        playerStats[9] = 1
-    if playerStats[10] in range (lvlUpTuple[1] ,lvlUpTuple[2]):
-        playerStats[9] = 2
-    if playerStats[10] in range (lvlUpTuple[2] , lvlUpTuple[3]):
-        playerStats[9] = 3
-    if playerStats[10] in range (lvlUpTuple[3] , lvlUpTuple[4]):
-        playerStats[9] = 4
-    if playerStats[10] in range (lvlUpTuple[4] , lvlUpTuple[5]):
-        playerStats[9] = 5
-    if playerStats[10] in range (lvlUpTuple[5] , lvlUpTuple[6]):
-        playerStats[9] = 6
-    if playerStats[10] in range (lvlUpTuple[6] , lvlUpTuple[7]):
-        playerStats[9] = 7
-    if playerStats[10] in range (lvlUpTuple[7] , lvlUpTuple[8]):
-        playerStats[9] = 8
-    if playerStats[10] in range (lvlUpTuple[8] , lvlUpTuple[9]):
-        playerStats[9] = 9
-    if playerStats[10] in range (lvlUpTuple[9] , lvlUpTuple[10]):
-        playerStats[9] = 10
-    if playerStats[10] in range (lvlUpTuple[10] , lvlUpTuple[11]):
-        playerStats[9] = 11
-    if playerStats[10] in range (lvlUpTuple[11] , lvlUpTuple[12]):
-        playerStats[9] = 12
-    if playerStats[10] in range (lvlUpTuple[12] , lvlUpTuple[13]):
-        playerStats[9] = 13
-    if playerStats[10] in range (lvlUpTuple[12] , lvlUpTuple[13]):
-        playerStats[9] = 14
-    if playerStats[10] in range (lvlUpTuple[13] , lvlUpTuple[14]):
-        playerStats[9] = 15
-    if playerStats[10] in range (lvlUpTuple[14] , lvlUpTuple[15]):
-        playerStats[9] = 16
-    if playerStats[10] in range (lvlUpTuple[15] , lvlUpTuple[16]):
-        playerStats[9] = 17
-    if playerStats[10] in range (lvlUpTuple[16] , lvlUpTuple[17]):
-        playerStats[9] = 18
-    if playerStats[10] in range (lvlUpTuple[17] , lvlUpTuple[18]):
-        playerStats[9] = 19
-    if playerStats[10] in range (lvlUpTuple[18] , lvlUpTuple[19]):
-        playerStats[9] = 20
+    if playerStats['XP'] in range (lvlUpTuple[0], lvlUpTuple[1]):
+        playerStats['Level'] = 1
+    if playerStats['XP'] in range (lvlUpTuple[1] ,lvlUpTuple[2]):
+        playerStats['Level'] = 2
+    if playerStats['XP'] in range (lvlUpTuple[2] , lvlUpTuple[3]):
+        playerStats['Level'] = 3
+    if playerStats['XP'] in range (lvlUpTuple[3] , lvlUpTuple[4]):
+        playerStats['Level'] = 4
+    if playerStats['XP'] in range (lvlUpTuple[4] , lvlUpTuple[5]):
+        playerStats['Level'] = 5
+    if playerStats['XP'] in range (lvlUpTuple[5] , lvlUpTuple[6]):
+        playerStats['Level'] = 6
+    if playerStats['XP'] in range (lvlUpTuple[6] , lvlUpTuple[7]):
+        playerStats['Level'] = 7
+    if playerStats['XP'] in range (lvlUpTuple[7] , lvlUpTuple[8]):
+        playerStats['Level'] = 8
+    if playerStats['XP'] in range (lvlUpTuple[8] , lvlUpTuple[9]):
+        playerStats['Level'] = 9
+    if playerStats['XP'] in range (lvlUpTuple[9] , lvlUpTuple[10]):
+        playerStats['Level'] = 10
+    if playerStats['XP'] in range (lvlUpTuple[10] , lvlUpTuple[11]):
+        playerStats['Level'] = 11
+    if playerStats['XP'] in range (lvlUpTuple[11] , lvlUpTuple[12]):
+        playerStats['Level'] = 12
+    if playerStats['XP'] in range (lvlUpTuple[12] , lvlUpTuple[13]):
+        playerStats['Level'] = 13
+    if playerStats['XP'] in range (lvlUpTuple[12] , lvlUpTuple[13]):
+        playerStats['Level'] = 14
+    if playerStats['XP'] in range (lvlUpTuple[13] , lvlUpTuple[14]):
+        playerStats['Level'] = 15
+    if playerStats['XP'] in range (lvlUpTuple[14] , lvlUpTuple[15]):
+        playerStats['Level'] = 16
+    if playerStats['XP'] in range (lvlUpTuple[15] , lvlUpTuple[16]):
+        playerStats['Level'] = 17
+    if playerStats['XP'] in range (lvlUpTuple[16] , lvlUpTuple[17]):
+        playerStats['Level'] = 18
+    if playerStats['XP'] in range (lvlUpTuple[17] , lvlUpTuple[18]):
+        playerStats['Level'] = 19
+    if playerStats['XP'] in range (lvlUpTuple[18] , lvlUpTuple[19]):
+        playerStats['Level'] = 20
         
 def pStrMod():
-    if playerStats[0] == 1:
+    if playerStats['Strength'] == 1:
         playerMods[0] = -5
-    elif playerStats[0]  == 2 or  playerStats[0] == 3:
+    elif playerStats['Strength']  == 2 or  playerStats['Strength'] == 3:
         playerMods[0] = -4
-    elif playerStats[0] == 4 or playerStats[0] == 5:
+    elif playerStats['Strength'] == 4 or playerStats['Strength'] == 5:
         playerMods[0] = -3
-    elif playerStats[0] == 6 or playerStats[0] == 7:
+    elif playerStats['Strength'] == 6 or playerStats['Strength'] == 7:
         playerMods[0] = -2
-    elif playerStats[0] == 8 or playerStats[0] == 9:
+    elif playerStats['Strength'] == 8 or playerStats['Strength'] == 9:
         playerMods[0] = -1
-    elif playerStats[0] == 9 or playerStats[0] == 10:
+    elif playerStats['Strength'] == 9 or playerStats['Strength'] == 10:
         playerMods[0] = 0
-    elif playerStats[0] == 11 or playerStats[0] == 12:
+    elif playerStats['Strength'] == 11 or playerStats['Strength'] == 12:
         playerMods[0] = 1
-    elif playerStats[0] == 13 or playerStats[0] == 14:
+    elif playerStats['Strength'] == 13 or playerStats['Strength'] == 14:
         playerMods[0] = 2
-    elif playerStats[0] == 15 or playerStats[0] == 16:
+    elif playerStats['Strength'] == 15 or playerStats['Strength'] == 16:
         playerMods[0] = 3
-    elif playerStats[0] == 17 or playerStats[0] == 18:
+    elif playerStats['Strength'] == 17 or playerStats['Strength'] == 18:
         playerMods[0] = 4
-    elif playerStats[0] == 19 or playerStats[0] == 20:
+    elif playerStats['Strength'] == 19 or playerStats['Strength'] == 20:
         playerMods[0] = 5
-    elif playerStat[0] == 21 or playerStats[0] == 22:
+    elif playerStat[0] == 21 or playerStats['Strength'] == 22:
         playerMods[0] = 6
-    elif playerStats[0] == 23 or playerStats[0] == 24:
+    elif playerStats['Strength'] == 23 or playerStats['Strength'] == 24:
         playerMods[0] = 7
-    elif playerStats[0] == 25 or playerStats[0] == 26:
+    elif playerStats['Strength'] == 25 or playerStats['Strength'] == 26:
         playerMods[0] = 8
-    elif playerStats[0] == 27 or playerStats[0] == 28:
+    elif playerStats['Strength'] == 27 or playerStats['Strength'] == 28:
         playerMods[0] = 8
-    elif playerStats[0] == 29 or playerStats[0] == 30:
+    elif playerStats['Strength'] == 29 or playerStats['Strength'] == 30:
         playerMods[0] = 9
 
 def pConMod():
-    if playerStats[1] == 1:
+    if playerStats['Constituion'] == 1:
         playerMods[1] = -5
-    elif playerStats[1]  == 2 or  playerStats[0] == 3:
+    elif playerStats['Constituion']  == 2 or  playerStats['Strength'] == 3:
         playerMods[1] = -4
-    elif playerStats[1] == 4 or playerStats[0] == 5:
+    elif playerStats['Constituion'] == 4 or playerStats['Strength'] == 5:
         playerMods[1] = -3
-    elif playerStats[1] == 6 or playerStats[0] == 7:
+    elif playerStats['Constituion'] == 6 or playerStats['Strength'] == 7:
         playerMods[1] = -2
-    elif playerStats[1] == 8 or playerStats[0] == 9:
+    elif playerStats['Constituion'] == 8 or playerStats['Strength'] == 9:
         playerMods[1] = -1
-    elif playerStats[1] == 9 or playerStats[0] == 10:
+    elif playerStats['Constituion'] == 9 or playerStats['Strength'] == 10:
         playerMods[1] = 0
-    elif playerStats[1] == 11 or playerStats[0] == 12:
+    elif playerStats['Constituion'] == 11 or playerStats['Strength'] == 12:
         playerMods[1] = 1
-    elif playerStats[1] == 13 or playerStats[0] == 14:
+    elif playerStats['Constituion'] == 13 or playerStats['Strength'] == 14:
         playerMods[1] = 2
-    elif playerStats[1] == 15 or playerStats[0] == 16:
+    elif playerStats['Constituion'] == 15 or playerStats['Strength'] == 16:
         playerMods[1] = 3
-    elif playerStats[1] == 17 or playerStats[0] == 18:
+    elif playerStats['Constituion'] == 17 or playerStats['Strength'] == 18:
         playerMods[1] = 4
-    elif playerStats[1] == 19 or playerStats[0] == 20:
+    elif playerStats['Constituion'] == 19 or playerStats['Strength'] == 20:
         playerMods[1] = 5
-    elif playerStat[1] == 21 or playerStats[0] == 22:
+    elif playerStat[1] == 21 or playerStats['Strength'] == 22:
         playerMods[1] = 6
-    elif playerStats[1] == 23 or playerStats[0] == 24:
+    elif playerStats['Constituion'] == 23 or playerStats['Strength'] == 24:
         playerMods[1] = 7
-    elif playerStats[1] == 25 or playerStats[0] == 26:
+    elif playerStats['Constituion'] == 25 or playerStats['Strength'] == 26:
         playerMods[1] = 8
-    elif playerStats[1] == 27 or playerStats[0] == 28:
+    elif playerStats['Constituion'] == 27 or playerStats['Strength'] == 28:
         playerMods[1] = 8
-    elif playerStats[1] == 29 or playerStats[0] == 30:
+    elif playerStats['Constituion'] == 29 or playerStats['Strength'] == 30:
         playerMods[1] = 9
 
 def pDexMod():
-    if playerStats[2] == 1:
+    if playerStats['Dexterity'] == 1:
         playerMods[2] = -5
-    elif playerStats[2]  == 2 or  playerStats[0] == 3:
+    elif playerStats['Dexterity']  == 2 or  playerStats['Strength'] == 3:
         playerMods[2] = -4
-    elif playerStats[2] == 4 or playerStats[0] == 5:
+    elif playerStats['Dexterity'] == 4 or playerStats['Strength'] == 5:
         playerMods[2] = -3
-    elif playerStats[2] == 6 or playerStats[0] == 7:
+    elif playerStats['Dexterity'] == 6 or playerStats['Strength'] == 7:
         playerMods[2] = -2
-    elif playerStats[2] == 8 or playerStats[0] == 9:
+    elif playerStats['Dexterity'] == 8 or playerStats['Strength'] == 9:
         playerMods[2] = -1
-    elif playerStats[2] == 9 or playerStats[0] == 10:
+    elif playerStats['Dexterity'] == 9 or playerStats['Strength'] == 10:
         playerMods[2] = 0
-    elif playerStats[2] == 11 or playerStats[0] == 12:
+    elif playerStats['Dexterity'] == 11 or playerStats['Strength'] == 12:
         playerMods[2] = 1
-    elif playerStats[2] == 13 or playerStats[0] == 14:
+    elif playerStats['Dexterity'] == 13 or playerStats['Strength'] == 14:
         playerMods[2] = 2
-    elif playerStats[2] == 15 or playerStats[0] == 16:
+    elif playerStats['Dexterity'] == 15 or playerStats['Strength'] == 16:
         playerMods[2] = 3
-    elif playerStats[1] == 17 or playerStats[0] == 18:
+    elif playerStats['Constituion'] == 17 or playerStats['Strength'] == 18:
         playerMods[2] = 4
-    elif playerStats[2] == 19 or playerStats[0] == 20:
+    elif playerStats['Dexterity'] == 19 or playerStats['Strength'] == 20:
         playerMods[2] = 5
-    elif playerStat[2] == 21 or playerStats[0] == 22:
+    elif playerStat[2] == 21 or playerStats['Strength'] == 22:
         playerMods[2] = 6
-    elif playerStats[2] == 23 or playerStats[0] == 24:
+    elif playerStats['Dexterity'] == 23 or playerStats['Strength'] == 24:
         playerMods[2] = 7
-    elif playerStats[2] == 25 or playerStats[0] == 26:
+    elif playerStats['Dexterity'] == 25 or playerStats['Strength'] == 26:
         playerMods[2] = 8
-    elif playerStats[2] == 27 or playerStats[0] == 28:
+    elif playerStats['Dexterity'] == 27 or playerStats['Strength'] == 28:
         playerMods[2] = 8
-    elif playerStats[2] == 29 or playerStats[0] == 30:
+    elif playerStats['Dexterity'] == 29 or playerStats['Strength'] == 30:
         playerMods[2] = 9
 
 def pIntMod():
-    if playerStats[3] == 1:
+    if playerStats['Intelligence'] == 1:
         playerMods[3] = -5
-    elif playerStats[3]  == 2 or  playerStats[0] == 3:
+    elif playerStats['Intelligence']  == 2 or  playerStats['Strength'] == 3:
         playerMods[3] = -4
-    elif playerStats[3] == 4 or playerStats[0] == 5:
+    elif playerStats['Intelligence'] == 4 or playerStats['Strength'] == 5:
         playerMods[3] = -3
-    elif playerStats[3] == 6 or playerStats[0] == 7:
+    elif playerStats['Intelligence'] == 6 or playerStats['Strength'] == 7:
         playerMods[3] = -2
-    elif playerStats[3] == 8 or playerStats[0] == 9:
+    elif playerStats['Intelligence'] == 8 or playerStats['Strength'] == 9:
         playerMods[3] = -1
-    elif playerStats[3] == 9 or playerStats[0] == 10:
+    elif playerStats['Intelligence'] == 9 or playerStats['Strength'] == 10:
         playerMods[3] = 0
-    elif playerStats[3] == 11 or playerStats[0] == 12:
+    elif playerStats['Intelligence'] == 11 or playerStats['Strength'] == 12:
         playerMods[3] = 1
-    elif playerStats[3] == 13 or playerStats[0] == 14:
+    elif playerStats['Intelligence'] == 13 or playerStats['Strength'] == 14:
         playerMods[3] = 2
-    elif playerStats[3] == 15 or playerStats[0] == 16:
+    elif playerStats['Intelligence'] == 15 or playerStats['Strength'] == 16:
         playerMods[3] = 3
-    elif playerStats[3] == 17 or playerStats[0] == 18:
+    elif playerStats['Intelligence'] == 17 or playerStats['Strength'] == 18:
         playerMods[3] = 4
-    elif playerStats[3] == 19 or playerStats[0] == 20:
+    elif playerStats['Intelligence'] == 19 or playerStats['Strength'] == 20:
         playerMods[3] = 5
-    elif playerStat[3] == 21 or playerStats[0] == 22:
+    elif playerStat[3] == 21 or playerStats['Strength'] == 22:
         playerMods[3] = 6
-    elif playerStats[3] == 23 or playerStats[0] == 24:
+    elif playerStats['Intelligence'] == 23 or playerStats['Strength'] == 24:
         playerMods[3] = 7
-    elif playerStats[3] == 25 or playerStats[0] == 26:
+    elif playerStats['Intelligence'] == 25 or playerStats['Strength'] == 26:
         playerMods[3] = 8
-    elif playerStats[3] == 27 or playerStats[0] == 28:
+    elif playerStats['Intelligence'] == 27 or playerStats['Strength'] == 28:
         playerMods[3] = 8
-    elif playerStats[3] == 29 or playerStats[0] == 30:
+    elif playerStats['Intelligence'] == 29 or playerStats['Strength'] == 30:
         playerMods[3] = 9
 
 def pWisMod():
-    if playerStats[4] == 1:
+    if playerStats['Wisdom'] == 1:
         playerMods[4] = -5
-    elif playerStats[4]  == 2 or  playerStats[0] == 3:
+    elif playerStats['Wisdom']  == 2 or  playerStats['Strength'] == 3:
         playerMods[4] = -4
-    elif playerStats[4] == 4 or playerStats[0] == 5:
+    elif playerStats['Wisdom'] == 4 or playerStats['Strength'] == 5:
         playerMods[4] = -3
-    elif playerStats[4] == 6 or playerStats[0] == 7:
+    elif playerStats['Wisdom'] == 6 or playerStats['Strength'] == 7:
         playerMods[4] = -2
-    elif playerStats[4] == 8 or playerStats[0] == 9:
+    elif playerStats['Wisdom'] == 8 or playerStats['Strength'] == 9:
         playerMods[4] = -1
-    elif playerStats[4] == 9 or playerStats[0] == 10:
+    elif playerStats['Wisdom'] == 9 or playerStats['Strength'] == 10:
         playerMods[4] = 0
-    elif playerStats[4] == 11 or playerStats[0] == 12:
+    elif playerStats['Wisdom'] == 11 or playerStats['Strength'] == 12:
         playerMods[4] = 1
-    elif playerStats[4] == 13 or playerStats[0] == 14:
+    elif playerStats['Wisdom'] == 13 or playerStats['Strength'] == 14:
         playerMods[4] = 2
-    elif playerStats[4] == 15 or playerStats[0] == 16:
+    elif playerStats['Wisdom'] == 15 or playerStats['Strength'] == 16:
         playerMods[4] = 3
-    elif playerStats[4] == 17 or playerStats[0] == 18:
+    elif playerStats['Wisdom'] == 17 or playerStats['Strength'] == 18:
         playerMods[4] = 4
-    elif playerStats[4] == 19 or playerStats[0] == 20:
+    elif playerStats['Wisdom'] == 19 or playerStats['Strength'] == 20:
         playerMods[4] = 5
-    elif playerStat[4] == 21 or playerStats[0] == 22:
+    elif playerStat[4] == 21 or playerStats['Strength'] == 22:
         playerMods[4] = 6
-    elif playerStats[4] == 23 or playerStats[0] == 24:
+    elif playerStats['Wisdom'] == 23 or playerStats['Strength'] == 24:
         playerMods[4] = 7
-    elif playerStats[4] == 25 or playerStats[0] == 26:
+    elif playerStats['Wisdom'] == 25 or playerStats['Strength'] == 26:
         playerMods[4] = 8
-    elif playerStats[4] == 27 or playerStats[0] == 28:
+    elif playerStats['Wisdom'] == 27 or playerStats['Strength'] == 28:
         playerMods[4] = 8
-    elif playerStats[4] == 29 or playerStats[0] == 30:
+    elif playerStats['Wisdom'] == 29 or playerStats['Strength'] == 30:
         playerMods[4] = 9
 
 def pCharMod():
 
-    if playerStats[5] == 1:
+    if playerStats['Charisma'] == 1:
         playerMods[5] = -5
-    elif playerStats[5]  == 2 or  playerStats[0] == 3:
+    elif playerStats['Charisma']  == 2 or  playerStats['Strength'] == 3:
         playerMods[5] = -4
-    elif playerStats[5] == 4 or playerStats[0] == 5:
+    elif playerStats['Charisma'] == 4 or playerStats['Strength'] == 5:
         playerMods[5] = -3
-    elif playerStats[5] == 6 or playerStats[0] == 7:
+    elif playerStats['Charisma'] == 6 or playerStats['Strength'] == 7:
         playerMods[5] = -2
-    elif playerStats[5] == 8 or playerStats[0] == 9:
+    elif playerStats['Charisma'] == 8 or playerStats['Strength'] == 9:
         playerMods[5] = -1
-    elif playerStats[5] == 9 or playerStats[0] == 10:
+    elif playerStats['Charisma'] == 9 or playerStats['Strength'] == 10:
         playerMods[5] = 0
-    elif playerStats[5] == 11 or playerStats[0] == 12:
+    elif playerStats['Charisma'] == 11 or playerStats['Strength'] == 12:
         playerMods[5] = 1
-    elif playerStats[5] == 13 or playerStats[0] == 14:
+    elif playerStats['Charisma'] == 13 or playerStats['Strength'] == 14:
         playerMods[5] = 2
-    elif playerStats[5] == 15 or playerStats[0] == 16:
+    elif playerStats['Charisma'] == 15 or playerStats['Strength'] == 16:
         playerMods[5] = 3
-    elif playerStats[5] == 17 or playerStats[0] == 18:
+    elif playerStats['Charisma'] == 17 or playerStats['Strength'] == 18:
         playerMods[5] = 4
-    elif playerStats[5] == 19 or playerStats[0] == 20:
+    elif playerStats['Charisma'] == 19 or playerStats['Strength'] == 20:
         playerMods[5] = 5
-    elif playerStat[5] == 21 or playerStats[0] == 22:
+    elif playerStat[5] == 21 or playerStats['Strength'] == 22:
         playerMods[5] = 6
-    elif playerStats[5] == 23 or playerStats[0] == 24:
+    elif playerStats['Charisma'] == 23 or playerStats['Strength'] == 24:
         playerMods[5] = 7
-    elif playerStats[5] == 25 or playerStats[0] == 26:
+    elif playerStats['Charisma'] == 25 or playerStats['Strength'] == 26:
         playerMods[5] = 8
-    elif playerStats[5] == 27 or playerStats[0] == 28:
+    elif playerStats['Charisma'] == 27 or playerStats['Strength'] == 28:
         playerMods[5] = 8
-    elif playerStats[5] == 29 or playerStats[0] == 30:
+    elif playerStats['Charisma'] == 29 or playerStats['Strength'] == 30:
         playerMods[5] = 9
 def profUp():
-    if playerStats[9] in range (1,4):
+    if playerStats['Level'] in range (1,4):
         playerMods[6] = 2
-    if playerStats[9] in range (5,8):
+    if playerStats['Level'] in range (5,8):
         playerMods[6] = 3
-    if playerStats[9] in range (9,12):
+    if playerStats['Level'] in range (9,12):
         playerMods[6] = 4
-    if playerStats[9] in range (13,16):
+    if playerStats['Level'] in range (13,16):
         playerMods[6] = 5
-    if playerStats[9] in range (17,20):
+    if playerStats['Level'] in range (17,20):
         playerMods[6] = 6
         
 
