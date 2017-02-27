@@ -43,8 +43,8 @@ speaksGnomish = False
 speaksOrc = False
 speaksInfernal = False
 
-#Here Be Misc Proficiencies 
-profDarkVision = False
+dicPlayerLanguages = {'Common': True, 'Dwarvish': False, 'Elvish': False, 'ThievesCant': False, 'Halfling': False, 'Draconic': False, 'Gnomish': False, 'Orc': False, 'Infernal': False}
+dicLanguages = {'Common': True, 'Dwarvish': False, 'Elvish': False, 'ThievesCant': False, 'Halfling': False, 'Draconic': False, 'Gnomish': False, 'Orc': False, 'Infernal': False}
 
 #Here Be Tool Proficiencies 
 profAlchSups = False
@@ -78,8 +78,11 @@ profPosionerKit = False
 profThievesTools = False
 profVehicles = False 
 
-
-
+dicPlayerToolProf = {'AlchSups' : False, 'CaligSups': False, 'CobblerSups': False, 'CookUtils': False, 'GlowBlowTools': False, 'JewlerTools': False, 'LeatherworkTools': False, 'PainterSups': False, 'PotterTools': False, 'TinkerTools': False, 'WeaverTools': False, 'WoodCarversTools': False, 
+    'DisguiseKit' : False, 'ForgeryKit': False, 'GamingSet': False, 'HerbalismKit': False, 'Bagpipes': False, 'Drum': False, 'Dulcimer': False, 'Flute': False, 'Lute': False, 'Lyre': False, 'Horn': False, 'PanFlute': False, 'Shawm': False, 'Viol': False, 'NavigatorTools': False, 'PosionerKit': False, 'ThievesTools': False, 'Vehicles': False }
+    
+dicPlayerToolProf = {'AlchSups' : False, 'CaligSups': False, 'CobblerSups': False, 'CookUtils': False, 'GlowBlowTools': False, 'JewlerTools': False, 'LeatherworkTools': False, 'PainterSups': False, 'PotterTools': False, 'TinkerTools': False, 'WeaverTools': False, 'WoodCarversTools': False, 
+    'DisguiseKit' : False, 'ForgeryKit': False, 'GamingSet': False, 'HerbalismKit': False, 'Bagpipes': False, 'Drum': False, 'Dulcimer': False, 'Flute': False, 'Lute': False, 'Lyre': False, 'Horn': False, 'PanFlute': False, 'Shawm': False, 'Viol': False, 'NavigatorTools': False, 'PosionerKit': False, 'ThievesTools': False, 'Vehicles': False }
 #Here Be Armor Proficiences
 profLightArmor = False
 profMediumArmor = False
