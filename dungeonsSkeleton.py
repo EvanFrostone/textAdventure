@@ -4,6 +4,8 @@ import os
 
 #To Do List
 
+#For all inputs should include error checking to make sure valid input is given
+
 #Make list to store Name, Race, Class, Background, Alignment
 #From this point on, declare ALL global variables and lists. This includes player stats,money, health, AC,  difficulty scores, monster stats, etc.
 #The Character Traits Indicies are as follows: ['Name', 'Race', 'Class', 'Alignment, 'Background']
@@ -220,83 +222,90 @@ def highElf():
 
     speechBoolean = True
     while speechBoolean == True:
-        extraLangQuery = input('You get to learn an extra language as a high elf! What language would you like to learn? Thieves\' Cant, Dwarvish, Halfling, Draconic, Gnomish, Orcish, or Infernal? ')
+        extraLangQuery = input('You get to learn an extra language as a high elf! \n\n%-20s %20s \n%-20s %20s \n%-20s %20s \n%-20s %20s \n\nPick the language that you would like to learn: ' % 
+            ('1. Thieves\' Cant', '5. Gnomish ', '2. Dwarvish', '6. Orchish ', '3. Halfling', '7. Infernal', '4. Draconic', '')) #last string is formatting place holder
         extraLangQuery = extraLangQuery.lower()
 
+        if extraLangQuery == '1':
+            extraLangQuery = 'thieves\'cant'
+        elif extraLangQuery == '2':
+            extraLangQuery = 'Dwarvish'
+        elif extraLangQuery == '3':
+            extraLangQuery = 'Halfling'
+        elif extraLangQuery == '4':
+            extraLangQuery = 'Draconic'
+        elif extraLangQuery == '5':
+            extraLangQuery = 'Gnomish'
+        elif extraLangQuery == '6':
+            extraLangQuery= 'Orchish'
+        elif extraLangQuery == '7':
+            extraLangQuery = 'Inferal'
 
         if extraLangQuery == 'thieves\' cant' or 'thieves\'cant':
-            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
-            
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksThievesCant = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
-
-
+            
         elif extraLangQuery == 'dwarvish':
-            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+        
+
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksDwarvish = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'halfling':
-            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+    
+
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksHalfling = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'draconic':
-            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+
+                
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s!' % (extraLangQuery))
                 speaksDraconic = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'gnomish':
-            confirmationQuery = input('Are you sure you want to speak Gnomish? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+            
+   
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksGnomish = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'orcish':
-            confirmationQuery = input('Are you sure you want to speak Orchish? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+
+
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksOrc = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'infernal':
-            confirmationQuery = input('Are you sure you want to speak Infernal? Answer yes or no. ')
-            if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+           confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+        
+           if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksInfernal = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
-
-
-        else:
-            speechBoolean = True
 
 def woodElf():
     elf()
@@ -338,6 +347,7 @@ def stoutHalf():
     #Stout needs advantage on saving throws against poison and poison resitance
     halfling()
     playerStats['Constituion'] = playerStats['Constituion'] + 1
+
 def human():
     playerStats['Strength'] = playerStats['Strength'] + 1
     playerStats['Constituion'] = playerStats['Constituion'] + 1
@@ -356,83 +366,92 @@ def human():
     global speaksInfernal 
     speechBoolean = True
     while speechBoolean == True:
-        extraLangQuery = input('You get to learn an extra language as a human! What language would you like to learn? Thieves\' Cant, Dwarvish, Halfling, Draconic, Gnomish, Orcish, or Infernal? ')
+        extraLangQuery = input('You get to learn an extra language as a human! \n\n%-20s %20s \n%-20s %20s \n%-20s %20s \n%-20s %20s \n\nPick the language that you would like to learn: ' % 
+            ('1. Thieves\' Cant', '5. Gnomish ', '2. Dwarvish', '6. Orchish ', '3. Halfling', '7. Infernal', '4. Draconic', '')) #last string is formatting place holder
         extraLangQuery = extraLangQuery.lower()
 
+        if extraLangQuery == '1':
+            extraLangQuery = 'thieves\'cant'
+        elif extraLangQuery == '2':
+            extraLangQuery = 'Dwarvish'
+        elif extraLangQuery == '3':
+            extraLangQuery = 'Halfling'
+        elif extraLangQuery == '4':
+            extraLangQuery = 'Draconic'
+        elif extraLangQuery == '5':
+            extraLangQuery = 'Gnomish'
+        elif extraLangQuery == '6':
+            extraLangQuery= 'Orchish'
+        elif extraLangQuery == '7':
+            extraLangQuery = 'Inferal'
 
         if extraLangQuery == 'thieves\' cant' or 'thieves\'cant':
-            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
-            
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksThievesCant = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
-
-
+            
         elif extraLangQuery == 'dwarvish':
-            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+        
+
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksDwarvish = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'halfling':
-            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+    
+
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksHalfling = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'draconic':
-            confirmationQuery = input('Are you sure you want to speak', extraLangQuery,'? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+
+                
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s!' % (extraLangQuery))
                 speaksDraconic = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'gnomish':
-            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+            
+   
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksGnomish = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'orcish':
-            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
+            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+
+
             if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksOrc = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
         elif extraLangQuery == 'infernal':
-            confirmationQuery = input('Are you sure you want to speak Thieves\'s Cant? Answer yes or no. ')
-            if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks',extraLangQuery,'!')
+           confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+        
+           if confirmationQuery.lower() == 'yes':
+                print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksInfernal = True
                 speechBoolean = False
-            else:
-                speechBoolean = True
 
 
-        else:
-            speechBoolean = True
 def dragonborn():
     #Dragonborn probably requires spellcasting to actually work so, comeback later
     clear()
@@ -1062,7 +1081,7 @@ def clear():
 def characterCreation():
     #In this function, the dialogue and machinery of character creation happens.
     #Character creation WILL change global variables, so this needs only be run ONCE, at the beginning of the game
-    halfElf()
+    human()
 
 
 
