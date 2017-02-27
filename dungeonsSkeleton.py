@@ -6,14 +6,18 @@ import os
 
 #Make list to store Name, Race, Class, Background, Alignment
 #From this point on, declare ALL global variables and lists. This includes player stats,money, health, AC,  difficulty scores, monster stats, etc.
-characterTraits = ['Name', 'Race', 'Class', 'Alignment', 'Background']
 #The Character Traits Indicies are as follows: ['Name', 'Race', 'Class', 'Alignment, 'Background']
-playerStats = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 ]
-#The Player Stats Indicies are as follows: [Strength (0) , Constitution (1) , Dexterity (2) , Intelligence (3) , Wisdom (4) , Charisma (5) , Health (6) , Gold (7), Armor Class (8), Level (9), XP (10), Initiative (11) ]
-playerMods = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
-#The Player Modifier Indicies are as Follows[Strength (0). Consitituion(1), Dexterity (2), Intelligence (3) , Wisdom (4) , Charisma (5), Proficieny Bonus(6) ]
-playerSkills = [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+characterTraits = ['Name', 'Race', 'Class', 'Alignment', 'Background']
+#The Player Stats (Armor Class = AC)
+playerStats = [ 'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0, 
+    'Health' : 0, 'Gold' : 0, 'AC' : 0, 'Level' : 1, 'XP' : 0, 'Initiative' : 0 ]
+
+#The Player Modifier (Proficieny Bonus = PB)
+playerMods = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0, 'PB' : 0}
+
 #The Player Skills Indicies are as follows: [Acrobatics (0), Animal Handling (1), Arcana(2), Athletics (3), Deception (4), History (5), Insight (6), Intimidation (7), Investigation (8), Medicine (9), Nature (10), Perception (11), Performance (12), Persuasion (13), Religion (14), Slight of Hand (15),#Stealth (16), Survival (17)]
+playerSkills = [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+
 playerSavingThrows = [ 0 , 0 , 0 , 0 , 0 , 0 ]
 #The Player Saving Throws Indicies are as follows:[Strength (0), Constituion(1), Dexterity (2), Intelligence (3), Wisdom (4), Charisma (5)]
 playerInventory =['Empty']
