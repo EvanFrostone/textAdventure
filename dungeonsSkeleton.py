@@ -20,7 +20,63 @@ class Player:
     #This is the player's inventory. Add items to it using the .append() function.
     inventory =['Empty']
     
-    #Here Be Language Proficiencies 
+    health = 0
+    gold = 0
+    level = 1
+    xp = 0
+
+#Initialize the Player class
+player = Player()
+
+class Race:
+
+    name = "Race Name"
+
+    #Stats
+    strength = 0
+    constituion = 0
+    dexterity = 0
+    intelligence = 0
+    wisodom = 0
+    charisma = 0
+    maxHealth = 0
+    armorClass = 0
+    initiative = 0
+
+    #Modifier
+    strengthMod = 0
+    constituionMod = 0
+    dexterityMod = 0
+    intelligenceMod = 0
+    wisdomMod = 0
+    charismaMod = 0
+    proficiencyBonus = 0
+
+    #Skill
+    acrobatics = 0
+    animalHandling = 0
+    arcana = 0
+    athletics = 0
+    deception = 0
+    history = 0
+    insight = 0
+    intimidation = 0
+    investigation = 0
+    medicine = 0
+    nature = 0
+    perception = 0
+    performance = 0
+    persuasion = 0
+    religion = 0
+    slightOfHand = 0
+    stealth = 0
+    survival = 0
+
+    #Saving Throws
+    savingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
+
+
+#Here Be Language Proficiencies 
     speaksCommon = True
     speaksDwarvish = False
     speaksElvish = False
@@ -138,75 +194,20 @@ class Player:
     profFeyAncestry = False
     profmaskoftheWild = False
     profsupDarkVision = False   
-
-#Initialize the Player class
-player = Player()
-
-class Race:
-
-    name = "Race Name"
-
-    #Stats
-    strength = 0
-    constituion = 0
-    dexterity = 0
-    intelligence = 0
-    wisodom = 0
-    charisma = 0
-    wisodom = 0
-    health = 0
-    gold = 0
-    armorClass = 0
-    level = 1
-    xp = 0
-    initiative = 0
-
-    #Modifier
-    strengthMod = 0
-    constituionMod = 0
-    dexterityMod = 0
-    intelligenceMod = 0
-    wisdomMod = 0
-    charismaMod = 0
-    proficiencyBonus = 0
-
-    #Skill
-    acrobatics = 0
-    animalHandling = 0
-    arcana = 0
-    athletics = 0
-    deception = 0
-    history = 0
-    insight = 0
-    intimidation = 0
-    investigation = 0
-    medicine = 0
-    nature = 0
-    perception = 0
-    performance = 0
-    persuasion = 0
-    religion = 0
-    slightOfHand = 0
-    stealth = 0
-    survival = 0
-
-    #Saving Throws
-    savingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
-
+    
 class Dwarf(Race):
     
-    def __init__ (self)
+    def __init__ (self):
         self.constitution += 2
    
-    profbattleAxe = True
-    profhandAxe = True
-    profthrowingHammer = True
-    profwarHammer = True
-    speaksCommon = True
-    speaksDwarvish = True
-    profDarkVision = True
+        self.profbattleAxe = True
+        self.profhandAxe = True
+        self.profthrowingHammer = True
+        self.profwarHammer = True
+        self.speaksCommon = True
+        self.speaksDwarvish = True
+        self.profDarkVision = True
 
->>>>>>> origin/master
 #Here Be Races
 def dwarf():
     global profbattleAxe
