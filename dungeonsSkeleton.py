@@ -6,27 +6,7 @@ import os
 
 #For all inputs should include error checking to make sure valid input is given
 
-#Make list to store Name, Race, Class, Background, Alignment
-#From this point on, declare ALL global variables and lists. This includes player stats,money, health, AC,  difficulty scores, monster stats, etc.
-#The Character Traits Indicies are as follows: ['Name', 'Race', 'Class', 'Alignment, 'Background']
-characterTraits = ['Name', 'Race', 'Class', 'Alignment', 'Background']
-
-#The Player Stats (Armor Class = AC)
-playerStats = { 'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0, 'Health' : 0,
-    'Gold' : 0, 'AC' : 0, 'Level' : 1, 'XP' : 0, 'Initiative' : 0 }
-
-#The Player Modifier (Proficieny Bonus = PB)
-playerMods = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0, 'PB' : 0}
-
-#The Player Skills (Animal Handling = AH) (Slight of Hand = SH)
-playerSkills = { 'Acrobatics' : 0 , 'AH' : 0 , 'Arcana' : 0 , 'Athletics' : 0 , 'Deception' : 0 , 'History' : 0 , 'Insight' : 0 , 'Intimidation' : 0 ,
-    'Investigation' : 0 , 'Medicine' : 0 , 'Nature' : 0 , 'Perception' : 0 , 'Performance' : 0 , 'Persuasion' : 0 , 'Religion' : 0 , 'SH' : 0 , 'Stealth' : 0 , 'Survival' : 0 }
-
-#The Player Saving Throws
-playerSavingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
-
-#This is the player's inventory. Add items to it using the .append() function.
-playerInventory =['Empty']
+player = Player()
 
 lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
 class Player
@@ -204,135 +184,8 @@ class Player
     profFeyAncestry = False
     profmaskoftheWild = False
     profsupDarkVision = False   
-#Here Be Proficiencies
 
-#Here Be Language Proficiencies 
-speaksCommon = True
-speaksDwarvish = False
-speaksElvish = False
-speaksThievesCant = False
-speaksHalfling = False
-speaksDraconic = False
-speaksGnomish = False
-speaksOrc = False
-speaksInfernal = False
-
-dicPlayerLanguages = {'Common': True, 'Dwarvish': False, 'Elvish': False, 'ThievesCant': False, 'Halfling': False, 'Draconic': False, 'Gnomish': False, 'Orc': False, 'Infernal': False}
-dicLanguages = {'Common': True, 'Dwarvish': False, 'Elvish': False, 'ThievesCant': False, 'Halfling': False, 'Draconic': False, 'Gnomish': False, 'Orc': False, 'Infernal': False}
-
-#Here Be Tool Proficiencies 
-profAlchSups = False
-profCaligSups = False
-profCobblerSups = False
-profCookUtils = False
-profGlassBlowTools = False
-profJewlerTools = False
-profLeatherworkTools = False
-profPainterSups = False
-profPotterTools = False
-profTinkerTools = False
-profWeaverTools = False
-profWoodcarversTools = False
-profDisguiseKit = False
-profForgeryKit = False
-profGamingSet = False
-profHerbalismKit = False
-profBagpipes = False
-profDrum = False
-profDulcimer = False
-profFlute = False
-profLute = False
-profLyre = False
-profHorn = False
-profPanFlute = False
-profShawm = False
-profViol = False
-profNavigatorTools = False
-profPosionerKit = False
-profThievesTools = False
-profVehicles = False 
-
-dicPlayerToolProf = {'AlchSups' : False, 'CaligSups': False, 'CobblerSups': False, 'CookUtils': False, 'GlowBlowTools': False, 'JewlerTools': False, 'LeatherworkTools': False, 'PainterSups': False, 'PotterTools': False, 'TinkerTools': False, 'WeaverTools': False, 'WoodCarversTools': False, 
-    'DisguiseKit' : False, 'ForgeryKit': False, 'GamingSet': False, 'HerbalismKit': False, 'Bagpipes': False, 'Drum': False, 'Dulcimer': False, 'Flute': False, 'Lute': False, 'Lyre': False, 'Horn': False, 'PanFlute': False, 'Shawm': False, 'Viol': False, 'NavigatorTools': False, 'PosionerKit': False, 'ThievesTools': False, 'Vehicles': False }
     
-dicPlayerToolProf = {'AlchSups' : False, 'CaligSups': False, 'CobblerSups': False, 'CookUtils': False, 'GlowBlowTools': False, 'JewlerTools': False, 'LeatherworkTools': False, 'PainterSups': False, 'PotterTools': False, 'TinkerTools': False, 'WeaverTools': False, 'WoodCarversTools': False, 
-    'DisguiseKit' : False, 'ForgeryKit': False, 'GamingSet': False, 'HerbalismKit': False, 'Bagpipes': False, 'Drum': False, 'Dulcimer': False, 'Flute': False, 'Lute': False, 'Lyre': False, 'Horn': False, 'PanFlute': False, 'Shawm': False, 'Viol': False, 'NavigatorTools': False, 'PosionerKit': False, 'ThievesTools': False, 'Vehicles': False }
-#Here Be Armor Proficiences
-profLightArmor = False
-profMediumArmor = False
-profHeavyArmor = False
-
-#Here Be Weapon Proficiencies 
-
-profbattleAxe = False
-profclub = False
-profdagger = False 
-profgreatClub = False
-profJavelin = False
-proflightHammer = False
-profhandAxe = False
-profthrowingHammer = False
-profwarHammer = False
-proflongBow = False
-proflongSword = False
-profshortBow = False
-profshortSword = False
-profrapiers = False
-profhandCrossbow = False
-profshields = False
-profsimpleWeapons = False
-profmartialWeapons = False
-profmace = False
-profquarterStaff = False
-profsickle = False
-profspear = False
-profunarmedStrike = False
-profdart = False
-profsling = False
-profflail = False
-profglaive = False
-profgreatSword = False
-profhalbred = False
-proflance = False
-profmaul = False
-profmorningStar = False
-profpike = False
-profscimitar = False
-proftrident = False
-profwarPick = False
-profwhip = False
-profblowGun = False
-profheavyCrossbow = False
-profnet = False
-
-
-
-
-#Here Be Skill Proficiencies
-profAcrobatics = False
-profAnimalHandling = False
-profArcana = False
-profAthletics = False
-profDeception = False
-profHistory = False
-profInsight = False
-profIntimidation = False
-profInvestigation = False
-profMedicine = False
-profNature = False
-profPerception = False
-profPerformance = False
-profPersuasion = False
-profReligion = False
-profSleightofHand = False
-profStealth = False
-profSurvival = False
-
-#HereBeSpecialSkills
-profDarkVision = False
-profFeyAncestry = False
-profmaskoftheWild = False
-profsupDarkVision = False
 #Here Be Races
 def dwarf():
     global profbattleAxe
