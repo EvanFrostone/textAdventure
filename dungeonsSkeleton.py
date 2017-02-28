@@ -5,10 +5,15 @@ import os
 #To Do List
 
 #For all inputs should include error checking to make sure valid input is given
+<<<<<<< HEAD
 
 player = Player()
 
+=======
+>>>>>>> origin/master
 lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
+
+#Make player class
 class Player
     name = 'Name'
     race = 'Race'
@@ -185,7 +190,18 @@ class Player
     profmaskoftheWild = False
     profsupDarkVision = False   
 
+<<<<<<< HEAD
     
+=======
+#Initialize the Player class
+player = Player()
+
+class Race
+    pass
+
+
+
+>>>>>>> origin/master
 #Here Be Races
 def dwarf():
     global profbattleAxe
