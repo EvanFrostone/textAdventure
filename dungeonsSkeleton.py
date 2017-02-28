@@ -5,62 +5,16 @@ import os
 #To Do List
 
 #For all inputs should include error checking to make sure valid input is given
+
 lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
 
 #Make player class
 class Player
     name = 'Name'
-    race = 'Race'
+    race = Race()
     _class = 'Class'
     alignment = 'Alignment'
     background = 'Background'
-
-    #Player Stats
-    strength = 0
-    constituion = 0
-    dexterity = 0
-    intelligence = 0
-    wisodom = 0
-    charisma = 0
-    wisodom = 0
-    health = 0
-    gold = 0
-    armorClass = 0
-    level = 1
-    xp = 0
-    initiative = 0
-
-    #The Player Modifier
-    strengthMod = 0
-    constituionMod = 0
-    dexterityMod = 0
-    intelligenceMod = 0
-    wisdomMod = 0
-    charismaMod = 0
-    proficiencyBonus = 0
-
-    #Player Stats
-    acrobatics = 0
-    animalHandling = 0
-    arcana = 0
-    athletics = 0
-    deception = 0
-    history = 0
-    insight = 0
-    intimidation = 0
-    investigation = 0
-    medicine = 0
-    nature = 0
-    perception = 0
-    performance = 0
-    persuasion = 0
-    religion = 0
-    slightOfHand = 0
-    stealth = 0
-    survival = 0
-
-    #The Player Saving Throws
-    savingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
 
     #This is the player's inventory. Add items to it using the .append() function.
     inventory =['Empty']
@@ -188,10 +142,60 @@ class Player
 player = Player()
 
 class Race
+
+    name = "Race Name"
+
+    #Stats
+    strength = 0
+    constituion = 0
+    dexterity = 0
+    intelligence = 0
+    wisodom = 0
+    charisma = 0
+    wisodom = 0
+    health = 0
+    gold = 0
+    armorClass = 0
+    level = 1
+    xp = 0
+    initiative = 0
+
+    #Modifier
+    strengthMod = 0
+    constituionMod = 0
+    dexterityMod = 0
+    intelligenceMod = 0
+    wisdomMod = 0
+    charismaMod = 0
+    proficiencyBonus = 0
+
+    #Skill
+    acrobatics = 0
+    animalHandling = 0
+    arcana = 0
+    athletics = 0
+    deception = 0
+    history = 0
+    insight = 0
+    intimidation = 0
+    investigation = 0
+    medicine = 0
+    nature = 0
+    perception = 0
+    performance = 0
+    persuasion = 0
+    religion = 0
+    slightOfHand = 0
+    stealth = 0
+    survival = 0
+
+    #Saving Throws
+    savingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
+
+class Dwarf(Race)
     pass
 
-
-
+>>>>>>> origin/master
 #Here Be Races
 def dwarf():
     global profbattleAxe
