@@ -9,7 +9,8 @@ import os
 lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
 
 #Make player class
-class Player
+class Player:
+
     name = 'Name'
     race = Race()
     _class = 'Class'
@@ -141,7 +142,7 @@ class Player
 #Initialize the Player class
 player = Player()
 
-class Race
+class Race:
 
     name = "Race Name"
 
@@ -192,8 +193,18 @@ class Race
     #Saving Throws
     savingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
 
-class Dwarf(Race)
-    pass
+class Dwarf(Race):
+    
+    def __init__ (self)
+        self.constitution += 2
+   
+    profbattleAxe = True
+    profhandAxe = True
+    profthrowingHammer = True
+    profwarHammer = True
+    speaksCommon = True
+    speaksDwarvish = True
+    profDarkVision = True
 
 >>>>>>> origin/master
 #Here Be Races
