@@ -199,10 +199,7 @@ class Dwarf(Race):
     
     def __init__ (self):
         self.constitution += 2
-<<<<<<< HEAD
-=======
-   
->>>>>>> origin/master
+
         self.profbattleAxe = True
         self.profhandAxe = True
         self.profthrowingHammer = True
@@ -210,7 +207,7 @@ class Dwarf(Race):
         self.speaksCommon = True
         self.speaksDwarvish = True
         self.profDarkVision = True
-<<<<<<< HEAD
+
 
 class hillDwarf(Dwarf):
 
