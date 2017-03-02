@@ -313,132 +313,46 @@ class highElf(elf):
                     print('Alright, your character now speaks %s' % (extraLangQuery))
                     self.speaksInfernal = True
                     speechBoolean = False
-=======
->>>>>>> origin/master
+class woodElf(elf):
 
-#Here Be Races
-def dwarf():
-    global profbattleAxe
-    global profhandAxe
-    global profthrowingHammer
-    global profwarHammer
-    global speaksCommon
-    global speaksDwarvish
-    global profDarkVision
-    profbattleAxe = True
-    profhandAxe = True
-    profthrowingHammer = True
-    profwarHammer = True
-    speaksCommon = True
-    speaksDwarvish = True
-    profDarkVision = True
-    playerStats['Constituion'] = playerStats['Constituion'] + 2
-def hillDwarf():
-    global profLightArmor
-    global profMediumArmor
-    dwarf()
-    profLightArmor = True
-    profMediumArmor = True
-    playerStats['Strength'] = playerStats['Strength'] + 2
+    def __init__ self:
+        self.proflongSword = True
+        self.profshortSword = True
+        self.proflongBow = True
+        self.profshortBow = True
+        self.wisdom += 1
+        self.profmaskoftheWild = True
+class drow(elf):
 
-def elf():
-    global profDarkVision
-    global profPerception
-    global profFeyAncestry
-    global speaksCommon
-    global speaksElvish
-    profDarkVision = True
-    profPerception = True
-    profFeyAncestry = True
-    speaksCommon = True
-    speaksElvish = True
-    playerStats['Dexterity'] = playerStats['Dexterity'] + 2
-def highElf():
-    elf()
-    global proflongSword
-    global profshortBow
-    global profshortSword
-    global proflongBow
-    global speaksCommon 
-    global speaksDwarvish
-    global speaksElvish
-    global speaksThievesCant 
-    global speaksHalfling
-    global speaksDraconic 
-    global speaksGnomish 
-    global speaksOrc 
-    global speaksInfernal 
-    proflongSword = True
-    profshortBow = True
-    proflongBow = True
-    profshortSword = True
-    playerStats['Intelligence'] = playerStats['Intelligence'] + 1
-    #High Elf needs a Cantrip (Come back once you've finished Spell Casting)
-    
-    #Here I ran into a sort of issue that got resolved
-    #I need a way to reask the player the "What language?" question if they make a mistake, or otherwise change their mind
-    #To do this, I created this very nested decision structure. The while is true from the start to run the loop. The player is asked their choice in language.abs
-    #Then, the input is checked in a number of "if" statements. The first checks the language, asks a confirmation question, and the second actually sets variables and changes stuff
-
-
-
-def woodElf():
-    elf()
-    global proflongSword
-    global profshortSword
-    global profshortBow
-    global proflongBow
-    global profmaskoftheWild
-    playerStats['Wisdom'] = playerStats['Wisdom'] + 1
-    proflongSword = True
-    profshortBow = True
-    proflongBow = True
-    profshortSword = True
-    profmaskoftheWild = True
-def drow():
-    elf()
+    def __init__ self:
+        self.profrapiers = True
+        self.profshortSword = True
+        self.profhandCrossbow = True
+        self.profsupDarkVision = True
+        self.charisma += 1
     #Drow needs disadvantage on attack rolls and perception rolls in direct sunlight
     #Drow also needs a hand full of cantrips
-    global profrapiers
-    global profshortSword
-    global profhandCrossbow
-    global profsupDarkVision
-    profrapiers = True
-    profshortSword = True
-    profhandCrossbow = True
-    profsupDarkVision = True
-    playerStats['Charisma'] = playerStats['Charisma'] + 1
 
-def halfling():
-    #Halfling needs luck? On crit miss on attack, ability check, or saving  rolls, can reroll, but must stay with roll
-    global speaksHalfling
-    speaksHalfling = True
-    playerStats['Dexterity'] = playerStats['Dexterity'] + 2
-def lightfoothalf():
-    halfling()
-    #lightfoot needs naturally stealthy 
-    playerStats['Charisma'] = playerStats['Charisma'] + 1
-def stoutHalf():
-    #Stout needs advantage on saving throws against poison and poison resitance
-    halfling()
-    playerStats['Constituion'] = playerStats['Constituion'] + 1
 
-def human():
-    playerStats['Strength'] = playerStats['Strength'] + 1
-    playerStats['Constituion'] = playerStats['Constituion'] + 1
-    playerStats['Dexterity'] = playerStats['Dexterity'] + 1
-    playerStats['Intelligence'] = playerStats['Intelligence'] + 1
-    playerStats['Wisdom'] = playerStats['Wisdom'] + 1
-    playerStats['Charisma'] = playerStats['Charisma'] + 1
-    global speaksCommon 
-    global speaksDwarvish
-    global speaksElvish
-    global speaksThievesCant 
-    global speaksHalfling
-    global speaksDraconic 
-    global speaksGnomish 
-    global speaksOrc 
-    global speaksInfernal 
+class halfling(Race):
+    self.speaksHalfling = True
+    self.dexterity += 2
+
+class lightHalfling(hafling):
+    #Needs naturally stealthy, so basically, make a stealth engine and comeback.
+    self.charisma += 1
+
+class stoutHalfling(halfling):
+    #Needs advantage on saving throws against poison and poison resistance
+    self.constituion += 1
+
+class human(Race):
+    self.strength += 1
+    self.constituion += 1
+    self.dexterity += 1
+    self.intelligence += 1
+    self.wisdom += 1
+    self.charisma += 1
     speechBoolean = True
     while speechBoolean == True:
         extraLangQuery = input('You get to learn an extra language as a human! \n\n%-20s %20s \n%-20s %20s \n%-20s %20s \n%-20s %20s \n\nPick the language that you would like to learn: ' % 
@@ -465,7 +379,7 @@ def human():
 
             if confirmationQuery.lower() == 'yes':
                 print('Alright, your character now speaks %s' % (extraLangQuery))
-                speaksThievesCant = True
+                self.speaksThievesCant = True
                 speechBoolean = False
             
         elif extraLangQuery == 'dwarvish':
@@ -474,7 +388,7 @@ def human():
 
             if confirmationQuery.lower() == 'yes':
                 print('Alright, your character now speaks %s' % (extraLangQuery))
-                speaksDwarvish = True
+                self.speaksDwarvish = True
                 speechBoolean = False
 
 
@@ -484,7 +398,7 @@ def human():
 
             if confirmationQuery.lower() == 'yes':
                 print('Alright, your character now speaks %s' % (extraLangQuery))
-                speaksHalfling = True
+                self.speaksHalfling = True
                 speechBoolean = False
 
 
@@ -494,7 +408,7 @@ def human():
                 
             if confirmationQuery.lower() == 'yes':
                 print('Alright, your character now speaks %s!' % (extraLangQuery))
-                speaksDraconic = True
+                self.speaksDraconic = True
                 speechBoolean = False
 
 
@@ -525,6 +439,10 @@ def human():
                 print('Alright, your character now speaks %s' % (extraLangQuery))
                 speaksInfernal = True
                 speechBoolean = False
+
+
+
+#Here Be Races
 
 
 def dragonborn():
@@ -1121,37 +1039,21 @@ def profUp():
         playerMods[6] = 6
         
 
-def wholeLvlUp():
-    levelUp()
-    pStrMod()
-    pConMod()
-    pDexMod()
-    pIntMod()
-    pWisMod()
-    pCharMod()
-    profUp()
+class wholeLvlUp():
+    
+    def __init__ self:
+        levelUp()
+        pStrMod()
+        pConMod()
+        pDexMod()
+        pIntMod()
+        pWisMod()
+        pCharMod()
+        profUp()
+      
+
     
 
-def textWait(wait):
-    #This is the average amount of pause between printed lines of text. Call this function to get pauses.
-    time.sleep(wait)
-    
-
-
-def dice(rolls, size):
-    #This function rolls dice for you.
-    #Put in the number of rolls and the size of dice you want rolled
-    #dice( 10 , 5 ) to roll  10 D5's
-    result = []
-    processingRolls = rolls
-    while processingRolls != 0:
-        processingRolls -= 1
-        result.append(random.randint( 0 , size ))
-    
-
-def clear():
-    #This function clears the screen of EVERYTHING. Use if the console is getting a little crowded
-    os.system('cls')
 
 def characterCreation():
     #In this function, the dialogue and machinery of character creation happens.
@@ -1170,7 +1072,21 @@ def  game():
     #All the actual story for the game should go here
     clear()
 
-def intro():
+
+
+
+class utils():
+    def clear():
+        #This function clears the screen of EVERYTHING. Use if the console is getting a little crowded
+        os.system('cls')
+        
+    def yesnoErrorMessage():
+        print('I\'m not quite sure what you said. Please answer with yes or no!')
+
+    def errorMessage():
+    print('Sorry, I\'m not quite sure what you said. Please try again!')
+
+    def intro():
     #The title screen should go here
     print('Welcome to my DnD Clone! ')
     startQuery = input('Do you wish to begin? Enter Yes or No ')
@@ -1182,8 +1098,20 @@ def intro():
 
     else:
         input('')
-def errorMessage():
-    print('Sorry, I\'m not quite sure what you said. Please try again!')
-def yesnoErrorMessage():
-    print('I\'m not quite sure what you said. Please answer with yes or no!')
-intro()
+
+    def dice(rolls, size):
+    #This function rolls dice for you.
+    #Put in the number of rolls and the size of dice you want rolled
+    #dice( 10 , 5 ) to roll  10 D5's
+    result = []
+    processingRolls = rolls
+    while processingRolls != 0:
+        processingRolls -= 1
+        result.append(random.randint( 0 , size ))
+
+
+
+utils.intro()
+
+
+
