@@ -198,8 +198,8 @@ class Race:
 class Dwarf(Race):
     
     def __init__ (self):
+        self.name = 'Dwarf'
         self.constitution += 2
-
         self.profbattleAxe = True
         self.profhandAxe = True
         self.profthrowingHammer = True
@@ -209,14 +209,14 @@ class Dwarf(Race):
         self.profDarkVision = True
 
 
-class hillDwarf(Dwarf):
+class HillDwarf(Dwarf):
 
     def __init__(self):
         self.strength += 2
         self.profLightArmor = True
         self.profMediumArmor = True
 
-class elf(Race):
+class Elf(Race):
 
     def __init__(self):
         self.dexterity += 2
@@ -225,7 +225,7 @@ class elf(Race):
         self.profFeyAncestry = True
         self.speaksCommon = True
         self.speaksElvish = True
-class highElf(elf):
+class HighElf(Elf):
     def __init__ (self):
         speechBoolean = True
         while speechBoolean == True:
@@ -313,10 +313,16 @@ class highElf(elf):
                     print('Alright, your character now speaks %s' % (extraLangQuery))
                     self.speaksInfernal = True
                     speechBoolean = False
-=======
->>>>>>> origin/master
 
-#Here Be Races
+
+
+
+
+class WoodElf(Elf):
+    def __init__(self)
+
+
+#Race Functions That are Being made to classes
 def dwarf():
     global profbattleAxe
     global profhandAxe
