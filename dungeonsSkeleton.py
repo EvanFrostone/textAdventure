@@ -314,12 +314,45 @@ class HighElf(Elf):
                     self.speaksInfernal = True
                     speechBoolean = False
 
-
-
-
-
 class WoodElf(Elf):
-    def __init__(self)
+    pass
+
+class Drow(Elf):
+    pass
+
+class Halfling(Race):
+    pass
+
+class LightFootHalf(Halfling):
+    pass
+
+class StoutHalf(Halfling):
+    pass
+
+class Human(Race):
+    pass
+
+class Dragonborn(Race):
+    pass
+
+class Gnome(Race):
+    pass
+
+class ForestGnome(Gnome):
+    pass
+
+class RockGnome(Gnome):
+    pass
+
+class HalfElf(Race):
+    pass
+
+#Weapons
+class Weapon:
+    pass
+
+class Dagger(Weapon):
+    pass
 
 
 #Race Functions That are Being made to classes
