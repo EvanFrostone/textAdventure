@@ -1,6 +1,7 @@
 import time
 import random
 import os
+import Utilities
 
 #To Do List
 
@@ -9,24 +10,10 @@ import os
 lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
 
 #Make player class
-class Player:
 
-    name = 'Name'
-    race = Race()
-    _class = 'Class'
-    alignment = 'Alignment'
-    background = 'Background'
-
-    #This is the player's inventory. Add items to it using the .append() function.
-    inventory =['Empty']
-    
-    health = 0
-    gold = 0
-    level = 1
-    xp = 0
 
 #Initialize the Player class
-player = Player()
+
 
 class Race:
 
@@ -34,7 +21,7 @@ class Race:
 
     #Stats
     strength = 0
-    constituion = 0
+    constitution = 0
     dexterity = 0
     intelligence = 0
     wisodom = 0
@@ -45,7 +32,7 @@ class Race:
 
     #Modifier
     strengthMod = 0
-    constituionMod = 0
+    constitutionMod = 0
     dexterityMod = 0
     intelligenceMod = 0
     wisdomMod = 0
@@ -210,7 +197,7 @@ class Dwarf(Race):
 
 
 class hillDwarf(Dwarf):
-
+    Dwarf.__init__(Race)
     def __init__(self):
         self.strength += 2
         self.profLightArmor = True
@@ -226,6 +213,7 @@ class elf(Race):
         self.speaksCommon = True
         self.speaksElvish = True
 class highElf(elf):
+    elf.__init__(Race)
     def __init__ (self):
         speechBoolean = True
         while speechBoolean == True:
@@ -307,15 +295,15 @@ class highElf(elf):
 
 
             elif extraLangQuery == 'infernal':
-            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+                confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
             
             if confirmationQuery.lower() == 'yes':
                     print('Alright, your character now speaks %s' % (extraLangQuery))
                     self.speaksInfernal = True
                     speechBoolean = False
 class woodElf(elf):
-
-    def __init__ self:
+    elf.__init__(Race)
+    def __init__ (self):
         self.proflongSword = True
         self.profshortSword = True
         self.proflongBow = True
@@ -323,8 +311,8 @@ class woodElf(elf):
         self.wisdom += 1
         self.profmaskoftheWild = True
 class drow(elf):
-
-    def __init__ self:
+    elf.__init__(Race)
+    def __init__ (self):
         self.profrapiers = True
         self.profshortSword = True
         self.profhandCrossbow = True
@@ -335,110 +323,117 @@ class drow(elf):
 
 
 class halfling(Race):
-    self.speaksHalfling = True
-    self.dexterity += 2
+    def __init__(self):
+        self.speaksHalfling = True
+        self.dexterity += 2
 
-class lightHalfling(hafling):
+class lightHalfling(halfling):
     #Needs naturally stealthy, so basically, make a stealth engine and comeback.
-    self.charisma += 1
+    halfling.__init__(Race)
+    def __init__(self):
+        self.charisma += 1
 
 class stoutHalfling(halfling):
     #Needs advantage on saving throws against poison and poison resistance
-    self.constituion += 1
+    halfling.__init__(Race)
+
+    def __init__(self):
+        self.constituion += 1
 
 class human(Race):
-    self.strength += 1
-    self.constituion += 1
-    self.dexterity += 1
-    self.intelligence += 1
-    self.wisdom += 1
-    self.charisma += 1
-    speechBoolean = True
-    while speechBoolean == True:
-        extraLangQuery = input('You get to learn an extra language as a human! \n\n%-20s %20s \n%-20s %20s \n%-20s %20s \n%-20s %20s \n\nPick the language that you would like to learn: ' % 
-            ('1. Thieves\' Cant', '5. Gnomish ', '2. Dwarvish', '6. Orchish ', '3. Halfling', '7. Infernal', '4. Draconic', '')) #last string is formatting place holder
-        extraLangQuery = extraLangQuery.lower()
+    def __init__(self):
+        self.strength += 1
+        self.constituion += 1
+        self.dexterity += 1
+        self.intelligence += 1
+        self.wisdom += 1
+        self.charisma += 1
+        speechBoolean = True
+        while speechBoolean == True:
+            extraLangQuery = input('You get to learn an extra language as a human! \n\n%-20s %20s \n%-20s %20s \n%-20s %20s \n%-20s %20s \n\nPick the language that you would like to learn: ' % 
+                ('1. Thieves\' Cant', '5. Gnomish ', '2. Dwarvish', '6. Orchish ', '3. Halfling', '7. Infernal', '4. Draconic', '')) #last string is formatting place holder
+            extraLangQuery = extraLangQuery.lower()
 
-        if extraLangQuery == '1':
-            extraLangQuery = 'thieves\'cant'
-        elif extraLangQuery == '2':
-            extraLangQuery = 'Dwarvish'
-        elif extraLangQuery == '3':
-            extraLangQuery = 'Halfling'
-        elif extraLangQuery == '4':
-            extraLangQuery = 'Draconic'
-        elif extraLangQuery == '5':
-            extraLangQuery = 'Gnomish'
-        elif extraLangQuery == '6':
-            extraLangQuery= 'Orchish'
-        elif extraLangQuery == '7':
-            extraLangQuery = 'Inferal'
+            if extraLangQuery == '1':
+                extraLangQuery = 'thieves\'cant'
+            elif extraLangQuery == '2':
+                extraLangQuery = 'Dwarvish'
+            elif extraLangQuery == '3':
+                extraLangQuery = 'Halfling'
+            elif extraLangQuery == '4':
+                extraLangQuery = 'Draconic'
+            elif extraLangQuery == '5':
+                extraLangQuery = 'Gnomish'
+            elif extraLangQuery == '6':
+                extraLangQuery= 'Orchish'
+            elif extraLangQuery == '7':
+                extraLangQuery = 'Inferal'
 
-        if extraLangQuery == 'thieves\' cant' or 'thieves\'cant':
-            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+            if extraLangQuery == 'thieves\' cant' or 'thieves\'cant':
+                confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
 
-            if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks %s' % (extraLangQuery))
-                self.speaksThievesCant = True
-                speechBoolean = False
-            
-        elif extraLangQuery == 'dwarvish':
-            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
-        
-
-            if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks %s' % (extraLangQuery))
-                self.speaksDwarvish = True
-                speechBoolean = False
-
-
-        elif extraLangQuery == 'halfling':
-            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
-    
-
-            if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks %s' % (extraLangQuery))
-                self.speaksHalfling = True
-                speechBoolean = False
-
-
-        elif extraLangQuery == 'draconic':
-            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
-
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks %s' % (extraLangQuery))
+                    self.speaksThievesCant = True
+                    speechBoolean = False
                 
-            if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks %s!' % (extraLangQuery))
-                self.speaksDraconic = True
-                speechBoolean = False
-
-
-        elif extraLangQuery == 'gnomish':
-            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+            elif extraLangQuery == 'dwarvish':
+                confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
             
-   
-            if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks %s' % (extraLangQuery))
-                speaksGnomish = True
-                speechBoolean = False
+
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks %s' % (extraLangQuery))
+                    self.speaksDwarvish = True
+                    speechBoolean = False
 
 
-        elif extraLangQuery == 'orcish':
-            confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
-
-
-            if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks %s' % (extraLangQuery))
-                speaksOrc = True
-                speechBoolean = False
-
-
-        elif extraLangQuery == 'infernal':
-           confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+            elif extraLangQuery == 'halfling':
+                confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
         
-           if confirmationQuery.lower() == 'yes':
-                print('Alright, your character now speaks %s' % (extraLangQuery))
-                speaksInfernal = True
-                speechBoolean = False
+
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks %s' % (extraLangQuery))
+                    self.speaksHalfling = True
+                    speechBoolean = False
+
+
+            elif extraLangQuery == 'draconic':
+                confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+
+                    
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks %s!' % (extraLangQuery))
+                    self.speaksDraconic = True
+                    speechBoolean = False
+
+
+            elif extraLangQuery == 'gnomish':
+                confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+                
+    
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks %s' % (extraLangQuery))
+                    self.speaksGnomish = True
+                    speechBoolean = False
+
+
+            elif extraLangQuery == 'orcish':
+                confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+
+
+                if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks %s' % (extraLangQuery))
+                    self.speaksOrc = True
+                    speechBoolean = False
+
+
+            elif extraLangQuery == 'infernal':
+                confirmationQuery = input('Are you sure you want to speak %s?\nAnswer yes or no: ' % (extraLangQuery))
+            
+            if confirmationQuery.lower() == 'yes':
+                    print('Alright, your character now speaks %s' % (extraLangQuery))
+                    self.speaksInfernal = True
+                    speechBoolean = False
 
 
 
@@ -456,12 +451,12 @@ def dragonborn():
 def gnome():
     global profDarkVision
     profDarkVision = True
-    playerStats['Intelligence'] = playerStats['Intelligence'] + 2
+    player.wisdom = player.wisdom + 2
 
 def forestGnome():
     #Needs minor illusion cantrip
     gnome()
-    playerStats['Dexterity'] = playerStats['Dexterity'] + 1
+    player.dexterity = player.dexterity + 1
 
 def rockGnome():
     global profTinkerTools
@@ -469,7 +464,7 @@ def rockGnome():
     #clockwork device, gotta make sometime 
     gnome()
     #Artificers Lore, make history check related to magic, alchemical, or tech items, add 2x proficiency bonus
-    playerStats['Constituion'] = playerStats['Constituion'] + 1
+    player.constituion = player.constituion + 1
 
 def halfElf():
     global profDarkVision 
@@ -508,7 +503,7 @@ def halfElf():
     speaksElvish = True
     
 
-    playerStats['Charisma'] = playerStats['Charisma'] + 2
+    player.charisma = player.charisma + 2
     print('As a half elf, you have the ability to increase two of your ability scores by one.')
 
     checkStatQuery1 = True
@@ -523,17 +518,17 @@ def halfElf():
                 statQuery1query = input('You want to increase your '+ printStatQuery1 +'? ')
                 if statQuery1query.lower() == 'yes':
                     if statQuery1 == 'strength':
-                        playerStats['Strength'] = playerStats['Strength'] + 1
+                        Player.strength += 1
                     elif statQuery1 == 'constitution': 
-                        playerStats['Constituion'] = playerStats['Constituion'] + 1
+                        Player.constituion += 1
                     elif statQuery1 == 'dexterity': 
-                        playerStats['Dexterity'] = playerStats['Dexterity'] + 1
+                        Player.dexterity += 1
                     elif statQuery1 == 'intelligence': 
-                        playerStats['Intelligence'] = playerStats['Intelligence'] + 1
+                        Player.intelligence += 1
                     elif statQuery1 == 'wisdom':
-                        playerStats['Wisdom'] = playerStats['Wisdom'] + 1
+                        Player.wisdom += 1
                     elif statQuery1 == 'charisma': 
-                        playerStats['Charisma'] = playerStats['Charisma'] + 1
+                        Player.charisma += 1
                     secondaryConfirmationError = False
                     checkStatQuery1 = False
                 elif statQuery1query == 'no':
@@ -560,17 +555,17 @@ def halfElf():
             statQuery2query = input('You want to increase your '+ printStatQuery2 +'? ')
             if statQuery2query.lower() == 'yes':
                 if statQuery2 == 'strength':
-                    playerStats['Strength'] = playerStats['Strength'] + 1
+                    player.strength = player.strength + 1
                 elif statQuery2 == 'constitution': 
-                    playerStats['Constituion'] = playerStats['Constituion'] + 1
+                    player.constituion = player.constituion + 1
                 elif statQuery2 == 'dexterity': 
-                    playerStats['Dexterity'] = playerStats['Dexterity'] + 1
+                    player.dexterity = player.dexterity + 1
                 elif statQuery2 == 'intelligence': 
-                    playerStats['Intelligence'] = playerStats['Intelligence'] + 1
+                    player.wisdom = player.wisdom + 1
                 elif statQuery2 == 'wisdom':
-                    playerStats['Wisdom'] = playerStats['Wisdom'] + 1
+                    player.wisdom = player.wisdom + 1
                 elif statQuery2 == 'charisma': 
-                    playerStats['Charisma'] = playerStats['Charisma'] + 1
+                    player.charisma = player.charisma + 1
                 secondaryConfirmationError = False
                 checkStatQuery2 = False
             elif statQuery2query == 'no':
@@ -663,396 +658,293 @@ def halfElf():
 
 
 
-    skillBoolean = True 
-    while skillBoolean == True:
-        print('As a half elf, you also get to become proficient in two skills of your choice.')
-        textWait(3)
-        print('What two skills would you like to become proficient in?')
-        profQuery = input('You have a choice between Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation, Medicine, Nature, Perception, Performance, Persuassion, Religion, Sleight of Hand, Stealth, and Survival')
-        profQuery = profQuery.lower()
-        if profQuery == 'acrobatics':
-            profAcrobatics = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
+class Player:
 
+    name = 'Name'
+    race = Race()
+    Class = 'Class'
+    alignment = 'Alignment'
+    background = 'Background'
 
-        elif profQuery == 'animal handling':
-            profAnimalHandling = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'arcana':
-            profArcana = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'athletics':
-            profAthletics = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'deception':
-            profDeception = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'history':
-            profHistory = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'insight':
-            profInsight = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'medicine':
-            profMedicine = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'nature':
-            profNature = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'perception':
-            profPerception = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'performance':
-            profPerformance = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'persuasion':
-            profPersuasion = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'sleight of hand':
-            profSleightofHand = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'stealth':
-            profStealth = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-
-        elif profQuery == 'survival':
-            profSurvival = True
-            skillBoolean = False
-            print('Alright, your character is now proficient in ' + profQuery )
-
-        else:
-            print('I\'m not quite sure what you said, please try again!')
-            skillBoolean = True
-            textWait(2)
-
+    #This is the player's inventory. Add items to it using the .append() function.
+    inventory =['Empty']
+    
+    health = 0
+    gold = 0
+    level = 1
+    xp = 0
                 
 
   
 
-#Here Be Weapons 
-def dagger():
-
-    clear()
 
 
 
-def dwarfStats():
-    global speaksCommon
-    global speaksDwarvish
-    speaksCommon = True
-    speaksDwarvish = True
-def levelUp():
-    if playerStats['XP'] in range (lvlUpTuple[0], lvlUpTuple[1]):
-        playerStats['Level'] = 1
-    if playerStats['XP'] in range (lvlUpTuple[1] ,lvlUpTuple[2]):
-        playerStats['Level'] = 2
-    if playerStats['XP'] in range (lvlUpTuple[2] , lvlUpTuple[3]):
-        playerStats['Level'] = 3
-    if playerStats['XP'] in range (lvlUpTuple[3] , lvlUpTuple[4]):
-        playerStats['Level'] = 4
-    if playerStats['XP'] in range (lvlUpTuple[4] , lvlUpTuple[5]):
-        playerStats['Level'] = 5
-    if playerStats['XP'] in range (lvlUpTuple[5] , lvlUpTuple[6]):
-        playerStats['Level'] = 6
-    if playerStats['XP'] in range (lvlUpTuple[6] , lvlUpTuple[7]):
-        playerStats['Level'] = 7
-    if playerStats['XP'] in range (lvlUpTuple[7] , lvlUpTuple[8]):
-        playerStats['Level'] = 8
-    if playerStats['XP'] in range (lvlUpTuple[8] , lvlUpTuple[9]):
-        playerStats['Level'] = 9
-    if playerStats['XP'] in range (lvlUpTuple[9] , lvlUpTuple[10]):
-        playerStats['Level'] = 10
-    if playerStats['XP'] in range (lvlUpTuple[10] , lvlUpTuple[11]):
-        playerStats['Level'] = 11
-    if playerStats['XP'] in range (lvlUpTuple[11] , lvlUpTuple[12]):
-        playerStats['Level'] = 12
-    if playerStats['XP'] in range (lvlUpTuple[12] , lvlUpTuple[13]):
-        playerStats['Level'] = 13
-    if playerStats['XP'] in range (lvlUpTuple[12] , lvlUpTuple[13]):
-        playerStats['Level'] = 14
-    if playerStats['XP'] in range (lvlUpTuple[13] , lvlUpTuple[14]):
-        playerStats['Level'] = 15
-    if playerStats['XP'] in range (lvlUpTuple[14] , lvlUpTuple[15]):
-        playerStats['Level'] = 16
-    if playerStats['XP'] in range (lvlUpTuple[15] , lvlUpTuple[16]):
-        playerStats['Level'] = 17
-    if playerStats['XP'] in range (lvlUpTuple[16] , lvlUpTuple[17]):
-        playerStats['Level'] = 18
-    if playerStats['XP'] in range (lvlUpTuple[17] , lvlUpTuple[18]):
-        playerStats['Level'] = 19
-    if playerStats['XP'] in range (lvlUpTuple[18] , lvlUpTuple[19]):
-        playerStats['Level'] = 20
-        
-def pStrMod():
-    if playerStats['Strength'] == 1:
-        playerMods[0] = -5
-    elif playerStats['Strength']  == 2 or  playerStats['Strength'] == 3:
-        playerMods[0] = -4
-    elif playerStats['Strength'] == 4 or playerStats['Strength'] == 5:
-        playerMods[0] = -3
-    elif playerStats['Strength'] == 6 or playerStats['Strength'] == 7:
-        playerMods[0] = -2
-    elif playerStats['Strength'] == 8 or playerStats['Strength'] == 9:
-        playerMods[0] = -1
-    elif playerStats['Strength'] == 9 or playerStats['Strength'] == 10:
-        playerMods[0] = 0
-    elif playerStats['Strength'] == 11 or playerStats['Strength'] == 12:
-        playerMods[0] = 1
-    elif playerStats['Strength'] == 13 or playerStats['Strength'] == 14:
-        playerMods[0] = 2
-    elif playerStats['Strength'] == 15 or playerStats['Strength'] == 16:
-        playerMods[0] = 3
-    elif playerStats['Strength'] == 17 or playerStats['Strength'] == 18:
-        playerMods[0] = 4
-    elif playerStats['Strength'] == 19 or playerStats['Strength'] == 20:
-        playerMods[0] = 5
-    elif playerStat[0] == 21 or playerStats['Strength'] == 22:
-        playerMods[0] = 6
-    elif playerStats['Strength'] == 23 or playerStats['Strength'] == 24:
-        playerMods[0] = 7
-    elif playerStats['Strength'] == 25 or playerStats['Strength'] == 26:
-        playerMods[0] = 8
-    elif playerStats['Strength'] == 27 or playerStats['Strength'] == 28:
-        playerMods[0] = 8
-    elif playerStats['Strength'] == 29 or playerStats['Strength'] == 30:
-        playerMods[0] = 9
 
-def pConMod():
-    if playerStats['Constituion'] == 1:
-        playerMods[1] = -5
-    elif playerStats['Constituion']  == 2 or  playerStats['Strength'] == 3:
-        playerMods[1] = -4
-    elif playerStats['Constituion'] == 4 or playerStats['Strength'] == 5:
-        playerMods[1] = -3
-    elif playerStats['Constituion'] == 6 or playerStats['Strength'] == 7:
-        playerMods[1] = -2
-    elif playerStats['Constituion'] == 8 or playerStats['Strength'] == 9:
-        playerMods[1] = -1
-    elif playerStats['Constituion'] == 9 or playerStats['Strength'] == 10:
-        playerMods[1] = 0
-    elif playerStats['Constituion'] == 11 or playerStats['Strength'] == 12:
-        playerMods[1] = 1
-    elif playerStats['Constituion'] == 13 or playerStats['Strength'] == 14:
-        playerMods[1] = 2
-    elif playerStats['Constituion'] == 15 or playerStats['Strength'] == 16:
-        playerMods[1] = 3
-    elif playerStats['Constituion'] == 17 or playerStats['Strength'] == 18:
-        playerMods[1] = 4
-    elif playerStats['Constituion'] == 19 or playerStats['Strength'] == 20:
-        playerMods[1] = 5
-    elif playerStat[1] == 21 or playerStats['Strength'] == 22:
-        playerMods[1] = 6
-    elif playerStats['Constituion'] == 23 or playerStats['Strength'] == 24:
-        playerMods[1] = 7
-    elif playerStats['Constituion'] == 25 or playerStats['Strength'] == 26:
-        playerMods[1] = 8
-    elif playerStats['Constituion'] == 27 or playerStats['Strength'] == 28:
-        playerMods[1] = 8
-    elif playerStats['Constituion'] == 29 or playerStats['Strength'] == 30:
-        playerMods[1] = 9
 
-def pDexMod():
-    if playerStats['Dexterity'] == 1:
-        playerMods[2] = -5
-    elif playerStats['Dexterity']  == 2 or  playerStats['Strength'] == 3:
-        playerMods[2] = -4
-    elif playerStats['Dexterity'] == 4 or playerStats['Strength'] == 5:
-        playerMods[2] = -3
-    elif playerStats['Dexterity'] == 6 or playerStats['Strength'] == 7:
-        playerMods[2] = -2
-    elif playerStats['Dexterity'] == 8 or playerStats['Strength'] == 9:
-        playerMods[2] = -1
-    elif playerStats['Dexterity'] == 9 or playerStats['Strength'] == 10:
-        playerMods[2] = 0
-    elif playerStats['Dexterity'] == 11 or playerStats['Strength'] == 12:
-        playerMods[2] = 1
-    elif playerStats['Dexterity'] == 13 or playerStats['Strength'] == 14:
-        playerMods[2] = 2
-    elif playerStats['Dexterity'] == 15 or playerStats['Strength'] == 16:
-        playerMods[2] = 3
-    elif playerStats['Constituion'] == 17 or playerStats['Strength'] == 18:
-        playerMods[2] = 4
-    elif playerStats['Dexterity'] == 19 or playerStats['Strength'] == 20:
-        playerMods[2] = 5
-    elif playerStat[2] == 21 or playerStats['Strength'] == 22:
-        playerMods[2] = 6
-    elif playerStats['Dexterity'] == 23 or playerStats['Strength'] == 24:
-        playerMods[2] = 7
-    elif playerStats['Dexterity'] == 25 or playerStats['Strength'] == 26:
-        playerMods[2] = 8
-    elif playerStats['Dexterity'] == 27 or playerStats['Strength'] == 28:
-        playerMods[2] = 8
-    elif playerStats['Dexterity'] == 29 or playerStats['Strength'] == 30:
-        playerMods[2] = 9
-
-def pIntMod():
-    if playerStats['Intelligence'] == 1:
-        playerMods[3] = -5
-    elif playerStats['Intelligence']  == 2 or  playerStats['Strength'] == 3:
-        playerMods[3] = -4
-    elif playerStats['Intelligence'] == 4 or playerStats['Strength'] == 5:
-        playerMods[3] = -3
-    elif playerStats['Intelligence'] == 6 or playerStats['Strength'] == 7:
-        playerMods[3] = -2
-    elif playerStats['Intelligence'] == 8 or playerStats['Strength'] == 9:
-        playerMods[3] = -1
-    elif playerStats['Intelligence'] == 9 or playerStats['Strength'] == 10:
-        playerMods[3] = 0
-    elif playerStats['Intelligence'] == 11 or playerStats['Strength'] == 12:
-        playerMods[3] = 1
-    elif playerStats['Intelligence'] == 13 or playerStats['Strength'] == 14:
-        playerMods[3] = 2
-    elif playerStats['Intelligence'] == 15 or playerStats['Strength'] == 16:
-        playerMods[3] = 3
-    elif playerStats['Intelligence'] == 17 or playerStats['Strength'] == 18:
-        playerMods[3] = 4
-    elif playerStats['Intelligence'] == 19 or playerStats['Strength'] == 20:
-        playerMods[3] = 5
-    elif playerStat[3] == 21 or playerStats['Strength'] == 22:
-        playerMods[3] = 6
-    elif playerStats['Intelligence'] == 23 or playerStats['Strength'] == 24:
-        playerMods[3] = 7
-    elif playerStats['Intelligence'] == 25 or playerStats['Strength'] == 26:
-        playerMods[3] = 8
-    elif playerStats['Intelligence'] == 27 or playerStats['Strength'] == 28:
-        playerMods[3] = 8
-    elif playerStats['Intelligence'] == 29 or playerStats['Strength'] == 30:
-        playerMods[3] = 9
-
-def pWisMod():
-    if playerStats['Wisdom'] == 1:
-        playerMods[4] = -5
-    elif playerStats['Wisdom']  == 2 or  playerStats['Strength'] == 3:
-        playerMods[4] = -4
-    elif playerStats['Wisdom'] == 4 or playerStats['Strength'] == 5:
-        playerMods[4] = -3
-    elif playerStats['Wisdom'] == 6 or playerStats['Strength'] == 7:
-        playerMods[4] = -2
-    elif playerStats['Wisdom'] == 8 or playerStats['Strength'] == 9:
-        playerMods[4] = -1
-    elif playerStats['Wisdom'] == 9 or playerStats['Strength'] == 10:
-        playerMods[4] = 0
-    elif playerStats['Wisdom'] == 11 or playerStats['Strength'] == 12:
-        playerMods[4] = 1
-    elif playerStats['Wisdom'] == 13 or playerStats['Strength'] == 14:
-        playerMods[4] = 2
-    elif playerStats['Wisdom'] == 15 or playerStats['Strength'] == 16:
-        playerMods[4] = 3
-    elif playerStats['Wisdom'] == 17 or playerStats['Strength'] == 18:
-        playerMods[4] = 4
-    elif playerStats['Wisdom'] == 19 or playerStats['Strength'] == 20:
-        playerMods[4] = 5
-    elif playerStat[4] == 21 or playerStats['Strength'] == 22:
-        playerMods[4] = 6
-    elif playerStats['Wisdom'] == 23 or playerStats['Strength'] == 24:
-        playerMods[4] = 7
-    elif playerStats['Wisdom'] == 25 or playerStats['Strength'] == 26:
-        playerMods[4] = 8
-    elif playerStats['Wisdom'] == 27 or playerStats['Strength'] == 28:
-        playerMods[4] = 8
-    elif playerStats['Wisdom'] == 29 or playerStats['Strength'] == 30:
-        playerMods[4] = 9
-
-def pCharMod():
-
-    if playerStats['Charisma'] == 1:
-        playerMods[5] = -5
-    elif playerStats['Charisma']  == 2 or  playerStats['Strength'] == 3:
-        playerMods[5] = -4
-    elif playerStats['Charisma'] == 4 or playerStats['Strength'] == 5:
-        playerMods[5] = -3
-    elif playerStats['Charisma'] == 6 or playerStats['Strength'] == 7:
-        playerMods[5] = -2
-    elif playerStats['Charisma'] == 8 or playerStats['Strength'] == 9:
-        playerMods[5] = -1
-    elif playerStats['Charisma'] == 9 or playerStats['Strength'] == 10:
-        playerMods[5] = 0
-    elif playerStats['Charisma'] == 11 or playerStats['Strength'] == 12:
-        playerMods[5] = 1
-    elif playerStats['Charisma'] == 13 or playerStats['Strength'] == 14:
-        playerMods[5] = 2
-    elif playerStats['Charisma'] == 15 or playerStats['Strength'] == 16:
-        playerMods[5] = 3
-    elif playerStats['Charisma'] == 17 or playerStats['Strength'] == 18:
-        playerMods[5] = 4
-    elif playerStats['Charisma'] == 19 or playerStats['Strength'] == 20:
-        playerMods[5] = 5
-    elif playerStat[5] == 21 or playerStats['Strength'] == 22:
-        playerMods[5] = 6
-    elif playerStats['Charisma'] == 23 or playerStats['Strength'] == 24:
-        playerMods[5] = 7
-    elif playerStats['Charisma'] == 25 or playerStats['Strength'] == 26:
-        playerMods[5] = 8
-    elif playerStats['Charisma'] == 27 or playerStats['Strength'] == 28:
-        playerMods[5] = 8
-    elif playerStats['Charisma'] == 29 or playerStats['Strength'] == 30:
-        playerMods[5] = 9
-def profUp():
-    if playerStats['Level'] in range (1,4):
-        playerMods[6] = 2
-    if playerStats['Level'] in range (5,8):
-        playerMods[6] = 3
-    if playerStats['Level'] in range (9,12):
-        playerMods[6] = 4
-    if playerStats['Level'] in range (13,16):
-        playerMods[6] = 5
-    if playerStats['Level'] in range (17,20):
-        playerMods[6] = 6
         
 
-class wholeLvlUp():
-    
-    def __init__ self:
-        levelUp()
-        pStrMod()
-        pConMod()
-        pDexMod()
-        pIntMod()
-        pWisMod()
-        pCharMod()
-        profUp()
+class wholeLvlUp(Race, Player):
+    def levelUp():
+        if Player.xp in range (lvlUpTuple[0], lvlUpTuple[1]):
+            Player.level = 1
+        if Player.xp in range (lvlUpTuple[1] ,lvlUpTuple[2]):
+            Player.level = 2
+        if Player.xp in range (lvlUpTuple[2] , lvlUpTuple[3]):
+            Player.level = 3
+        if Player.xp in range (lvlUpTuple[3] , lvlUpTuple[4]):
+            Player.level = 4
+        if Player.xp in range (lvlUpTuple[4] , lvlUpTuple[5]):
+            Player.level = 5
+        if Player.xp in range (lvlUpTuple[5] , lvlUpTuple[6]):
+            Player.level = 6
+        if Player.xp in range (lvlUpTuple[6] , lvlUpTuple[7]):
+            Player.level = 7
+        if Player.xp in range (lvlUpTuple[7] , lvlUpTuple[8]):
+            Player.level = 8
+        if Player.xp in range (lvlUpTuple[8] , lvlUpTuple[9]):
+            Player.level = 9
+        if Player.xp in range (lvlUpTuple[9] , lvlUpTuple[10]):
+            Player.level = 10
+        if Player.xp in range (lvlUpTuple[10] , lvlUpTuple[11]):
+            Player.level = 11
+        if Player.xp in range (lvlUpTuple[11] , lvlUpTuple[12]):
+            Player.level = 12
+        if Player.xp in range (lvlUpTuple[12] , lvlUpTuple[13]):
+            Player.level = 13
+        if Player.xp in range (lvlUpTuple[12] , lvlUpTuple[13]):
+            Player.level = 14
+        if Player.xp in range (lvlUpTuple[13] , lvlUpTuple[14]):
+            Player.level = 15
+        if Player.xp in range (lvlUpTuple[14] , lvlUpTuple[15]):
+            Player.level = 16
+        if Player.xp in range (lvlUpTuple[15] , lvlUpTuple[16]):
+            Player.level = 17
+        if Player.xp in range (lvlUpTuple[16] , lvlUpTuple[17]):
+            Player.level = 18
+        if Player.xp in range (lvlUpTuple[17] , lvlUpTuple[18]):
+            Player.level = 19
+        if Player.xp in range (lvlUpTuple[18] , lvlUpTuple[19]):
+            Player.level = 20
+            
+    def pStrMod():
+        if Player.strength == 1:
+            Player.strengthMod = -5
+        elif Player.strength  == 2 or  Player.strength == 3:
+            Player.strengthMod = -4
+        elif Player.strength == 4 or Player.strength == 5:
+            Player.strengthMod = -3
+        elif Player.strength == 6 or Player.strength == 7:
+            Player.strengthMod = -2
+        elif Player.strength == 8 or Player.strength == 9:
+            Player.strengthMod = -1
+        elif Player.strength == 9 or Player.strength == 10:
+            Player.strengthMod = 0
+        elif Player.strength == 11 or Player.strength == 12:
+            Player.strengthMod = 1
+        elif Player.strength == 13 or Player.strength == 14:
+            Player.strengthMod = 2
+        elif Player.strength == 15 or Player.strength == 16:
+            Player.strengthMod = 3
+        elif Player.strength == 17 or Player.strength == 18:
+            Player.strengthMod = 4
+        elif Player.strength == 19 or Player.strength == 20:
+            Player.strengthMod = 5
+        elif player.strength == 21 or Player.strength == 22:
+            Player.strengthMod = 6
+        elif Player.strength == 23 or Player.strength == 24:
+            Player.strengthMod = 7
+        elif Player.strength == 25 or Player.strength == 26:
+            Player.strengthMod = 8
+        elif Player.strength == 27 or Player.strength == 28:
+            Player.strengthMod = 8
+        elif Player.strength == 29 or Player.strength == 30:
+            Player.strengthModMod = 9
+
+    def pConMod():
+        if player.constituion == 1:
+            player.constitutionMod = -5
+        elif player.constituion  == 2 or  Player.constitution == 3:
+            player.constitutionMod = -4
+        elif player.constituion == 4 or Player.constitution == 5:
+            player.constitutionMod = -3
+        elif player.constituion == 6 or Player.constitution == 7:
+            player.constitutionMod = -2
+        elif player.constituion == 8 or Player.constitution == 9:
+            player.constitutionMod = -1
+        elif player.constituion == 9 or Player.constitution == 10:
+            player.constitutionMod = 0
+        elif player.constituion == 11 or Player.constitution == 12:
+            player.constitutionMod = 1
+        elif player.constituion == 13 or Player.constitution == 14:
+            player.constitutionMod = 2
+        elif player.constituion == 15 or Player.constitution == 16:
+            player.constitutionMod = 3
+        elif player.constituion == 17 or Player.constitution == 18:
+            player.constitutionMod = 4
+        elif player.constituion == 19 or Player.constitution == 20:
+            player.constitutionMod = 5
+        elif playerStat[1] == 21 or Player.constitution == 22:
+            player.constitutionMod = 6
+        elif player.constituion == 23 or Player.constitution == 24:
+            player.constitutionMod = 7
+        elif player.constituion == 25 or Player.constitution == 26:
+            player.constitutionMod = 8
+        elif player.constituion == 27 or Player.constitution == 28:
+            player.constitutionMod = 8
+        elif player.constituion == 29 or Player.constitution == 30:
+            player.constitutionMod = 9
+
+    def pDexMod():
+        if player.dexterity == 1:
+            player.dexterityMod = -5
+        elif player.dexterity  == 2 or  Player.dexterity == 3:
+            player.dexterityMod = -4
+        elif player.dexterity == 4 or Player.dexterity == 5:
+            player.dexterityMod = -3
+        elif player.dexterity == 6 or Player.dexterity == 7:
+            player.dexterityMod = -2
+        elif player.dexterity == 8 or Player.dexterity == 9:
+            player.dexterityMod = -1
+        elif player.dexterity == 9 or Player.dexterity == 10:
+            player.dexterityMod = 0
+        elif player.dexterity == 11 or Player.dexterity == 12:
+            player.dexterityMod = 1
+        elif player.dexterity == 13 or Player.dexterity == 14:
+            player.dexterityMod = 2
+        elif player.dexterity == 15 or Player.dexterity == 16:
+            player.dexterityMod = 3
+        elif player.constituion == 17 or Player.dexterity == 18:
+            player.dexterityMod = 4
+        elif player.dexterity == 19 or Player.dexterity == 20:
+            player.dexterityMod = 5
+        elif playerStat[2] == 21 or Player.dexterity == 22:
+            player.dexterityMod = 6
+        elif player.dexterity == 23 or Player.dexterity == 24:
+            player.dexterityMod = 7
+        elif player.dexterity == 25 or Player.dexterity == 26:
+            player.dexterityMod = 8
+        elif player.dexterity == 27 or Player.dexterity == 28:
+            player.dexterityMod = 8
+        elif player.dexterity == 29 or Player.dexterity == 30:
+            player.dexterityMod = 9
+
+    def pIntMod():
+        if player.wisdom == 1:
+            player.intelligenceMod = -5
+        elif player.wisdom  == 2 or  Player.intelligence == 3:
+            player.intelligenceMod = -4
+        elif player.wisdom == 4 or Player.intelligence == 5:
+            player.intelligenceMod = -3
+        elif player.wisdom == 6 or Player.intelligence == 7:
+            player.intelligenceMod = -2
+        elif player.wisdom == 8 or Player.intelligence == 9:
+            player.intelligenceMod = -1
+        elif player.wisdom == 9 or Player.intelligence == 10:
+            player.intelligenceMod = 0
+        elif player.wisdom == 11 or Player.intelligence == 12:
+            player.intelligenceMod = 1
+        elif player.wisdom == 13 or Player.intelligence == 14:
+            player.intelligenceMod = 2
+        elif player.wisdom == 15 or Player.intelligence == 16:
+            player.intelligenceMod = 3
+        elif player.wisdom == 17 or Player.intelligence == 18:
+            player.intelligenceMod = 4
+        elif player.wisdom == 19 or Player.intelligence == 20:
+            player.intelligenceMod = 5
+        elif playerStat[3] == 21 or Player.intelligence == 22:
+            player.intelligenceMod = 6
+        elif player.wisdom == 23 or Player.intelligence == 24:
+            player.intelligenceMod = 7
+        elif player.wisdom == 25 or Player.intelligence == 26:
+            player.intelligenceMod = 8
+        elif player.wisdom == 27 or Player.intelligence == 28:
+            player.intelligenceMod = 8
+        elif player.wisdom == 29 or Player.intelligence == 30:
+            player.intelligenceMod = 9
+
+    def pWisMod():
+        if player.wisdom == 1:
+            player.wisdomMod = -5
+        elif player.wisdom  == 2 or  Player.wisdom == 3:
+            player.wisdomMod = -4
+        elif player.wisdom == 4 or Player.wisdom == 5:
+            player.wisdomMod = -3
+        elif player.wisdom == 6 or Player.wisdom == 7:
+            player.wisdomMod = -2
+        elif player.wisdom == 8 or Player.wisdom == 9:
+            player.wisdomMod = -1
+        elif player.wisdom == 9 or Player.wisdom == 10:
+            player.wisdomMod = 0
+        elif player.wisdom == 11 or Player.wisdom == 12:
+            player.wisdomMod = 1
+        elif player.wisdom == 13 or Player.wisdom == 14:
+            player.wisdomMod = 2
+        elif player.wisdom == 15 or Player.wisdom == 16:
+            player.wisdomMod = 3
+        elif player.wisdom == 17 or Player.wisdom == 18:
+            player.wisdomMod = 4
+        elif player.wisdom == 19 or Player.wisdom == 20:
+            player.wisdomMod = 5
+        elif playerStat[4] == 21 or Player.wisdom == 22:
+            player.wisdomMod = 6
+        elif player.wisdom == 23 or Player.wisdom == 24:
+            player.wisdomMod = 7
+        elif player.wisdom == 25 or Player.wisdom == 26:
+            player.wisdomMod = 8
+        elif player.wisdom == 27 or Player.wisdom == 28:
+            player.wisdomMod = 8
+        elif player.wisdom == 29 or Player.wisdom == 30:
+            player.wisdomMod = 9
+
+    def pCharMod():
+
+        if Player.charisma == 1:
+            player.charismaMod = -5
+        elif Player.charisma  == 2 or  Player.charisma == 3:
+            player.charismaMod = -4
+        elif Player.charisma == 4 or Player.charisma == 5:
+            player.charismaMod = -3
+        elif Player.charisma == 6 or Player.charisma == 7:
+            player.charismaMod = -2
+        elif Player.charisma == 8 or Player.charisma == 9:
+            player.charismaMod = -1
+        elif Player.charisma == 9 or Player.charisma == 10:
+            player.charismaMod = 0
+        elif Player.charisma == 11 or Player.charisma == 12:
+            player.charismaMod = 1
+        elif Player.charisma == 13 or Player.charisma == 14:
+            player.charismaMod = 2
+        elif Player.charisma == 15 or Player.charisma == 16:
+            player.charismaMod = 3
+        elif Player.charisma == 17 or Player.charisma == 18:
+            player.charismaMod = 4
+        elif Player.charisma == 19 or Player.charisma == 20:
+            player.charismaMod = 5
+        elif Player.charisma == 21 or Player.charisma == 22:
+            player.charismaMod = 6
+        elif Player.charisma == 23 or Player.charisma == 24:
+            player.charismaMod = 7
+        elif Player.charisma == 25 or Player.charisma == 26:
+            player.charismaMod = 8
+        elif Player.charisma == 27 or Player.charisma == 28:
+            player.charismaMod = 8
+        elif Player.charisma == 29 or Player.Charisma == 30:
+            player.charismaMod = 9
+    def profUp():
+        if Player.level in range (1,4):
+            Player.proficiency = 2
+        if Player.level in range (5,8):
+            player.proficiency = 3
+        if Player.level in range (9,12):
+            player.proficiency = 4
+        if Player.level in range (13,16):
+            player.proficiency = 5
+        if Player.level in range (17,20):
+            player.proficiency = 6
       
 
-    
+ 
 
 
 def characterCreation():
@@ -1075,43 +967,14 @@ def  game():
 
 
 
-class utils():
-    def clear():
-        #This function clears the screen of EVERYTHING. Use if the console is getting a little crowded
-        os.system('cls')
-        
-    def yesnoErrorMessage():
-        print('I\'m not quite sure what you said. Please answer with yes or no!')
+player = Player()
 
-    def errorMessage():
-    print('Sorry, I\'m not quite sure what you said. Please try again!')
 
-    def intro():
-    #The title screen should go here
-    print('Welcome to my DnD Clone! ')
-    startQuery = input('Do you wish to begin? Enter Yes or No ')
-    startQuery = startQuery.lower()
-    if startQuery == 'yes' or startQuery == 'y':
-        
-        characterCreation()
-        game()
-
-    else:
-        input('')
-
-    def dice(rolls, size):
-    #This function rolls dice for you.
-    #Put in the number of rolls and the size of dice you want rolled
-    #dice( 10 , 5 ) to roll  10 D5's
-    result = []
-    processingRolls = rolls
-    while processingRolls != 0:
-        processingRolls -= 1
-        result.append(random.randint( 0 , size ))
+    
 
 
 
-utils.intro()
+Utilities.testPlace()
 
 
 

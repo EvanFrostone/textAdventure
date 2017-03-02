@@ -763,275 +763,268 @@ def dwarfStats():
     global speaksDwarvish
     speaksCommon = True
     speaksDwarvish = True
-def levelUp():
-    if playerStats[10] in range (lvlUpTuple[0], lvlUpTuple[1]):
-        playerStats[9] = 1
-    if playerStats[10] in range (lvlUpTuple[1] ,lvlUpTuple[2]):
-        playerStats[9] = 2
-    if playerStats[10] in range (lvlUpTuple[2] , lvlUpTuple[3]):
-        playerStats[9] = 3
-    if playerStats[10] in range (lvlUpTuple[3] , lvlUpTuple[4]):
-        playerStats[9] = 4
-    if playerStats[10] in range (lvlUpTuple[4] , lvlUpTuple[5]):
-        playerStats[9] = 5
-    if playerStats[10] in range (lvlUpTuple[5] , lvlUpTuple[6]):
-        playerStats[9] = 6
-    if playerStats[10] in range (lvlUpTuple[6] , lvlUpTuple[7]):
-        playerStats[9] = 7
-    if playerStats[10] in range (lvlUpTuple[7] , lvlUpTuple[8]):
-        playerStats[9] = 8
-    if playerStats[10] in range (lvlUpTuple[8] , lvlUpTuple[9]):
-        playerStats[9] = 9
-    if playerStats[10] in range (lvlUpTuple[9] , lvlUpTuple[10]):
-        playerStats[9] = 10
-    if playerStats[10] in range (lvlUpTuple[10] , lvlUpTuple[11]):
-        playerStats[9] = 11
-    if playerStats[10] in range (lvlUpTuple[11] , lvlUpTuple[12]):
-        playerStats[9] = 12
-    if playerStats[10] in range (lvlUpTuple[12] , lvlUpTuple[13]):
-        playerStats[9] = 13
-    if playerStats[10] in range (lvlUpTuple[12] , lvlUpTuple[13]):
-        playerStats[9] = 14
-    if playerStats[10] in range (lvlUpTuple[13] , lvlUpTuple[14]):
-        playerStats[9] = 15
-    if playerStats[10] in range (lvlUpTuple[14] , lvlUpTuple[15]):
-        playerStats[9] = 16
-    if playerStats[10] in range (lvlUpTuple[15] , lvlUpTuple[16]):
-        playerStats[9] = 17
-    if playerStats[10] in range (lvlUpTuple[16] , lvlUpTuple[17]):
-        playerStats[9] = 18
-    if playerStats[10] in range (lvlUpTuple[17] , lvlUpTuple[18]):
-        playerStats[9] = 19
-    if playerStats[10] in range (lvlUpTuple[18] , lvlUpTuple[19]):
-        playerStats[9] = 20
+
         
-def pStrMod():
-    if playerStats[0] == 1:
-        playerMods[0] = -5
-    elif playerStats[0]  == 2 or  playerStats[0] == 3:
-        playerMods[0] = -4
-    elif playerStats[0] == 4 or playerStats[0] == 5:
-        playerMods[0] = -3
-    elif playerStats[0] == 6 or playerStats[0] == 7:
-        playerMods[0] = -2
-    elif playerStats[0] == 8 or playerStats[0] == 9:
-        playerMods[0] = -1
-    elif playerStats[0] == 9 or playerStats[0] == 10:
-        playerMods[0] = 0
-    elif playerStats[0] == 11 or playerStats[0] == 12:
-        playerMods[0] = 1
-    elif playerStats[0] == 13 or playerStats[0] == 14:
-        playerMods[0] = 2
-    elif playerStats[0] == 15 or playerStats[0] == 16:
-        playerMods[0] = 3
-    elif playerStats[0] == 17 or playerStats[0] == 18:
-        playerMods[0] = 4
-    elif playerStats[0] == 19 or playerStats[0] == 20:
-        playerMods[0] = 5
-    elif playerStat[0] == 21 or playerStats[0] == 22:
-        playerMods[0] = 6
-    elif playerStats[0] == 23 or playerStats[0] == 24:
-        playerMods[0] = 7
-    elif playerStats[0] == 25 or playerStats[0] == 26:
-        playerMods[0] = 8
-    elif playerStats[0] == 27 or playerStats[0] == 28:
-        playerMods[0] = 8
-    elif playerStats[0] == 29 or playerStats[0] == 30:
-        playerMods[0] = 9
+class leveling(Race):
+    def wholeLvlUp():
+        def levelUp():
+            if Race.Level in range (lvlUpTuple[0], lvlUpTuple[1]):
+                playerStats[9] = 1
+            if playerStats[10] in range (lvlUpTuple[1] ,lvlUpTuple[2]):
+                playerStats[9] = 2
+            if playerStats[10] in range (lvlUpTuple[2] , lvlUpTuple[3]):
+                playerStats[9] = 3
+            if playerStats[10] in range (lvlUpTuple[3] , lvlUpTuple[4]):
+                playerStats[9] = 4
+            if playerStats[10] in range (lvlUpTuple[4] , lvlUpTuple[5]):
+                playerStats[9] = 5
+            if playerStats[10] in range (lvlUpTuple[5] , lvlUpTuple[6]):
+                playerStats[9] = 6
+            if playerStats[10] in range (lvlUpTuple[6] , lvlUpTuple[7]):
+                playerStats[9] = 7
+            if playerStats[10] in range (lvlUpTuple[7] , lvlUpTuple[8]):
+                playerStats[9] = 8
+            if playerStats[10] in range (lvlUpTuple[8] , lvlUpTuple[9]):
+                playerStats[9] = 9
+            if playerStats[10] in range (lvlUpTuple[9] , lvlUpTuple[10]):
+                playerStats[9] = 10
+            if playerStats[10] in range (lvlUpTuple[10] , lvlUpTuple[11]):
+                playerStats[9] = 11
+            if playerStats[10] in range (lvlUpTuple[11] , lvlUpTuple[12]):
+                playerStats[9] = 12
+            if playerStats[10] in range (lvlUpTuple[12] , lvlUpTuple[13]):
+                playerStats[9] = 13
+            if playerStats[10] in range (lvlUpTuple[12] , lvlUpTuple[13]):
+                playerStats[9] = 14
+            if playerStats[10] in range (lvlUpTuple[13] , lvlUpTuple[14]):
+                playerStats[9] = 15
+            if playerStats[10] in range (lvlUpTuple[14] , lvlUpTuple[15]):
+                playerStats[9] = 16
+            if playerStats[10] in range (lvlUpTuple[15] , lvlUpTuple[16]):
+                playerStats[9] = 17
+            if playerStats[10] in range (lvlUpTuple[16] , lvlUpTuple[17]):
+                playerStats[9] = 18
+            if playerStats[10] in range (lvlUpTuple[17] , lvlUpTuple[18]):
+                playerStats[9] = 19
+            if playerStats[10] in range (lvlUpTuple[18] , lvlUpTuple[19]):
+                playerStats[9] = 20
+                
+        def pStrMod():
+            if playerStats[0] == 1:
+                playerMods[0] = -5
+            elif playerStats[0]  == 2 or  playerStats[0] == 3:
+                playerMods[0] = -4
+            elif playerStats[0] == 4 or playerStats[0] == 5:
+                playerMods[0] = -3
+            elif playerStats[0] == 6 or playerStats[0] == 7:
+                playerMods[0] = -2
+            elif playerStats[0] == 8 or playerStats[0] == 9:
+                playerMods[0] = -1
+            elif playerStats[0] == 9 or playerStats[0] == 10:
+                playerMods[0] = 0
+            elif playerStats[0] == 11 or playerStats[0] == 12:
+                playerMods[0] = 1
+            elif playerStats[0] == 13 or playerStats[0] == 14:
+                playerMods[0] = 2
+            elif playerStats[0] == 15 or playerStats[0] == 16:
+                playerMods[0] = 3
+            elif playerStats[0] == 17 or playerStats[0] == 18:
+                playerMods[0] = 4
+            elif playerStats[0] == 19 or playerStats[0] == 20:
+                playerMods[0] = 5
+            elif playerStat[0] == 21 or playerStats[0] == 22:
+                playerMods[0] = 6
+            elif playerStats[0] == 23 or playerStats[0] == 24:
+                playerMods[0] = 7
+            elif playerStats[0] == 25 or playerStats[0] == 26:
+                playerMods[0] = 8
+            elif playerStats[0] == 27 or playerStats[0] == 28:
+                playerMods[0] = 8
+            elif playerStats[0] == 29 or playerStats[0] == 30:
+                playerMods[0] = 9
 
-def pConMod():
-    if playerStats[1] == 1:
-        playerMods[1] = -5
-    elif playerStats[1]  == 2 or  playerStats[0] == 3:
-        playerMods[1] = -4
-    elif playerStats[1] == 4 or playerStats[0] == 5:
-        playerMods[1] = -3
-    elif playerStats[1] == 6 or playerStats[0] == 7:
-        playerMods[1] = -2
-    elif playerStats[1] == 8 or playerStats[0] == 9:
-        playerMods[1] = -1
-    elif playerStats[1] == 9 or playerStats[0] == 10:
-        playerMods[1] = 0
-    elif playerStats[1] == 11 or playerStats[0] == 12:
-        playerMods[1] = 1
-    elif playerStats[1] == 13 or playerStats[0] == 14:
-        playerMods[1] = 2
-    elif playerStats[1] == 15 or playerStats[0] == 16:
-        playerMods[1] = 3
-    elif playerStats[1] == 17 or playerStats[0] == 18:
-        playerMods[1] = 4
-    elif playerStats[1] == 19 or playerStats[0] == 20:
-        playerMods[1] = 5
-    elif playerStat[1] == 21 or playerStats[0] == 22:
-        playerMods[1] = 6
-    elif playerStats[1] == 23 or playerStats[0] == 24:
-        playerMods[1] = 7
-    elif playerStats[1] == 25 or playerStats[0] == 26:
-        playerMods[1] = 8
-    elif playerStats[1] == 27 or playerStats[0] == 28:
-        playerMods[1] = 8
-    elif playerStats[1] == 29 or playerStats[0] == 30:
-        playerMods[1] = 9
+        def pConMod():
+            if playerStats[1] == 1:
+                playerMods[1] = -5
+            elif playerStats[1]  == 2 or  playerStats[0] == 3:
+                playerMods[1] = -4
+            elif playerStats[1] == 4 or playerStats[0] == 5:
+                playerMods[1] = -3
+            elif playerStats[1] == 6 or playerStats[0] == 7:
+                playerMods[1] = -2
+            elif playerStats[1] == 8 or playerStats[0] == 9:
+                playerMods[1] = -1
+            elif playerStats[1] == 9 or playerStats[0] == 10:
+                playerMods[1] = 0
+            elif playerStats[1] == 11 or playerStats[0] == 12:
+                playerMods[1] = 1
+            elif playerStats[1] == 13 or playerStats[0] == 14:
+                playerMods[1] = 2
+            elif playerStats[1] == 15 or playerStats[0] == 16:
+                playerMods[1] = 3
+            elif playerStats[1] == 17 or playerStats[0] == 18:
+                playerMods[1] = 4
+            elif playerStats[1] == 19 or playerStats[0] == 20:
+                playerMods[1] = 5
+            elif playerStat[1] == 21 or playerStats[0] == 22:
+                playerMods[1] = 6
+            elif playerStats[1] == 23 or playerStats[0] == 24:
+                playerMods[1] = 7
+            elif playerStats[1] == 25 or playerStats[0] == 26:
+                playerMods[1] = 8
+            elif playerStats[1] == 27 or playerStats[0] == 28:
+                playerMods[1] = 8
+            elif playerStats[1] == 29 or playerStats[0] == 30:
+                playerMods[1] = 9
 
-def pDexMod():
-    if playerStats[2] == 1:
-        playerMods[2] = -5
-    elif playerStats[2]  == 2 or  playerStats[0] == 3:
-        playerMods[2] = -4
-    elif playerStats[2] == 4 or playerStats[0] == 5:
-        playerMods[2] = -3
-    elif playerStats[2] == 6 or playerStats[0] == 7:
-        playerMods[2] = -2
-    elif playerStats[2] == 8 or playerStats[0] == 9:
-        playerMods[2] = -1
-    elif playerStats[2] == 9 or playerStats[0] == 10:
-        playerMods[2] = 0
-    elif playerStats[2] == 11 or playerStats[0] == 12:
-        playerMods[2] = 1
-    elif playerStats[2] == 13 or playerStats[0] == 14:
-        playerMods[2] = 2
-    elif playerStats[2] == 15 or playerStats[0] == 16:
-        playerMods[2] = 3
-    elif playerStats[1] == 17 or playerStats[0] == 18:
-        playerMods[2] = 4
-    elif playerStats[2] == 19 or playerStats[0] == 20:
-        playerMods[2] = 5
-    elif playerStat[2] == 21 or playerStats[0] == 22:
-        playerMods[2] = 6
-    elif playerStats[2] == 23 or playerStats[0] == 24:
-        playerMods[2] = 7
-    elif playerStats[2] == 25 or playerStats[0] == 26:
-        playerMods[2] = 8
-    elif playerStats[2] == 27 or playerStats[0] == 28:
-        playerMods[2] = 8
-    elif playerStats[2] == 29 or playerStats[0] == 30:
-        playerMods[2] = 9
+        def pDexMod():
+            if playerStats[2] == 1:
+                playerMods[2] = -5
+            elif playerStats[2]  == 2 or  playerStats[0] == 3:
+                playerMods[2] = -4
+            elif playerStats[2] == 4 or playerStats[0] == 5:
+                playerMods[2] = -3
+            elif playerStats[2] == 6 or playerStats[0] == 7:
+                playerMods[2] = -2
+            elif playerStats[2] == 8 or playerStats[0] == 9:
+                playerMods[2] = -1
+            elif playerStats[2] == 9 or playerStats[0] == 10:
+                playerMods[2] = 0
+            elif playerStats[2] == 11 or playerStats[0] == 12:
+                playerMods[2] = 1
+            elif playerStats[2] == 13 or playerStats[0] == 14:
+                playerMods[2] = 2
+            elif playerStats[2] == 15 or playerStats[0] == 16:
+                playerMods[2] = 3
+            elif playerStats[1] == 17 or playerStats[0] == 18:
+                playerMods[2] = 4
+            elif playerStats[2] == 19 or playerStats[0] == 20:
+                playerMods[2] = 5
+            elif playerStat[2] == 21 or playerStats[0] == 22:
+                playerMods[2] = 6
+            elif playerStats[2] == 23 or playerStats[0] == 24:
+                playerMods[2] = 7
+            elif playerStats[2] == 25 or playerStats[0] == 26:
+                playerMods[2] = 8
+            elif playerStats[2] == 27 or playerStats[0] == 28:
+                playerMods[2] = 8
+            elif playerStats[2] == 29 or playerStats[0] == 30:
+                playerMods[2] = 9
 
-def pIntMod():
-    if playerStats[3] == 1:
-        playerMods[3] = -5
-    elif playerStats[3]  == 2 or  playerStats[0] == 3:
-        playerMods[3] = -4
-    elif playerStats[3] == 4 or playerStats[0] == 5:
-        playerMods[3] = -3
-    elif playerStats[3] == 6 or playerStats[0] == 7:
-        playerMods[3] = -2
-    elif playerStats[3] == 8 or playerStats[0] == 9:
-        playerMods[3] = -1
-    elif playerStats[3] == 9 or playerStats[0] == 10:
-        playerMods[3] = 0
-    elif playerStats[3] == 11 or playerStats[0] == 12:
-        playerMods[3] = 1
-    elif playerStats[3] == 13 or playerStats[0] == 14:
-        playerMods[3] = 2
-    elif playerStats[3] == 15 or playerStats[0] == 16:
-        playerMods[3] = 3
-    elif playerStats[3] == 17 or playerStats[0] == 18:
-        playerMods[3] = 4
-    elif playerStats[3] == 19 or playerStats[0] == 20:
-        playerMods[3] = 5
-    elif playerStat[3] == 21 or playerStats[0] == 22:
-        playerMods[3] = 6
-    elif playerStats[3] == 23 or playerStats[0] == 24:
-        playerMods[3] = 7
-    elif playerStats[3] == 25 or playerStats[0] == 26:
-        playerMods[3] = 8
-    elif playerStats[3] == 27 or playerStats[0] == 28:
-        playerMods[3] = 8
-    elif playerStats[3] == 29 or playerStats[0] == 30:
-        playerMods[3] = 9
+        def pIntMod():
+            if playerStats[3] == 1:
+                playerMods[3] = -5
+            elif playerStats[3]  == 2 or  playerStats[0] == 3:
+                playerMods[3] = -4
+            elif playerStats[3] == 4 or playerStats[0] == 5:
+                playerMods[3] = -3
+            elif playerStats[3] == 6 or playerStats[0] == 7:
+                playerMods[3] = -2
+            elif playerStats[3] == 8 or playerStats[0] == 9:
+                playerMods[3] = -1
+            elif playerStats[3] == 9 or playerStats[0] == 10:
+                playerMods[3] = 0
+            elif playerStats[3] == 11 or playerStats[0] == 12:
+                playerMods[3] = 1
+            elif playerStats[3] == 13 or playerStats[0] == 14:
+                playerMods[3] = 2
+            elif playerStats[3] == 15 or playerStats[0] == 16:
+                playerMods[3] = 3
+            elif playerStats[3] == 17 or playerStats[0] == 18:
+                playerMods[3] = 4
+            elif playerStats[3] == 19 or playerStats[0] == 20:
+                playerMods[3] = 5
+            elif playerStat[3] == 21 or playerStats[0] == 22:
+                playerMods[3] = 6
+            elif playerStats[3] == 23 or playerStats[0] == 24:
+                playerMods[3] = 7
+            elif playerStats[3] == 25 or playerStats[0] == 26:
+                playerMods[3] = 8
+            elif playerStats[3] == 27 or playerStats[0] == 28:
+                playerMods[3] = 8
+            elif playerStats[3] == 29 or playerStats[0] == 30:
+                playerMods[3] = 9
 
-def pWisMod():
-    if playerStats[4] == 1:
-        playerMods[4] = -5
-    elif playerStats[4]  == 2 or  playerStats[0] == 3:
-        playerMods[4] = -4
-    elif playerStats[4] == 4 or playerStats[0] == 5:
-        playerMods[4] = -3
-    elif playerStats[4] == 6 or playerStats[0] == 7:
-        playerMods[4] = -2
-    elif playerStats[4] == 8 or playerStats[0] == 9:
-        playerMods[4] = -1
-    elif playerStats[4] == 9 or playerStats[0] == 10:
-        playerMods[4] = 0
-    elif playerStats[4] == 11 or playerStats[0] == 12:
-        playerMods[4] = 1
-    elif playerStats[4] == 13 or playerStats[0] == 14:
-        playerMods[4] = 2
-    elif playerStats[4] == 15 or playerStats[0] == 16:
-        playerMods[4] = 3
-    elif playerStats[4] == 17 or playerStats[0] == 18:
-        playerMods[4] = 4
-    elif playerStats[4] == 19 or playerStats[0] == 20:
-        playerMods[4] = 5
-    elif playerStat[4] == 21 or playerStats[0] == 22:
-        playerMods[4] = 6
-    elif playerStats[4] == 23 or playerStats[0] == 24:
-        playerMods[4] = 7
-    elif playerStats[4] == 25 or playerStats[0] == 26:
-        playerMods[4] = 8
-    elif playerStats[4] == 27 or playerStats[0] == 28:
-        playerMods[4] = 8
-    elif playerStats[4] == 29 or playerStats[0] == 30:
-        playerMods[4] = 9
+        def pWisMod():
+            if playerStats[4] == 1:
+                playerMods[4] = -5
+            elif playerStats[4]  == 2 or  playerStats[0] == 3:
+                playerMods[4] = -4
+            elif playerStats[4] == 4 or playerStats[0] == 5:
+                playerMods[4] = -3
+            elif playerStats[4] == 6 or playerStats[0] == 7:
+                playerMods[4] = -2
+            elif playerStats[4] == 8 or playerStats[0] == 9:
+                playerMods[4] = -1
+            elif playerStats[4] == 9 or playerStats[0] == 10:
+                playerMods[4] = 0
+            elif playerStats[4] == 11 or playerStats[0] == 12:
+                playerMods[4] = 1
+            elif playerStats[4] == 13 or playerStats[0] == 14:
+                playerMods[4] = 2
+            elif playerStats[4] == 15 or playerStats[0] == 16:
+                playerMods[4] = 3
+            elif playerStats[4] == 17 or playerStats[0] == 18:
+                playerMods[4] = 4
+            elif playerStats[4] == 19 or playerStats[0] == 20:
+                playerMods[4] = 5
+            elif playerStat[4] == 21 or playerStats[0] == 22:
+                playerMods[4] = 6
+            elif playerStats[4] == 23 or playerStats[0] == 24:
+                playerMods[4] = 7
+            elif playerStats[4] == 25 or playerStats[0] == 26:
+                playerMods[4] = 8
+            elif playerStats[4] == 27 or playerStats[0] == 28:
+                playerMods[4] = 8
+            elif playerStats[4] == 29 or playerStats[0] == 30:
+                playerMods[4] = 9
 
-def pCharMod():
+        def pCharMod():
 
-    if playerStats[5] == 1:
-        playerMods[5] = -5
-    elif playerStats[5]  == 2 or  playerStats[0] == 3:
-        playerMods[5] = -4
-    elif playerStats[5] == 4 or playerStats[0] == 5:
-        playerMods[5] = -3
-    elif playerStats[5] == 6 or playerStats[0] == 7:
-        playerMods[5] = -2
-    elif playerStats[5] == 8 or playerStats[0] == 9:
-        playerMods[5] = -1
-    elif playerStats[5] == 9 or playerStats[0] == 10:
-        playerMods[5] = 0
-    elif playerStats[5] == 11 or playerStats[0] == 12:
-        playerMods[5] = 1
-    elif playerStats[5] == 13 or playerStats[0] == 14:
-        playerMods[5] = 2
-    elif playerStats[5] == 15 or playerStats[0] == 16:
-        playerMods[5] = 3
-    elif playerStats[5] == 17 or playerStats[0] == 18:
-        playerMods[5] = 4
-    elif playerStats[5] == 19 or playerStats[0] == 20:
-        playerMods[5] = 5
-    elif playerStat[5] == 21 or playerStats[0] == 22:
-        playerMods[5] = 6
-    elif playerStats[5] == 23 or playerStats[0] == 24:
-        playerMods[5] = 7
-    elif playerStats[5] == 25 or playerStats[0] == 26:
-        playerMods[5] = 8
-    elif playerStats[5] == 27 or playerStats[0] == 28:
-        playerMods[5] = 8
-    elif playerStats[5] == 29 or playerStats[0] == 30:
-        playerMods[5] = 9
-def profUp():
-    if playerStats[9] in range (1,4):
-        playerMods[6] = 2
-    if playerStats[9] in range (5,8):
-        playerMods[6] = 3
-    if playerStats[9] in range (9,12):
-        playerMods[6] = 4
-    if playerStats[9] in range (13,16):
-        playerMods[6] = 5
-    if playerStats[9] in range (17,20):
-        playerMods[6] = 6
-        
+            if playerStats[5] == 1:
+                playerMods[5] = -5
+            elif playerStats[5]  == 2 or  playerStats[0] == 3:
+                playerMods[5] = -4
+            elif playerStats[5] == 4 or playerStats[0] == 5:
+                playerMods[5] = -3
+            elif playerStats[5] == 6 or playerStats[0] == 7:
+                playerMods[5] = -2
+            elif playerStats[5] == 8 or playerStats[0] == 9:
+                playerMods[5] = -1
+            elif playerStats[5] == 9 or playerStats[0] == 10:
+                playerMods[5] = 0
+            elif playerStats[5] == 11 or playerStats[0] == 12:
+                playerMods[5] = 1
+            elif playerStats[5] == 13 or playerStats[0] == 14:
+                playerMods[5] = 2
+            elif playerStats[5] == 15 or playerStats[0] == 16:
+                playerMods[5] = 3
+            elif playerStats[5] == 17 or playerStats[0] == 18:
+                playerMods[5] = 4
+            elif playerStats[5] == 19 or playerStats[0] == 20:
+                playerMods[5] = 5
+            elif playerStat[5] == 21 or playerStats[0] == 22:
+                playerMods[5] = 6
+            elif playerStats[5] == 23 or playerStats[0] == 24:
+                playerMods[5] = 7
+            elif playerStats[5] == 25 or playerStats[0] == 26:
+                playerMods[5] = 8
+            elif playerStats[5] == 27 or playerStats[0] == 28:
+                playerMods[5] = 8
+            elif playerStats[5] == 29 or playerStats[0] == 30:
+                playerMods[5] = 9
 
-def wholeLvlUp():
-    levelUp()
-    pStrMod()
-    pConMod()
-    pDexMod()
-    pIntMod()
-    pWisMod()
-    pCharMod()
-    profUp()
-    
+        def profUp():
+            if playerStats[9] in range (1,4):
+                playerMods[6] = 2
+            if playerStats[9] in range (5,8):
+                playerMods[6] = 3
+            if playerStats[9] in range (9,12):
+                playerMods[6] = 4
+            if playerStats[9] in range (13,16):
+                playerMods[6] = 5
+            if playerStats[9] in range (17,20):
+                playerMods[6] = 6
 
 def textWait(wait):
     #This is the average amount of pause between printed lines of text. Call this function to get pauses.
