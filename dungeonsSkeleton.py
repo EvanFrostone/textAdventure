@@ -25,9 +25,6 @@ class Player:
     level = 1
     xp = 0
 
-#Initialize the Player class
-player = Player()
-
 class Race:
 
     name = "Race Name"
@@ -75,8 +72,7 @@ class Race:
     #Saving Throws
     savingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
 
-
-#Here Be Language Proficiencies 
+    #Here Be Language Proficiencies 
     speaksCommon = True
     speaksDwarvish = False
     speaksElvish = False
@@ -227,6 +223,14 @@ class Elf(Race):
         self.speaksElvish = True
 class HighElf(Elf):
     def __init__ (self):
+        self.proflongSword = True
+        self.profshortBow = True
+        self.proflongBow = True
+        self.profshortSword = True
+        self.intelligence += 1
+        self.ExtraLang()
+
+    def ExtraLang(self):
         speechBoolean = True
         while speechBoolean == True:
             extraLangQuery = input('You get to learn an extra language as a high elf! \n\n%-20s %20s \n%-20s %20s \n%-20s %20s \n%-20s %20s \n\nPick the language that you would like to learn: ' % 
@@ -315,37 +319,70 @@ class HighElf(Elf):
                     speechBoolean = False
 
 class WoodElf(Elf):
-    pass
+    def __init__ (self):
+        self.proflongSword = True
+        self.profshortBow = True
+        self.proflongBow = True
+        self.profshortSword = True
+        self.profmaskoftheWild = True
+        self.wisdom += 1
 
 class Drow(Elf):
-    pass
+    def __init__ (self):
+        self.profrapiers = True
+        self.profshortSword = True
+        self.profhandCrossbow = True
+        self.profsupDarkVision = True
+        self.Charisma += 1
 
 class Halfling(Race):
-    pass
+    def __init__ (self):
+        self.speaksHalfling = True
+        self.dexterity += 2
 
 class LightFootHalf(Halfling):
-    pass
+    def __init__ (self):
+        self.charisma += 1
 
 class StoutHalf(Halfling):
-    pass
+    def __init__(self):
+        self.constitution += 1
 
 class Human(Race):
-    pass
+    #Not Done
+    def __init__ (self):
+        self.strength += 1
+        self.constitution += 1
+        self.dexterity += 1
+        self.intelligence += 1
+        self.wisdom += 1
+        self.charisma += 1
 
 class Dragonborn(Race):
     pass
 
 class Gnome(Race):
-    pass
+    def __init__(self):
+        self.profDarkVision = True
+        self.intelligence += 2
 
 class ForestGnome(Gnome):
-    pass
+    def __init__(self):
+        self.dexterity += 1
 
 class RockGnome(Gnome):
-    pass
+    def __init__(self):
+        self.profTinkerTools = True
+        self.constitution += 1
 
 class HalfElf(Race):
-    pass
+    #NOT Done
+    def __init__(self):
+        self.profDarkVision = True
+        self.profFeyAncestry = True
+        self.speaksCommon = True
+        self.speaksElvish = True
+        self.charisma += 2
 
 #Weapons
 class Weapon:
@@ -1192,11 +1229,39 @@ def clear():
     #This function clears the screen of EVERYTHING. Use if the console is getting a little crowded
     os.system('cls')
 
-def characterCreation():
+def characterCreation(playerNum):
     #In this function, the dialogue and machinery of character creation happens.
     #Character creation WILL change global variables, so this needs only be run ONCE, at the beginning of the game
-    human()
+    index = 0
+    num = playerNum
+    players = {'player1' : 0, 'player2' : 0, 'player3' : 0, 'player4' : 0}
+    while (num < 0) or (num > 4):
+        num = input("Error! Only Supports 1-4 Players! How Many Players Are There:")
 
+    if num == 1:
+        players['player1'] = Player()
+        players['player1'].name = 'Player1'
+    elif num == 2:
+        players['player1'] = Player()
+        players['player1'].name = 'Player1'
+        players['player2'] = Player()
+        players['player2'].name = 'Player2'
+    elif num == 3:
+        players['player1'] = Player()
+        players['player1'].name = 'Player1'
+        players['player2'] = Player()
+        players['player2'].name = 'Player2'
+        players['player3'] = Player()
+        players['player3'].name = 'Player3'
+    elif num == 3:
+        players['player1'] = Player()
+        players['player1'].name = 'Player1'
+        players['player2'] = Player()
+        players['player2'].name = 'Player2'
+        players['player3'] = Player()
+        players['player3'].name = 'Player3'
+        players['player4'] = Player()
+        players['player4'].name = 'Player4'
 
 
 def combat():
@@ -1216,7 +1281,7 @@ def intro():
     startQuery = startQuery.lower()
     if startQuery == 'yes' or startQuery == 'y':
         
-        characterCreation()
+        characterCreation(input('How Many Players Are There (1-4): '))
         game()
 
     else:
@@ -1225,4 +1290,5 @@ def errorMessage():
     print('Sorry, I\'m not quite sure what you said. Please try again!')
 def yesnoErrorMessage():
     print('I\'m not quite sure what you said. Please answer with yes or no!')
+
 intro()
