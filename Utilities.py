@@ -371,3 +371,16 @@ class wholeLvlUp():
             player.proficiency = 5
         if Player.level in range (17,20):
             player.proficiency = 6
+
+def pointBuy(playerNum):
+    print('Alright Player', playerNum, ', you\'re first.')
+    time.sleep(1)
+    print('First things first, we\'re going to divy up attributes.')
+    time.sleep(1)
+    print('To make this easy, we\'ll do focuses. You will pick two attributes you want to be strong in, and the rest of the points will be equally spread out across the remaining attributes.')
+    time.sleep(3)
+    firstPick = input('Out of \n\n%-20s %15s \n%-20s %17s \n%-20s %20s %20s \n\nPick the skill you\'d like to be the strongest in: ' % 
+            ('1. Strength ', '5. Wisdom ', '2. Dexterity', '6. Charisma ', '3. Constitution', '4. Intelligence', ''))
+    while firstPick.lower != 'strength' or firstPick.lower != 'wisdom' or firstPick.lower != 'dexterity' or firstPick.lower != 'charisma' or firstPick.lower != 'constitution' or firstPick.lower != 'intelligence':
+        firstPick = input('Error! What you said was not Strength, Dexterity, Constitution, Intelligence, Wisdom, or Charisma. Please try again: ')
+    if firstPick = 
