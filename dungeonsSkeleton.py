@@ -2,12 +2,13 @@ import time
 import random
 import os
 import Utilities
+import race
+import player
 
 #To Do List
 
 #For all inputs should include error checking to make sure valid input is given
 
-lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 )
 
 #Make player class
 
@@ -836,7 +837,6 @@ class Player:
 
 
         
-
 class wholeLvlUp(Race, Player):
     def levelUp():
         if Player.xp in range (lvlUpTuple[0], lvlUpTuple[1]):
@@ -1144,7 +1144,8 @@ def combat():
 def  game():
     #All the actual story for the game should go here
     Utilities.ExtraLanguage(Race)
-    Utilities. clear()
+    #Utilities.clear()
+    time.sleep(1)
 
 def testPlace():
 #The title screen should go here
@@ -1153,9 +1154,11 @@ def testPlace():
     startQuery = startQuery.lower()
     if startQuery == 'yes' or startQuery == 'y':
         
-        characterCreation(int(input('How Many Players Are There (1-4): ')))
-        game()
-
+        #characterCreation(int(input('How Many Players Are There (1-4): ')))
+        #game()
+      
+        Utilities.wholeLvlUp.levelUp(player.playerState)
+        print(player.playerState.level)
     else:
         input('')
 
