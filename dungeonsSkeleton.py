@@ -12,9 +12,12 @@ lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 1
 #Make player class
 
 
+<<<<<<< HEAD
 #Initialize the Player class
 
 
+=======
+>>>>>>> origin/master
 class Race:
 
     name = "Race Name"
@@ -62,8 +65,7 @@ class Race:
     #Saving Throws
     savingThrows = {'Strength' : 0, 'Constituion' : 0, 'Dexterity' : 0, 'Intelligence' : 0, 'Wisdom' : 0, 'Charisma' : 0}
 
-
-#Here Be Language Proficiencies 
+    #Here Be Language Proficiencies 
     speaksCommon = True
     speaksDwarvish = False
     speaksElvish = False
@@ -185,8 +187,8 @@ class Race:
 class Dwarf(Race):
     
     def __init__ (self):
+        self.name = 'Dwarf'
         self.constitution += 2
-
         self.profbattleAxe = True
         self.profhandAxe = True
         self.profthrowingHammer = True
@@ -196,14 +198,19 @@ class Dwarf(Race):
         self.profDarkVision = True
 
 
+<<<<<<< HEAD
 class hillDwarf(Dwarf):
     Dwarf.__init__(Race)
+=======
+class HillDwarf(Dwarf):
+
+>>>>>>> origin/master
     def __init__(self):
         self.strength += 2
         self.profLightArmor = True
         self.profMediumArmor = True
 
-class elf(Race):
+class Elf(Race):
 
     def __init__(self):
         self.dexterity += 2
@@ -212,9 +219,21 @@ class elf(Race):
         self.profFeyAncestry = True
         self.speaksCommon = True
         self.speaksElvish = True
+<<<<<<< HEAD
 class highElf(elf):
     elf.__init__(Race)
+=======
+class HighElf(Elf):
+>>>>>>> origin/master
     def __init__ (self):
+        self.proflongSword = True
+        self.profshortBow = True
+        self.proflongBow = True
+        self.profshortSword = True
+        self.intelligence += 1
+        self.ExtraLang()
+
+    def ExtraLang(self):
         speechBoolean = True
         while speechBoolean == True:
             extraLangQuery = input('You get to learn an extra language as a high elf! \n\n%-20s %20s \n%-20s %20s \n%-20s %20s \n%-20s %20s \n\nPick the language that you would like to learn: ' % 
@@ -301,6 +320,7 @@ class highElf(elf):
                     print('Alright, your character now speaks %s' % (extraLangQuery))
                     self.speaksInfernal = True
                     speechBoolean = False
+<<<<<<< HEAD
 class woodElf(elf):
     elf.__init__(Race)
     def __init__ (self):
@@ -312,12 +332,168 @@ class woodElf(elf):
         self.profmaskoftheWild = True
 class drow(elf):
     elf.__init__(Race)
+=======
+
+class WoodElf(Elf):
+    def __init__ (self):
+        self.proflongSword = True
+        self.profshortBow = True
+        self.proflongBow = True
+        self.profshortSword = True
+        self.profmaskoftheWild = True
+        self.wisdom += 1
+
+class Drow(Elf):
+>>>>>>> origin/master
     def __init__ (self):
         self.profrapiers = True
         self.profshortSword = True
         self.profhandCrossbow = True
         self.profsupDarkVision = True
+<<<<<<< HEAD
         self.charisma += 1
+=======
+        self.Charisma += 1
+
+class Halfling(Race):
+    def __init__ (self):
+        self.speaksHalfling = True
+        self.dexterity += 2
+
+class LightFootHalf(Halfling):
+    def __init__ (self):
+        self.charisma += 1
+
+class StoutHalf(Halfling):
+    def __init__(self):
+        self.constitution += 1
+
+class Human(Race):
+    #Not Done
+    def __init__ (self):
+        self.strength += 1
+        self.constitution += 1
+        self.dexterity += 1
+        self.intelligence += 1
+        self.wisdom += 1
+        self.charisma += 1
+
+class Dragonborn(Race):
+    pass
+
+class Gnome(Race):
+    def __init__(self):
+        self.profDarkVision = True
+        self.intelligence += 2
+
+class ForestGnome(Gnome):
+    def __init__(self):
+        self.dexterity += 1
+
+class RockGnome(Gnome):
+    def __init__(self):
+        self.profTinkerTools = True
+        self.constitution += 1
+
+class HalfElf(Race):
+    #NOT Done
+    def __init__(self):
+        self.profDarkVision = True
+        self.profFeyAncestry = True
+        self.speaksCommon = True
+        self.speaksElvish = True
+        self.charisma += 2
+
+#Weapons
+class Weapon:
+    pass
+
+class Dagger(Weapon):
+    pass
+
+
+#Race Functions That are Being made to classes
+def dwarf():
+    global profbattleAxe
+    global profhandAxe
+    global profthrowingHammer
+    global profwarHammer
+    global speaksCommon
+    global speaksDwarvish
+    global profDarkVision
+    profbattleAxe = True
+    profhandAxe = True
+    profthrowingHammer = True
+    profwarHammer = True
+    speaksCommon = True
+    speaksDwarvish = True
+    profDarkVision = True
+    playerStats['Constituion'] = playerStats['Constituion'] + 2
+def hillDwarf():
+    global profLightArmor
+    global profMediumArmor
+    dwarf()
+    profLightArmor = True
+    profMediumArmor = True
+    playerStats['Strength'] = playerStats['Strength'] + 2
+
+def elf():
+    global profDarkVision
+    global profPerception
+    global profFeyAncestry
+    global speaksCommon
+    global speaksElvish
+    profDarkVision = True
+    profPerception = True
+    profFeyAncestry = True
+    speaksCommon = True
+    speaksElvish = True
+    playerStats['Dexterity'] = playerStats['Dexterity'] + 2
+def highElf():
+    elf()
+    global proflongSword
+    global profshortBow
+    global profshortSword
+    global proflongBow
+    global speaksCommon 
+    global speaksDwarvish
+    global speaksElvish
+    global speaksThievesCant 
+    global speaksHalfling
+    global speaksDraconic 
+    global speaksGnomish 
+    global speaksOrc 
+    global speaksInfernal 
+    proflongSword = True
+    profshortBow = True
+    proflongBow = True
+    profshortSword = True
+    playerStats['Intelligence'] = playerStats['Intelligence'] + 1
+    #High Elf needs a Cantrip (Come back once you've finished Spell Casting)
+    
+    #Here I ran into a sort of issue that got resolved
+    #I need a way to reask the player the "What language?" question if they make a mistake, or otherwise change their mind
+    #To do this, I created this very nested decision structure. The while is true from the start to run the loop. The player is asked their choice in language.abs
+    #Then, the input is checked in a number of "if" statements. The first checks the language, asks a confirmation question, and the second actually sets variables and changes stuff
+
+
+
+def woodElf():
+    elf()
+    global proflongSword
+    global profshortSword
+    global profshortBow
+    global proflongBow
+    global profmaskoftheWild
+    playerStats['Wisdom'] = playerStats['Wisdom'] + 1
+    proflongSword = True
+    profshortBow = True
+    proflongBow = True
+    profshortSword = True
+    profmaskoftheWild = True
+def drow():
+    elf()
+>>>>>>> origin/master
     #Drow needs disadvantage on attack rolls and perception rolls in direct sunlight
     #Drow also needs a hand full of cantrips
 
@@ -947,11 +1123,39 @@ class wholeLvlUp(Race, Player):
  
 
 
-def characterCreation():
+def characterCreation(playerNum):
     #In this function, the dialogue and machinery of character creation happens.
     #Character creation WILL change global variables, so this needs only be run ONCE, at the beginning of the game
-    human()
+    index = 0
+    num = playerNum
+    players = {'player1' : 0, 'player2' : 0, 'player3' : 0, 'player4' : 0}
+    while (num < 0) or (num > 4):
+        num = input("Error! Only Supports 1-4 Players! How Many Players Are There:")
 
+    if num == 1:
+        players['player1'] = Player()
+        players['player1'].name = 'Player1'
+    elif num == 2:
+        players['player1'] = Player()
+        players['player1'].name = 'Player1'
+        players['player2'] = Player()
+        players['player2'].name = 'Player2'
+    elif num == 3:
+        players['player1'] = Player()
+        players['player1'].name = 'Player1'
+        players['player2'] = Player()
+        players['player2'].name = 'Player2'
+        players['player3'] = Player()
+        players['player3'].name = 'Player3'
+    elif num == 3:
+        players['player1'] = Player()
+        players['player1'].name = 'Player1'
+        players['player2'] = Player()
+        players['player2'].name = 'Player2'
+        players['player3'] = Player()
+        players['player3'].name = 'Player3'
+        players['player4'] = Player()
+        players['player4'].name = 'Player4'
 
 
 def combat():
@@ -971,11 +1175,12 @@ def testPlace():
     startQuery = startQuery.lower()
     if startQuery == 'yes' or startQuery == 'y':
         
-        characterCreation()
+        characterCreation(input('How Many Players Are There (1-4): '))
         game()
 
     else:
         input('')
+<<<<<<< HEAD
 
 
 player = Player()
@@ -988,3 +1193,11 @@ testPlace()
 
 
 
+=======
+def errorMessage():
+    print('Sorry, I\'m not quite sure what you said. Please try again!')
+def yesnoErrorMessage():
+    print('I\'m not quite sure what you said. Please answer with yes or no!')
+
+intro()
+>>>>>>> origin/master
