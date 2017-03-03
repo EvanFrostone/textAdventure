@@ -12,12 +12,11 @@ lvlUpTuple = ( 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 1
 #Make player class
 
 
-<<<<<<< HEAD
+
 #Initialize the Player class
 
 
-=======
->>>>>>> origin/master
+
 class Race:
 
     name = "Race Name"
@@ -197,21 +196,14 @@ class Dwarf(Race):
         self.speaksDwarvish = True
         self.profDarkVision = True
 
-
-<<<<<<< HEAD
-class hillDwarf(Dwarf):
-    Dwarf.__init__(Race)
-=======
 class HillDwarf(Dwarf):
-
->>>>>>> origin/master
+    Dwarf.__init__(Race)
     def __init__(self):
         self.strength += 2
         self.profLightArmor = True
         self.profMediumArmor = True
 
 class Elf(Race):
-
     def __init__(self):
         self.dexterity += 2
         self.profDarkVision = True
@@ -219,12 +211,9 @@ class Elf(Race):
         self.profFeyAncestry = True
         self.speaksCommon = True
         self.speaksElvish = True
-<<<<<<< HEAD
-class highElf(elf):
-    elf.__init__(Race)
-=======
+
 class HighElf(Elf):
->>>>>>> origin/master
+    Elf.__init__(Race)
     def __init__ (self):
         self.proflongSword = True
         self.profshortBow = True
@@ -320,21 +309,10 @@ class HighElf(Elf):
                     print('Alright, your character now speaks %s' % (extraLangQuery))
                     self.speaksInfernal = True
                     speechBoolean = False
-<<<<<<< HEAD
-class woodElf(elf):
-    elf.__init__(Race)
-    def __init__ (self):
-        self.proflongSword = True
-        self.profshortSword = True
-        self.proflongBow = True
-        self.profshortBow = True
-        self.wisdom += 1
-        self.profmaskoftheWild = True
-class drow(elf):
-    elf.__init__(Race)
-=======
 
-class WoodElf(Elf):
+
+class WoodElf(Race):
+    Elf.__init__(Race)
     def __init__ (self):
         self.proflongSword = True
         self.profshortBow = True
@@ -343,28 +321,27 @@ class WoodElf(Elf):
         self.profmaskoftheWild = True
         self.wisdom += 1
 
-class Drow(Elf):
->>>>>>> origin/master
+class Drow(Race):
+    Elf.__init__(Race)
     def __init__ (self):
         self.profrapiers = True
         self.profshortSword = True
         self.profhandCrossbow = True
         self.profsupDarkVision = True
-<<<<<<< HEAD
         self.charisma += 1
-=======
-        self.Charisma += 1
 
 class Halfling(Race):
     def __init__ (self):
         self.speaksHalfling = True
         self.dexterity += 2
 
-class LightFootHalf(Halfling):
+class LightFootHalf(Race):
+    Halfling.__init__(Race)
     def __init__ (self):
         self.charisma += 1
 
 class StoutHalf(Halfling):
+    Halfling.__init__(Race)
     def __init__(self):
         self.constitution += 1
 
@@ -493,7 +470,7 @@ def woodElf():
     profmaskoftheWild = True
 def drow():
     elf()
->>>>>>> origin/master
+
     #Drow needs disadvantage on attack rolls and perception rolls in direct sunlight
     #Drow also needs a hand full of cantrips
 
@@ -1130,7 +1107,7 @@ def characterCreation(playerNum):
     num = playerNum
     players = {'player1' : 0, 'player2' : 0, 'player3' : 0, 'player4' : 0}
     while (num < 0) or (num > 4):
-        num = input("Error! Only Supports 1-4 Players! How Many Players Are There:")
+        num = int(input("Error! Only Supports 1-4 Players! How Many Players Are There: "))
 
     if num == 1:
         players['player1'] = Player()
@@ -1166,7 +1143,8 @@ def combat():
 
 def  game():
     #All the actual story for the game should go here
-    clear()
+    Utilities.ExtraLanguage(Race)
+    Utilities. clear()
 
 def testPlace():
 #The title screen should go here
@@ -1175,29 +1153,11 @@ def testPlace():
     startQuery = startQuery.lower()
     if startQuery == 'yes' or startQuery == 'y':
         
-        characterCreation(input('How Many Players Are There (1-4): '))
+        characterCreation(int(input('How Many Players Are There (1-4): ')))
         game()
 
     else:
         input('')
-<<<<<<< HEAD
-
-
-player = Player()
-
-
-    
 
 
 testPlace()
-
-
-
-=======
-def errorMessage():
-    print('Sorry, I\'m not quite sure what you said. Please try again!')
-def yesnoErrorMessage():
-    print('I\'m not quite sure what you said. Please answer with yes or no!')
-
-intro()
->>>>>>> origin/master
