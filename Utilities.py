@@ -11,18 +11,7 @@ def yesnoErrorMessage():
 def errorMessage():
     print('I\'m not quite sure what you said. Please try again!')
 
-def testPlace():
-#The title screen should go here
-    print('Welcome to my DnD Clone! ')
-    startQuery = input('Do you wish to begin? Enter Yes or No ')
-    startQuery = startQuery.lower()
-    if startQuery == 'yes' or startQuery == 'y':
-        
-        dungeonsSkeleton.characterCreation()
-        dungeonsSkeleton.game()
 
-    else:
-        input('')
 
 def dice(rolls,size):
 #This function rolls dice for you.

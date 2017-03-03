@@ -964,7 +964,18 @@ def  game():
     #All the actual story for the game should go here
     clear()
 
+def testPlace():
+#The title screen should go here
+    print('Welcome to my DnD Clone! ')
+    startQuery = input('Do you wish to begin? Enter Yes or No ')
+    startQuery = startQuery.lower()
+    if startQuery == 'yes' or startQuery == 'y':
+        
+        characterCreation()
+        game()
 
+    else:
+        input('')
 
 
 player = Player()
@@ -973,8 +984,7 @@ player = Player()
     
 
 
-
-Utilities.testPlace()
+testPlace()
 
 
 
