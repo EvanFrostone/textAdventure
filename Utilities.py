@@ -383,4 +383,5 @@ def pointBuy(playerNum):
             ('1. Strength ', '5. Wisdom ', '2. Dexterity', '6. Charisma ', '3. Constitution', '4. Intelligence', ''))
     while firstPick.lower != 'strength' or firstPick.lower != 'wisdom' or firstPick.lower != 'dexterity' or firstPick.lower != 'charisma' or firstPick.lower != 'constitution' or firstPick.lower != 'intelligence':
         firstPick = input('Error! What you said was not Strength, Dexterity, Constitution, Intelligence, Wisdom, or Charisma. Please try again: ')
-    if firstPick = 
+    if firstPick == 'strength':
+        return False
